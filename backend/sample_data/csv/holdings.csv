@@ -1,0 +1,166 @@
+scheme_code,as_of_date,holding_name,sector,asset_type,weight_pct
+FS-LC-001,2025-09-30,Saraswati Infotech Ltd,Information Technology,equity,7.9
+FS-LC-001,2025-09-30,Meridian Bank Ltd,Financial Services,equity,7.6
+FS-LC-001,2025-09-30,Konark Energy Ltd,Energy,equity,6.6
+FS-LC-001,2025-09-30,Vasant Consumer Products Ltd,Consumer Goods,equity,5.4
+FS-LC-001,2025-09-30,Trident Finance Corporation,Financial Services,equity,4.9
+FS-LC-001,2025-09-30,Lotus Pharma Ltd,Healthcare,equity,3.9
+FS-LC-001,2025-09-30,Northgate Motors Ltd,Automobiles,equity,3.5
+FS-LC-001,2025-09-30,Arcadia Telecom Ltd,Telecom,equity,2.6
+FS-LC-001,2025-09-30,Pinnacle Software Services Ltd,Information Technology,equity,2.5
+FS-LC-001,2025-09-30,Indus Capital Bank Ltd,Financial Services,equity,2.4
+FS-LC-001,2025-09-30,Bharat Housing Finance,Financial Services,equity,2.1
+FS-LC-001,2025-09-30,Coastal Small Finance Bank,Financial Services,equity,2.1
+FS-LC-001,2025-09-30,Sentinel Insurance,Financial Services,equity,2.1
+FS-LC-001,2025-09-30,Prakash Asset Finance,Financial Services,equity,2.1
+FS-LC-001,2025-09-30,Unity Payments Ltd,Financial Services,equity,2.1
+FS-LC-001,2025-09-30,Ganga Cooperative Bank,Financial Services,equity,2.1
+FS-LC-001,2025-09-30,Vista Life Insurance,Financial Services,equity,2.3
+FS-LC-001,2025-09-30,Quanta Digital Ltd,Information Technology,equity,2.0
+FS-LC-001,2025-09-30,Nimbus Cloud Systems,Information Technology,equity,2.0
+FS-LC-001,2025-09-30,Orbit Data Labs,Information Technology,equity,1.9
+FS-LC-001,2025-09-30,Amrit Foods Ltd,Consumer Goods,equity,1.7
+FS-LC-001,2025-09-30,Kesar Beverages Ltd,Consumer Goods,equity,1.7
+FS-LC-001,2025-09-30,Monsoon Home Care,Consumer Goods,equity,1.8
+FS-LC-001,2025-09-30,Deccan Power Ltd,Energy,equity,1.2
+FS-LC-001,2025-09-30,Sagar Oil & Gas Ltd,Energy,equity,1.3
+FS-LC-001,2025-09-30,Neem Hospitals Ltd,Healthcare,equity,1.9
+FS-LC-001,2025-09-30,Cedar Diagnostics,Healthcare,equity,2.0
+FS-LC-001,2025-09-30,Rajpath Two Wheelers,Automobiles,equity,1.8
+FS-LC-001,2025-09-30,Velocity Auto Parts,Automobiles,equity,1.7
+FS-LC-001,2025-09-30,Ashoka Engineering Ltd,Capital Goods,equity,1.7
+FS-LC-001,2025-09-30,Banyan Electricals,Capital Goods,equity,1.7
+FS-LC-001,2025-09-30,Forge Industrial Ltd,Capital Goods,equity,1.8
+FS-LC-001,2025-09-30,Himalaya Cement Ltd,Materials,equity,1.5
+FS-LC-001,2025-09-30,Steelpeak Ltd,Materials,equity,1.5
+FS-LC-001,2025-09-30,Coromandel Chemicals Ltd,Materials,equity,1.5
+FS-LC-001,2025-09-30,Signal Towers Ltd,Telecom,equity,1.3
+FS-LC-001,2025-09-30,Cash & Equivalents (TREPS / net receivables),Cash & Equivalents,cash,5.8
+FS-LC-001,2026-03-31,Meridian Bank Ltd,Financial Services,equity,8.9
+FS-LC-001,2026-03-31,Saraswati Infotech Ltd,Information Technology,equity,7.2
+FS-LC-001,2026-03-31,Konark Energy Ltd,Energy,equity,6.4
+FS-LC-001,2026-03-31,Trident Finance Corporation,Financial Services,equity,6.1
+FS-LC-001,2026-03-31,Vasant Consumer Products Ltd,Consumer Goods,equity,5.0
+FS-LC-001,2026-03-31,Indus Capital Bank Ltd,Financial Services,equity,4.8
+FS-LC-001,2026-03-31,Northgate Motors Ltd,Automobiles,equity,3.9
+FS-LC-001,2026-03-31,Lotus Pharma Ltd,Healthcare,equity,3.6
+FS-LC-001,2026-03-31,Pinnacle Software Services Ltd,Information Technology,equity,3.2
+FS-LC-001,2026-03-31,Arcadia Telecom Ltd,Telecom,equity,2.7
+FS-LC-001,2026-03-31,Bharat Housing Finance,Financial Services,equity,2.4
+FS-LC-001,2026-03-31,Coastal Small Finance Bank,Financial Services,equity,2.4
+FS-LC-001,2026-03-31,Sentinel Insurance,Financial Services,equity,2.4
+FS-LC-001,2026-03-31,Prakash Asset Finance,Financial Services,equity,2.4
+FS-LC-001,2026-03-31,Unity Payments Ltd,Financial Services,equity,2.4
+FS-LC-001,2026-03-31,Ganga Cooperative Bank,Financial Services,equity,2.4
+FS-LC-001,2026-03-31,Quanta Digital Ltd,Information Technology,equity,1.9
+FS-LC-001,2026-03-31,Nimbus Cloud Systems,Information Technology,equity,1.8
+FS-LC-001,2026-03-31,Amrit Foods Ltd,Consumer Goods,equity,2.4
+FS-LC-001,2026-03-31,Kesar Beverages Ltd,Consumer Goods,equity,2.4
+FS-LC-001,2026-03-31,Deccan Power Ltd,Energy,equity,2.3
+FS-LC-001,2026-03-31,Rajpath Two Wheelers,Automobiles,equity,1.8
+FS-LC-001,2026-03-31,Velocity Auto Parts,Automobiles,equity,1.7
+FS-LC-001,2026-03-31,Neem Hospitals Ltd,Healthcare,equity,1.6
+FS-LC-001,2026-03-31,Cedar Diagnostics,Healthcare,equity,1.7
+FS-LC-001,2026-03-31,Ashoka Engineering Ltd,Capital Goods,equity,1.9
+FS-LC-001,2026-03-31,Banyan Electricals,Capital Goods,equity,1.9
+FS-LC-001,2026-03-31,Forge Industrial Ltd,Capital Goods,equity,1.8
+FS-LC-001,2026-03-31,Signal Towers Ltd,Telecom,equity,1.4
+FS-LC-001,2026-03-31,Himalaya Cement Ltd,Materials,equity,1.9
+FS-LC-001,2026-03-31,Steelpeak Ltd,Materials,equity,2.0
+FS-LC-001,2026-03-31,Cash & Equivalents (TREPS / net receivables),Cash & Equivalents,cash,5.3
+FS-MC-002,2026-09-30,Meridian Bank Ltd,Financial Services,equity,22.3
+FS-MC-002,2026-09-30,Saraswati Infotech Ltd,Information Technology,equity,10.4
+FS-MC-002,2026-09-30,Konark Energy Ltd,Energy,equity,3.8
+FS-MC-002,2026-09-30,Lotus Pharma Ltd,Healthcare,equity,2.7
+FS-MC-002,2026-09-30,Ashoka Engineering Ltd,Capital Goods,equity,11.5
+FS-MC-002,2026-09-30,Amrit Foods Ltd,Consumer Goods,equity,1.9
+FS-MC-002,2026-09-30,Rajpath Two Wheelers,Automobiles,equity,6.2
+FS-MC-002,2026-09-30,Himalaya Cement Ltd,Materials,equity,3.2
+FS-MC-002,2026-09-30,Unity Payments Ltd,Financial Services,equity,7.6
+FS-MC-002,2026-09-30,Nimbus Cloud Systems,Information Technology,equity,3.9
+FS-MC-002,2026-09-30,Neem Hospitals Ltd,Healthcare,equity,12.8
+FS-MC-002,2026-09-30,Signal Towers Ltd,Telecom,equity,7.7
+FS-MC-002,2026-09-30,Cash & Equivalents (TREPS / net receivables),Cash & Equivalents,cash,6.0
+FS-SC-003,2026-09-30,Meridian Bank Ltd,Financial Services,equity,13.8
+FS-SC-003,2026-09-30,Saraswati Infotech Ltd,Information Technology,equity,9.7
+FS-SC-003,2026-09-30,Konark Energy Ltd,Energy,equity,1.3
+FS-SC-003,2026-09-30,Lotus Pharma Ltd,Healthcare,equity,20.2
+FS-SC-003,2026-09-30,Ashoka Engineering Ltd,Capital Goods,equity,1.0
+FS-SC-003,2026-09-30,Amrit Foods Ltd,Consumer Goods,equity,3.8
+FS-SC-003,2026-09-30,Rajpath Two Wheelers,Automobiles,equity,6.2
+FS-SC-003,2026-09-30,Himalaya Cement Ltd,Materials,equity,11.0
+FS-SC-003,2026-09-30,Unity Payments Ltd,Financial Services,equity,1.6
+FS-SC-003,2026-09-30,Nimbus Cloud Systems,Information Technology,equity,5.5
+FS-SC-003,2026-09-30,Neem Hospitals Ltd,Healthcare,equity,13.7
+FS-SC-003,2026-09-30,Signal Towers Ltd,Telecom,equity,6.2
+FS-SC-003,2026-09-30,Cash & Equivalents (TREPS / net receivables),Cash & Equivalents,cash,6.0
+FS-FX-004,2026-09-30,Meridian Bank Ltd,Financial Services,equity,9.3
+FS-FX-004,2026-09-30,Saraswati Infotech Ltd,Information Technology,equity,4.0
+FS-FX-004,2026-09-30,Konark Energy Ltd,Energy,equity,8.3
+FS-FX-004,2026-09-30,Lotus Pharma Ltd,Healthcare,equity,3.5
+FS-FX-004,2026-09-30,Ashoka Engineering Ltd,Capital Goods,equity,6.0
+FS-FX-004,2026-09-30,Amrit Foods Ltd,Consumer Goods,equity,8.9
+FS-FX-004,2026-09-30,Rajpath Two Wheelers,Automobiles,equity,7.2
+FS-FX-004,2026-09-30,Himalaya Cement Ltd,Materials,equity,1.4
+FS-FX-004,2026-09-30,Unity Payments Ltd,Financial Services,equity,18.0
+FS-FX-004,2026-09-30,Nimbus Cloud Systems,Information Technology,equity,11.3
+FS-FX-004,2026-09-30,Neem Hospitals Ltd,Healthcare,equity,6.8
+FS-FX-004,2026-09-30,Signal Towers Ltd,Telecom,equity,9.3
+FS-FX-004,2026-09-30,Cash & Equivalents (TREPS / net receivables),Cash & Equivalents,cash,6.0
+FS-ELSS-005,2026-09-30,Meridian Bank Ltd,Financial Services,equity,3.7
+FS-ELSS-005,2026-09-30,Saraswati Infotech Ltd,Information Technology,equity,2.0
+FS-ELSS-005,2026-09-30,Konark Energy Ltd,Energy,equity,11.1
+FS-ELSS-005,2026-09-30,Lotus Pharma Ltd,Healthcare,equity,10.9
+FS-ELSS-005,2026-09-30,Ashoka Engineering Ltd,Capital Goods,equity,24.0
+FS-ELSS-005,2026-09-30,Amrit Foods Ltd,Consumer Goods,equity,2.9
+FS-ELSS-005,2026-09-30,Rajpath Two Wheelers,Automobiles,equity,8.7
+FS-ELSS-005,2026-09-30,Himalaya Cement Ltd,Materials,equity,4.5
+FS-ELSS-005,2026-09-30,Unity Payments Ltd,Financial Services,equity,10.9
+FS-ELSS-005,2026-09-30,Nimbus Cloud Systems,Information Technology,equity,4.2
+FS-ELSS-005,2026-09-30,Neem Hospitals Ltd,Healthcare,equity,6.0
+FS-ELSS-005,2026-09-30,Signal Towers Ltd,Telecom,equity,5.1
+FS-ELSS-005,2026-09-30,Cash & Equivalents (TREPS / net receivables),Cash & Equivalents,cash,6.0
+FS-IDX-006,2026-09-30,Meridian Bank Ltd,Financial Services,equity,15.6
+FS-IDX-006,2026-09-30,Saraswati Infotech Ltd,Information Technology,equity,14.6
+FS-IDX-006,2026-09-30,Konark Energy Ltd,Energy,equity,3.5
+FS-IDX-006,2026-09-30,Lotus Pharma Ltd,Healthcare,equity,13.9
+FS-IDX-006,2026-09-30,Ashoka Engineering Ltd,Capital Goods,equity,2.1
+FS-IDX-006,2026-09-30,Amrit Foods Ltd,Consumer Goods,equity,4.3
+FS-IDX-006,2026-09-30,Rajpath Two Wheelers,Automobiles,equity,2.3
+FS-IDX-006,2026-09-30,Himalaya Cement Ltd,Materials,equity,9.2
+FS-IDX-006,2026-09-30,Unity Payments Ltd,Financial Services,equity,9.3
+FS-IDX-006,2026-09-30,Nimbus Cloud Systems,Information Technology,equity,3.4
+FS-IDX-006,2026-09-30,Neem Hospitals Ltd,Healthcare,equity,10.8
+FS-IDX-006,2026-09-30,Signal Towers Ltd,Telecom,equity,5.0
+FS-IDX-006,2026-09-30,Cash & Equivalents (TREPS / net receivables),Cash & Equivalents,cash,6.0
+FS-DB-007,2026-09-30,7.18% Government of India 2033,Sovereign,debt,8.0
+FS-DB-007,2026-09-30,7.10% Government of India 2034,Sovereign,debt,6.1
+FS-DB-007,2026-09-30,7.42% State Development Loan 2031,Sovereign,debt,16.9
+FS-DB-007,2026-09-30,7.65% Bharat Housing Finance NCD 2028,Corporate Bond (AAA),debt,5.8
+FS-DB-007,2026-09-30,7.80% Deccan Power Ltd NCD 2029,Corporate Bond (AAA),debt,3.3
+FS-DB-007,2026-09-30,8.05% Coastal Small Finance Bank NCD 2027,Corporate Bond (AA+),debt,9.4
+FS-DB-007,2026-09-30,91-day Treasury Bill,Money Market,debt,27.0
+FS-DB-007,2026-09-30,Certificate of Deposit - Indus Capital Bank,Money Market,debt,17.5
+FS-DB-007,2026-09-30,Cash & Equivalents (TREPS / net receivables),Cash & Equivalents,cash,6.0
+FS-LIQ-008,2026-09-30,7.18% Government of India 2033,Sovereign,debt,24.6
+FS-LIQ-008,2026-09-30,7.10% Government of India 2034,Sovereign,debt,17.3
+FS-LIQ-008,2026-09-30,7.42% State Development Loan 2031,Sovereign,debt,10.6
+FS-LIQ-008,2026-09-30,7.65% Bharat Housing Finance NCD 2028,Corporate Bond (AAA),debt,15.8
+FS-LIQ-008,2026-09-30,7.80% Deccan Power Ltd NCD 2029,Corporate Bond (AAA),debt,19.4
+FS-LIQ-008,2026-09-30,8.05% Coastal Small Finance Bank NCD 2027,Corporate Bond (AA+),debt,0.9
+FS-LIQ-008,2026-09-30,91-day Treasury Bill,Money Market,debt,1.0
+FS-LIQ-008,2026-09-30,Certificate of Deposit - Indus Capital Bank,Money Market,debt,4.4
+FS-LIQ-008,2026-09-30,Cash & Equivalents (TREPS / net receivables),Cash & Equivalents,cash,6.0
+FS-BAF-009,2026-09-30,Meridian Bank Ltd,Financial Services,equity,8.8
+FS-BAF-009,2026-09-30,Saraswati Infotech Ltd,Information Technology,equity,8.0
+FS-BAF-009,2026-09-30,Konark Energy Ltd,Energy,equity,21.5
+FS-BAF-009,2026-09-30,Lotus Pharma Ltd,Healthcare,equity,2.1
+FS-BAF-009,2026-09-30,Ashoka Engineering Ltd,Capital Goods,equity,5.0
+FS-BAF-009,2026-09-30,Amrit Foods Ltd,Consumer Goods,equity,5.1
+FS-BAF-009,2026-09-30,Rajpath Two Wheelers,Automobiles,equity,8.6
+FS-BAF-009,2026-09-30,Himalaya Cement Ltd,Materials,equity,13.2
+FS-BAF-009,2026-09-30,Unity Payments Ltd,Financial Services,equity,9.1
+FS-BAF-009,2026-09-30,Nimbus Cloud Systems,Information Technology,equity,3.1
+FS-BAF-009,2026-09-30,Neem Hospitals Ltd,Healthcare,equity,4.5
+FS-BAF-009,2026-09-30,Signal Towers Ltd,Telecom,equity,5.0
+FS-BAF-009,2026-09-30,Cash & Equivalents (TREPS / net receivables),Cash & Equivalents,cash,6.0

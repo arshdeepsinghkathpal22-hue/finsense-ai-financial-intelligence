@@ -1,0 +1,64 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "/api/v1/simulate/allocation-change",
+  "json": {
+   "fund_ids": [
+    1,
+    8
+   ],
+   "current_weights_pct": [
+    60,
+    40
+   ],
+   "proposed_weights_pct": [
+    40,
+    60
+   ]
+  }
+ },
+ "status": 200,
+ "body": {
+  "labels": [
+   "FS-LC-001",
+   "FS-DB-007"
+  ],
+  "current": {
+   "expected_return": 0.08007217886872556,
+   "volatility": 0.08929081037198439,
+   "sharpe": 0.16879876894313142,
+   "parametric_var": 0.008934213352588972,
+   "horizon_days": 1,
+   "confidence": 0.95,
+   "weights": [
+    0.6,
+    0.4
+   ]
+  },
+  "proposed": {
+   "expected_return": 0.08198782363044367,
+   "volatility": 0.062032184432128996,
+   "sharpe": 0.2738549961759042,
+   "parametric_var": 0.006102180737882504,
+   "horizon_days": 1,
+   "confidence": 0.95,
+   "weights": [
+    0.4,
+    0.6
+   ]
+  },
+  "estimation_window": {
+   "start": "2023-10-02",
+   "end": "2026-09-30",
+   "observations": 782,
+   "alignment": {
+    "dates_in_union": 783,
+    "dates_aligned": 783,
+    "dates_dropped": 0
+   }
+  },
+  "assumptions": {
+   "method": "Historical mean returns and covariance over the lookback window; parametric (normal) 1-day VaR."
+  }
+ }
+}

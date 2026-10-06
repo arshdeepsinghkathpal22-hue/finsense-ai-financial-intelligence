@@ -1,0 +1,212 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "/api/v1/ml/forecast",
+  "json": {
+   "fund_id": 1,
+   "horizon_days": 21,
+   "model_type": "random_forest"
+  }
+ },
+ "status": 200,
+ "body": {
+  "fund": {
+   "id": 1,
+   "name": "Aurora Bluechip Equity Fund - Direct Growth",
+   "scheme_code": "FS-LC-001",
+   "is_synthetic": true
+  },
+  "model": {
+   "id": "6a44ab03-9a88-4df6-a2b6-290730c7ea3c",
+   "type": "random_forest",
+   "horizon_trading_days": 21,
+   "hyperparameters": {
+    "max_depth": 3,
+    "n_estimators": 200,
+    "min_samples_leaf": 20
+   },
+   "trained_at": "2026-10-05T19:46:33.827790+00:00",
+   "features": [
+    "ret_1d",
+    "ret_5d",
+    "ret_21d",
+    "ret_63d",
+    "... 7 more items (total 11)"
+   ]
+  },
+  "evaluation": {
+   "test": {
+    "mae": 0.06567992494152906,
+    "rmse": 0.07833401634404134,
+    "directional_accuracy": 0.26993865030674846,
+    "observations": 163,
+    "interval_coverage_80": 0.50920245398773
+   },
+   "baseline_historical_mean": {
+    "mae": 0.05501079093551077,
+    "rmse": 0.06773159828201719,
+    "directional_accuracy": 0.26993865030674846,
+    "observations": 163
+   },
+   "baseline_zero_return": {
+    "mae": 0.04487173112522243,
+    "rmse": 0.05622385255082998,
+    "directional_accuracy": null,
+    "observations": 163
+   },
+   "mae_skill_vs_historical_mean": -0.19394620263732865,
+   "beats_baseline": false,
+   "validation_mae": 0.0228091907346752
+  },
+  "splits": {
+   "train": [
+    "2021-12-21",
+    "2025-04-03"
+   ],
+   "validation": [
+    "2025-05-05",
+    "2025-12-17"
+   ],
+   "test": [
+    "2026-01-16",
+    "2026-09-01"
+   ],
+   "purge_gap_days": 21
+  },
+  "forecast": {
+   "as_of": "2026-09-30",
+   "last_nav": 106.9724,
+   "horizon_trading_days": 21,
+   "predicted_log_return": 0.029135441195230757,
+   "predicted_return": 0.029564030415078497,
+   "interval_80": {
+    "lower_return": -0.025901436230195002,
+    "upper_return": 0.03658834198186656,
+    "lower_nav": 104.20166120300908,
+    "upper_nav": 110.886342753821
+   },
+   "predicted_nav": 110.13493528717395,
+   "features": {
+    "ret_1d": -0.012355533821806652,
+    "ret_5d": -0.07414229283427876,
+    "ret_21d": -0.0809313989423055,
+    "ret_63d": -0.12580147661484187,
+    "vol_21d": 0.13927089924427252,
+    "vol_63d": 0.14583024212289333,
+    "vol_ratio": 0.9550206954117709,
+    "drawdown_252d": -0.3128752861617202,
+    "bench_ret_5d": -0.07075099557558495,
+    "bench_ret_21d": -0.09449524545808963,
+    "rel_ret_21d": 0.013563846515784128
+   }
+  },
+  "backtest": [
+   {
+    "date": "2026-01-16",
+    "actual": 0.057795129240377996,
+    "predicted": 0.0224466244175997,
+    "lower": -0.028476391682675264,
+    "upper": 0.028699044681285396
+   },
+   {
+    "date": "2026-01-19",
+    "actual": 0.052250776299572976,
+    "predicted": 0.022312585933488484,
+    "lower": -0.02757412485369399,
+    "upper": 0.028437766751533613
+   },
+   {
+    "date": "2026-01-20",
+    "actual": 0.03693368572255906,
+    "predicted": 0.014381925087489695,
+    "lower": -0.03608945222381219,
+    "upper": 0.02057889232163603
+   },
+   {
+    "date": "2026-01-21",
+    "actual": 0.026149591354540647,
+    "predicted": 0.013331301382431208,
+    "lower": -0.0374901113202389,
+    "upper": 0.0195712465967052
+   },
+   "... 159 more items (total 163)"
+  ],
+  "history": [
+   {
+    "date": "2025-10-02",
+    "nav": 136.8007
+   },
+   {
+    "date": "2025-10-03",
+    "nav": 135.3176
+   },
+   {
+    "date": "2025-10-06",
+    "nav": 136.0294
+   },
+   {
+    "date": "2025-10-07",
+    "nav": 136.3643
+   },
+   "... 256 more items (total 260)"
+  ],
+  "explanation": {
+   "available": true,
+   "method": "TreeExplainer (exact for tree ensembles)",
+   "base_value": 0.0168916064282399,
+   "local": [
+    {
+     "feature": "ret_63d",
+     "label": "3-month return",
+     "value": -0.12580147661484187,
+     "shap": 0.00889076874368823
+    },
+    {
+     "feature": "vol_63d",
+     "label": "3-month volatility",
+     "value": 0.14583024212289333,
+     "shap": 0.0027109685148916365
+    },
+    {
+     "feature": "vol_ratio",
+     "label": "short/long volatility ratio",
+     "value": 0.9550206954117709,
+     "shap": 0.001591529779808092
+    },
+    {
+     "feature": "rel_ret_21d",
+     "label": "1-month return vs benchmark",
+     "value": 0.013563846515784128,
+     "shap": -0.0014658627635070313
+    },
+    "... 7 more items (total 11)"
+   ],
+   "global_importance": [
+    {
+     "feature": "ret_63d",
+     "label": "3-month return",
+     "mean_abs_shap": 0.008376664453320123
+    },
+    {
+     "feature": "rel_ret_21d",
+     "label": "1-month return vs benchmark",
+     "mean_abs_shap": 0.0038113738172301233
+    },
+    {
+     "feature": "vol_ratio",
+     "label": "short/long volatility ratio",
+     "mean_abs_shap": 0.0032801512856275787
+    },
+    {
+     "feature": "vol_63d",
+     "label": "3-month volatility",
+     "mean_abs_shap": 0.0032663577860108945
+    },
+    "... 7 more items (total 11)"
+   ],
+   "note": "SHAP values explain this model's output in log-return units; they describe the model, not causal market effects."
+  },
+  "disclaimer": "This is a statistical estimate from historical NAV patterns, not a promise of future returns. The 80% interval is based on past forecast errors; actual outcomes can fall outside it.",
+  "warning": "On the held-out test period this model did NOT beat the historical-mean baseline, so its forecast should not be relied upon."
+ }
+}

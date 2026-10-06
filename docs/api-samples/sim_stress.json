@@ -1,0 +1,59 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "/api/v1/simulate/stress",
+  "json": {
+   "fund_ids": [
+    1,
+    8
+   ],
+   "weights_pct": [
+    60,
+    40
+   ],
+   "volatility_multiplier": 2
+  }
+ },
+ "status": 200,
+ "body": {
+  "kind": "deterministic",
+  "baseline": {
+   "expected_return": 0.08007217886872556,
+   "volatility": 0.08929081037198439,
+   "sharpe": 0.16879876894313142,
+   "parametric_var": 0.008934213352588972,
+   "horizon_days": 1,
+   "confidence": 0.95
+  },
+  "scenario": {
+   "expected_return": 0.08007217886872556,
+   "volatility": 0.17858162074396877,
+   "sharpe": 0.08439938447156571,
+   "parametric_var": 0.018186173446720508,
+   "horizon_days": 1,
+   "confidence": 0.95
+  },
+  "changes": {
+   "volatility_multiplier": 2.0,
+   "correlation_override": null,
+   "return_shift": 0.0
+  },
+  "assumptions": {
+   "method": "Parametric (normal) portfolio model using the supplied inputs."
+  },
+  "labels": [
+   "FS-LC-001",
+   "FS-DB-007"
+  ],
+  "estimation_window": {
+   "start": "2023-10-02",
+   "end": "2026-09-30",
+   "observations": 782,
+   "alignment": {
+    "dates_in_union": 783,
+    "dates_aligned": 783,
+    "dates_dropped": 0
+   }
+  }
+ }
+}

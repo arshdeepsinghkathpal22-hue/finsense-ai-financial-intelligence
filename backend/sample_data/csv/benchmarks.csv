@@ -1,0 +1,8 @@
+benchmark_code,name,return_basis
+FSLC100,FS Large Cap 100 TRI (synthetic),total_return
+FSMC150,FS Midcap 150 TRI (synthetic),total_return
+FSSC250,FS Smallcap 250 TRI (synthetic),total_return
+FS500,FS Broad Market 500 TRI (synthetic),total_return
+FSBOND,FS Composite Bond Index (synthetic),total_return
+FSLIQ,FS Liquid Index (synthetic),total_return
+FSHYB,FS Hybrid 50:50 Index (synthetic),total_return

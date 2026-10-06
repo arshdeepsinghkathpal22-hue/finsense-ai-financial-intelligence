@@ -1,0 +1,44 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "/api/v1/admin/users"
+ },
+ "status": 200,
+ "body": {
+  "items": [
+   {
+    "id": "f4a0b147-4b19-45a3-a6ce-3007f779e01e",
+    "email": "admin@example.com",
+    "display_name": "Local Admin",
+    "role": "admin",
+    "is_active": true,
+    "created_at": "2026-10-05T19:46:19.653154+00:00"
+   },
+   {
+    "id": "a4c8917d-8607-48e3-b376-132ecd09c56f",
+    "email": "e2e-c0e1c6fc836e@example.com",
+    "display_name": "E2E Analyst",
+    "role": "user",
+    "is_active": true,
+    "created_at": "2026-10-05T19:46:32.453511+00:00"
+   },
+   {
+    "id": "db86f035-8b84-4a8a-ac51-30405d5603f6",
+    "email": "e2e-239efeb6de91@example.com",
+    "display_name": "E2E Analyst",
+    "role": "user",
+    "is_active": true,
+    "created_at": "2026-10-05T19:46:38.255308+00:00"
+   },
+   {
+    "id": "14a57238-a39a-4cee-9eb6-eaeea91f7788",
+    "email": "e2e-40c96a14de20@example.com",
+    "display_name": "E2E Analyst",
+    "role": "user",
+    "is_active": true,
+    "created_at": "2026-10-05T19:46:40.299994+00:00"
+   },
+   "... 7 more items (total 11)"
+  ]
+ }
+}

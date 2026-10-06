@@ -1,0 +1,54 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "/api/v1/simulate/market-shock",
+  "json": {
+   "fund_ids": [
+    1,
+    8
+   ],
+   "weights_pct": [
+    60,
+    40
+   ],
+   "market_move": -0.2
+  }
+ },
+ "status": 200,
+ "body": {
+  "kind": "deterministic",
+  "market_move": -0.2,
+  "estimated_portfolio_return": -0.19920289280817102,
+  "estimated_value_after": 80079.7107191829,
+  "estimated_change": -19920.289280817102,
+  "assets": [
+   {
+    "label": "FS-LC-001",
+    "weight": 0.6,
+    "beta": 0.9172780474830213,
+    "estimated_return": -0.18345560949660428
+   },
+   {
+    "label": "FS-DB-007",
+    "weight": 0.4,
+    "beta": 1.1141190888776056,
+    "estimated_return": -0.22282381777552113
+   }
+  ],
+  "assumptions": {
+   "method": "Linear beta approximation: asset move = beta x market move.",
+   "limitations": "Ignores idiosyncratic risk, non-linear effects and correlation changes in stress."
+  },
+  "estimation_window": {
+   "start": "2023-10-02",
+   "end": "2026-09-30",
+   "observations": 782,
+   "alignment": {
+    "dates_in_union": 783,
+    "dates_aligned": 783,
+    "dates_dropped": 0
+   }
+  },
+  "beta_reference": "Each fund's beta against its own benchmark index over the lookback window."
+ }
+}

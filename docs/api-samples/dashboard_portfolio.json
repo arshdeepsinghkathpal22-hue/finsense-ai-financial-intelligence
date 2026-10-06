@@ -1,0 +1,303 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "/api/v1/dashboard",
+  "params": {
+   "portfolio_id": "1aa9f7ca-5107-4186-9cc9-c04d2ef8a6d0"
+  }
+ },
+ "status": 200,
+ "body": {
+  "selection": {
+   "kind": "portfolio",
+   "report": {
+    "portfolio": {
+     "id": "1aa9f7ca-5107-4186-9cc9-c04d2ef8a6d0",
+     "name": "Sample core",
+     "initial_value": 100000.0,
+     "contains_synthetic_data": true
+    },
+    "period": {
+     "label": "3y",
+     "start": "2023-10-02",
+     "end": "2026-09-30"
+    },
+    "freshness": {
+     "latest_observation": "2026-09-30",
+     "age_days": 5,
+     "is_stale": false
+    },
+    "benchmark": {
+     "id": 1,
+     "name": "FS Large Cap 100 TRI (synthetic)",
+     "return_basis": "total_return"
+    },
+    "assumptions": {
+     "frequency": "daily (trading days)",
+     "periods_per_year": 252,
+     "risk_free_rate_annual": 0.065,
+     "return_basis": "portfolio_buy_and_hold",
+     "return_basis_note": "Buy-and-hold portfolio value from constituent growth-option NAVs.",
+     "var_method": "Historical one-day VaR/CVaR at 95% confidence (empirical quantile, linear interpolation). Parametric figures assume normally distributed daily returns. Different estimators give different values.",
+     "sharpe_method": "Mean daily excess return / standard deviation, scaled by sqrt(periods per year).",
+     "sortino_method": "Mean daily excess return / downside deviation below the risk-free rate.",
+     "rebalancing": "None (buy and hold from the start date; weights drift)."
+    },
+    "alignment": {
+     "dates_in_union": 783,
+     "dates_aligned": 783,
+     "dates_dropped": 0
+    },
+    "value": {
+     "start": 100000.0,
+     "end": 122598.8418502752,
+     "currency": "INR",
+     "as_of": "2026-09-30"
+    },
+    "metrics": {
+     "cumulative_return": {
+      "value": 0.2259884185027521,
+      "unit": "fraction"
+     },
+     "cagr": {
+      "value": 0.070391465753044,
+      "unit": "fraction/yr"
+     },
+     "annualized_mean_return": {
+      "value": 0.07030801878420645,
+      "unit": "fraction/yr"
+     },
+     "volatility": {
+      "value": 0.09639875963711043,
+      "unit": "fraction/yr"
+     },
+     "sharpe_ratio": {
+      "value": 0.075990088397599,
+      "unit": "ratio"
+     },
+     "sortino_ratio": {
+      "value": 0.10588407310809313,
+      "unit": "ratio"
+     },
+     "max_drawdown": {
+      "value": -0.1743838094453818,
+      "unit": "fraction",
+      "peak_date": "2026-02-11",
+      "trough_date": "2026-09-30",
+      "recovery_date": null
+     },
+     "historical_var": {
+      "value": 0.008414558877552464,
+      "unit": "fraction of value, 1 day",
+      "confidence": 0.95
+     },
+     "historical_cvar": {
+      "value": 0.013817265991996664,
+      "unit": "fraction of value, 1 day",
+      "confidence": 0.95
+     },
+     "parametric_var": {
+      "value": 0.009709457568197568,
+      "unit": "fraction of value, 1 day",
+      "confidence": 0.95
+     },
+     "parametric_cvar": {
+      "value": 0.012246928779753294,
+      "unit": "fraction of value, 1 day",
+      "confidence": 0.95
+     },
+     "beta": {
+      "value": 0.6014930139597792,
+      "unit": "ratio",
+      "observations": 782
+     },
+     "correlation": {
+      "value": 0.9627281003734136,
+      "unit": "ratio"
+     },
+     "alpha_annual": {
+      "value": 0.009285084192971731,
+      "unit": "fraction/yr"
+     },
+     "tracking_error": {
+      "value": 0.06678627649677803,
+      "unit": "fraction/yr"
+     },
+     "information_ratio": {
+      "value": 0.15846767747072646,
+      "unit": "ratio"
+     },
+     "observations": {
+      "value": 782,
+      "unit": "daily returns"
+     }
+    },
+    "allocation": {
+     "holdings": [
+      {
+       "fund_id": 1,
+       "scheme_code": "FS-LC-001",
+       "name": "Aurora Bluechip Equity Fund - Direct Growth",
+       "category": "Large Cap",
+       "asset_class": "equity",
+       "is_synthetic": true,
+       "initial_weight": 0.4,
+       "current_weight": 0.39965191951409146,
+       "current_value": 48996.86247566701,
+       "risk_contribution": 0.6211570243543851
+      },
+      {
+       "fund_id": 2,
+       "scheme_code": "FS-MC-002",
+       "name": "Northstar Midcap Opportunities Fund - Direct Growth",
+       "category": "Mid Cap",
+       "asset_class": "equity",
+       "is_synthetic": true,
+       "initial_weight": 0.2,
+       "current_weight": 0.18607353898173215,
+       "current_value": 22812.400378142396,
+       "risk_contribution": 0.37138095595124676
+      },
+      {
+       "fund_id": 8,
+       "scheme_code": "FS-DB-007",
+       "name": "Meridian Dynamic Bond Fund - Direct Growth",
+       "category": "Dynamic Bond",
+       "asset_class": "debt",
+       "is_synthetic": true,
+       "initial_weight": 0.25,
+       "current_weight": 0.2656763226847514,
+       "current_value": 32571.609468190516,
+       "risk_contribution": 0.007438374357151333
+      },
+      {
+       "fund_id": 9,
+       "scheme_code": "FS-LIQ-008",
+       "name": "Harbor Liquid Fund - Direct Growth",
+       "category": "Liquid",
+       "asset_class": "debt",
+       "is_synthetic": true,
+       "initial_weight": 0.15,
+       "current_weight": 0.14859821881942503,
+       "current_value": 18217.969528275276,
+       "risk_contribution": 2.3645337216860767e-05
+      }
+     ],
+     "by_asset_class": [
+      {
+       "asset_class": "debt",
+       "weight": 0.4142745415041764
+      },
+      {
+       "asset_class": "equity",
+       "weight": 0.5857254584958236
+      }
+     ],
+     "herfindahl_index": 0.28701035775208195,
+     "effective_number_of_holdings": 3.4841948138463867,
+     "diversification_ratio": 1.12082270409419,
+     "largest_weight": 0.39965191951409146
+    },
+    "correlation": {
+     "labels": [
+      "FS-LC-001",
+      "FS-MC-002",
+      "FS-DB-007",
+      "FS-LIQ-008"
+     ],
+     "matrix": [
+      [
+       1.0,
+       0.8701,
+       -0.0099,
+       0.0147
+      ],
+      [
+       0.8701,
+       1.0,
+       0.0003,
+       -0.0111
+      ],
+      [
+       -0.0099,
+       0.0003,
+       1.0,
+       0.0041
+      ],
+      [
+       0.0147,
+       -0.0111,
+       0.0041,
+       1.0
+      ]
+     ]
+    },
+    "series": {
+     "value": [
+      {
+       "date": "2023-10-02",
+       "value": 100000.0
+      },
+      {
+       "date": "2023-10-03",
+       "value": 100135.19
+      },
+      {
+       "date": "2023-10-04",
+       "value": 99665.62
+      },
+      {
+       "date": "2023-10-05",
+       "value": 100175.51
+      },
+      "... 779 more items (total 783)"
+     ],
+     "drawdown": [
+      {
+       "date": "2023-10-02",
+       "value": 0.0
+      },
+      {
+       "date": "2023-10-03",
+       "value": 0.0
+      },
+      {
+       "date": "2023-10-04",
+       "value": -0.004689
+      },
+      {
+       "date": "2023-10-05",
+       "value": 0.0
+      },
+      "... 779 more items (total 783)"
+     ],
+     "benchmark_scaled": [
+      {
+       "date": "2023-10-02",
+       "value": 100000.0
+      },
+      {
+       "date": "2023-10-03",
+       "value": 99999.5
+      },
+      {
+       "date": "2023-10-04",
+       "value": 99065.15
+      },
+      {
+       "date": "2023-10-05",
+       "value": 99859.72
+      },
+      "... 779 more items (total 783)"
+     ]
+    }
+   }
+  },
+  "portfolios": [
+   {
+    "id": "1aa9f7ca-5107-4186-9cc9-c04d2ef8a6d0",
+    "name": "Sample core"
+   }
+  ]
+ }
+}

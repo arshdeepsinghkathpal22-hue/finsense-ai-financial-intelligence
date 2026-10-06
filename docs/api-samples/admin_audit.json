@@ -1,0 +1,49 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "/api/v1/admin/audit"
+ },
+ "status": 200,
+ "body": {
+  "items": [
+   {
+    "id": 36,
+    "event_type": "auth.login",
+    "user_id": "f4a0b147-4b19-45a3-a6ce-3007f779e01e",
+    "ip_address": "127.0.0.1",
+    "details": {},
+    "created_at": "2026-10-05T20:52:24.275293+00:00"
+   },
+   {
+    "id": 35,
+    "event_type": "portfolio.deleted",
+    "user_id": "e5ef9687-5fa8-4fc4-8ad8-2c995004374d",
+    "ip_address": null,
+    "details": {
+     "portfolio_id": "1aa9f7ca-5107-4186-9cc9-c04d2ef8a6d0"
+    },
+    "created_at": "2026-10-05T20:52:23.997394+00:00"
+   },
+   {
+    "id": 34,
+    "event_type": "auth.login",
+    "user_id": "e5ef9687-5fa8-4fc4-8ad8-2c995004374d",
+    "ip_address": "127.0.0.1",
+    "details": {},
+    "created_at": "2026-10-05T20:52:19.236692+00:00"
+   },
+   {
+    "id": 33,
+    "event_type": "user.registered",
+    "user_id": "e5ef9687-5fa8-4fc4-8ad8-2c995004374d",
+    "ip_address": "127.0.0.1",
+    "details": {},
+    "created_at": "2026-10-05T20:52:19.035087+00:00"
+   },
+   "... 1 more items (total 5)"
+  ],
+  "total": 36,
+  "page": 1,
+  "page_size": 5
+ }
+}

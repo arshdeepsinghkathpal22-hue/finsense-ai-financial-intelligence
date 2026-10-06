@@ -1,0 +1,33 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "/api/v1/funds/categories",
+  "params": null
+ },
+ "status": 200,
+ "body": {
+  "items": [
+   {
+    "category": "Dynamic Asset Allocation",
+    "asset_class": "hybrid",
+    "count": 1
+   },
+   {
+    "category": "Dynamic Bond",
+    "asset_class": "debt",
+    "count": 1
+   },
+   {
+    "category": "ELSS",
+    "asset_class": "equity",
+    "count": 1
+   },
+   {
+    "category": "Flexi Cap",
+    "asset_class": "equity",
+    "count": 2
+   },
+   "... 5 more items (total 9)"
+  ]
+ }
+}

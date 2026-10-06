@@ -1,0 +1,140 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "/api/v1/funds",
+  "params": null
+ },
+ "status": 200,
+ "body": {
+  "items": [
+   {
+    "id": 1,
+    "scheme_code": "FS-LC-001",
+    "name": "Aurora Bluechip Equity Fund - Direct Growth",
+    "amc": "Aurora Asset Management",
+    "category": "Large Cap",
+    "asset_class": "equity",
+    "plan": "Direct",
+    "option": "Growth",
+    "risk_label": "Very High",
+    "is_synthetic": true,
+    "source": "FinSense synthetic demonstration data",
+    "return_basis": "nav_growth",
+    "expense_ratio_pct": 0.72,
+    "benchmark": {
+     "id": 1,
+     "name": "FS Large Cap 100 TRI (synthetic)"
+    },
+    "latest_nav": 106.9724,
+    "latest_nav_date": "2026-09-30",
+    "freshness": {
+     "latest_observation": "2026-09-30",
+     "age_days": 5,
+     "is_stale": false
+    },
+    "return_1y": -0.20723191040446792,
+    "aum": {
+     "value_crore": 10467.45,
+     "as_of": "2026-09-30"
+    }
+   },
+   {
+    "id": 6,
+    "scheme_code": "FS-ELSS-005",
+    "name": "Banyan Tax Saver Fund (ELSS) - Direct Growth",
+    "amc": "Banyan Capital AMC",
+    "category": "ELSS",
+    "asset_class": "equity",
+    "plan": "Direct",
+    "option": "Growth",
+    "risk_label": "Very High",
+    "is_synthetic": true,
+    "source": "FinSense synthetic demonstration data",
+    "return_basis": "nav_growth",
+    "expense_ratio_pct": 0.79,
+    "benchmark": {
+     "id": 4,
+     "name": "FS Broad Market 500 TRI (synthetic)"
+    },
+    "latest_nav": 177.4693,
+    "latest_nav_date": "2026-09-30",
+    "freshness": {
+     "latest_observation": "2026-09-30",
+     "age_days": 5,
+     "is_stale": false
+    },
+    "return_1y": -0.15956928407068038,
+    "aum": {
+     "value_crore": 8880.35,
+     "as_of": "2026-09-30"
+    }
+   },
+   {
+    "id": 9,
+    "scheme_code": "FS-LIQ-008",
+    "name": "Harbor Liquid Fund - Direct Growth",
+    "amc": "Harbor Mutual Fund",
+    "category": "Liquid",
+    "asset_class": "debt",
+    "plan": "Direct",
+    "option": "Growth",
+    "risk_label": "Low to Moderate",
+    "is_synthetic": true,
+    "source": "FinSense synthetic demonstration data",
+    "return_basis": "nav_growth",
+    "expense_ratio_pct": 0.15,
+    "benchmark": {
+     "id": 6,
+     "name": "FS Liquid Index (synthetic)"
+    },
+    "latest_nav": 4496.1899,
+    "latest_nav_date": "2026-09-30",
+    "freshness": {
+     "latest_observation": "2026-09-30",
+     "age_days": 5,
+     "is_stale": false
+    },
+    "return_1y": 0.06412059271569691,
+    "aum": {
+     "value_crore": 27990.24,
+     "as_of": "2026-09-30"
+    }
+   },
+   {
+    "id": 4,
+    "scheme_code": "FS-FX-004",
+    "name": "Horizon Flexi Cap Fund - Direct Growth",
+    "amc": "Horizon Mutual Fund",
+    "category": "Flexi Cap",
+    "asset_class": "equity",
+    "plan": "Direct",
+    "option": "Growth",
+    "risk_label": "Very High",
+    "is_synthetic": true,
+    "source": "FinSense synthetic demonstration data",
+    "return_basis": "nav_growth",
+    "expense_ratio_pct": 0.58,
+    "benchmark": {
+     "id": 4,
+     "name": "FS Broad Market 500 TRI (synthetic)"
+    },
+    "latest_nav": 77.5041,
+    "latest_nav_date": "2026-09-30",
+    "freshness": {
+     "latest_observation": "2026-09-30",
+     "age_days": 5,
+     "is_stale": false
+    },
+    "return_1y": -0.15634725304869088,
+    "aum": {
+     "value_crore": 9842.73,
+     "as_of": "2026-09-30"
+    }
+   },
+   "... 6 more items (total 10)"
+  ],
+  "total": 10,
+  "page": 1,
+  "page_size": 25
+ }
+}

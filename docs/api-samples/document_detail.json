@@ -1,0 +1,39 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "/api/v1/documents/8a898ee5-a250-4f03-961e-def627c96e50",
+  "params": null
+ },
+ "status": 200,
+ "body": {
+  "id": "8a898ee5-a250-4f03-961e-def627c96e50",
+  "title": "Meridian Dynamic Bond Fund - Scheme Information Document",
+  "filename": "meridian_dynamic_bond_sid.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 7554,
+  "doc_type": "sid",
+  "visibility": "shared",
+  "is_owner": false,
+  "can_manage": false,
+  "is_synthetic": true,
+  "fund": {
+   "id": 8,
+   "scheme_code": "FS-DB-007",
+   "name": "Meridian Dynamic Bond Fund - Direct Growth"
+  },
+  "as_of_date": "2026-04-01",
+  "status": "indexed",
+  "error_message": null,
+  "page_count": 5,
+  "chunk_count": 8,
+  "index_config": {
+   "embedding_dim": 256,
+   "parser_version": "2026.10-1",
+   "embedding_model": "wordllama/l2_supercat-256",
+   "chunk_target_words": 180,
+   "chunk_overlap_words": 30
+  },
+  "indexed_at": "2026-10-05T19:46:11.158270+00:00",
+  "created_at": "2026-10-05T19:46:10.821730+00:00"
+ }
+}

@@ -1,0 +1,79 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "/api/v1/admin/imports"
+ },
+ "status": 200,
+ "body": {
+  "items": [
+   {
+    "id": "db8ba652-1324-4bb4-b766-2716983a39c4",
+    "kind": "holdings",
+    "filename": "holdings.csv",
+    "status": "completed",
+    "rows_total": 165,
+    "rows_inserted": 0,
+    "rows_updated": 0,
+    "rows_unchanged": 165,
+    "rows_rejected": 0,
+    "warnings": [
+     "An identical file was already imported on 2026-10-05 20:02 UTC; re-importing is safe (existing rows are left unchanged)."
+    ],
+    "started_at": "2026-10-05T20:17:04.279601+00:00",
+    "finished_at": "2026-10-05T20:17:04.304782+00:00"
+   },
+   {
+    "id": "8690e9c8-f3eb-4fb6-a62d-621697177b66",
+    "kind": "sip_flows",
+    "filename": "sip_flows.csv",
+    "status": "completed",
+    "rows_total": 469,
+    "rows_inserted": 0,
+    "rows_updated": 0,
+    "rows_unchanged": 469,
+    "rows_rejected": 0,
+    "warnings": [
+     "An identical file was already imported on 2026-10-05 20:02 UTC; re-importing is safe (existing rows are left unchanged)."
+    ],
+    "started_at": "2026-10-05T20:17:04.242055+00:00",
+    "finished_at": "2026-10-05T20:17:04.268670+00:00"
+   },
+   {
+    "id": "e65d82b5-cb19-4ac3-b171-4babbaee2ccf",
+    "kind": "aum",
+    "filename": "aum.csv",
+    "status": "completed",
+    "rows_total": 676,
+    "rows_inserted": 0,
+    "rows_updated": 0,
+    "rows_unchanged": 676,
+    "rows_rejected": 0,
+    "warnings": [
+     "An identical file was already imported on 2026-10-05 20:02 UTC; re-importing is safe (existing rows are left unchanged)."
+    ],
+    "started_at": "2026-10-05T20:17:04.182292+00:00",
+    "finished_at": "2026-10-05T20:17:04.227564+00:00"
+   },
+   {
+    "id": "97120674-a03c-42d8-9da9-1aa3de09ed8b",
+    "kind": "nav",
+    "filename": "nav.csv",
+    "status": "completed",
+    "rows_total": 14679,
+    "rows_inserted": 0,
+    "rows_updated": 0,
+    "rows_unchanged": 14679,
+    "rows_rejected": 0,
+    "warnings": [
+     "An identical file was already imported on 2026-10-05 20:02 UTC; re-importing is safe (existing rows are left unchanged)."
+    ],
+    "started_at": "2026-10-05T20:17:03.954997+00:00",
+    "finished_at": "2026-10-05T20:17:04.162722+00:00"
+   },
+   "... 17 more items (total 21)"
+  ],
+  "total": 21,
+  "page": 1,
+  "page_size": 25
+ }
+}

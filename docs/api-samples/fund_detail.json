@@ -1,0 +1,78 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "/api/v1/funds/1",
+  "params": null
+ },
+ "status": 200,
+ "body": {
+  "id": 1,
+  "scheme_code": "FS-LC-001",
+  "name": "Aurora Bluechip Equity Fund - Direct Growth",
+  "amc": "Aurora Asset Management",
+  "category": "Large Cap",
+  "asset_class": "equity",
+  "plan": "Direct",
+  "option": "Growth",
+  "risk_label": "Very High",
+  "is_synthetic": true,
+  "source": "FinSense synthetic demonstration data",
+  "return_basis": "nav_growth",
+  "expense_ratio_pct": 0.72,
+  "benchmark": {
+   "id": 1,
+   "name": "FS Large Cap 100 TRI (synthetic)"
+  },
+  "latest_nav": 106.9724,
+  "latest_nav_date": "2026-09-30",
+  "freshness": {
+   "latest_observation": "2026-09-30",
+   "age_days": 5,
+   "is_stale": false
+  },
+  "return_1y": -0.20723191040446792,
+  "aum": {
+   "value_crore": 10467.45,
+   "as_of": "2026-09-30"
+  },
+  "launch_date": "2013-01-01",
+  "trailing_returns": [
+   {
+    "period": "1m",
+    "value": -0.08106654708859184,
+    "annualised": false,
+    "start_date": "2026-08-31"
+   },
+   {
+    "period": "3m",
+    "value": -0.11874259079087313,
+    "annualised": false,
+    "start_date": "2026-06-30"
+   },
+   {
+    "period": "6m",
+    "value": -0.20099848673389975,
+    "annualised": false,
+    "start_date": "2026-03-30"
+   },
+   {
+    "period": "1y",
+    "value": -0.2072319104044681,
+    "annualised": false,
+    "start_date": "2025-09-30"
+   },
+   "... 3 more items (total 7)"
+  ],
+  "history": {
+   "start": "2021-01-04",
+   "end": "2026-09-30",
+   "observations": 1498
+  },
+  "holdings_dates": [
+   "2026-03-31",
+   "2025-09-30"
+  ],
+  "has_sip_data": true,
+  "data_notes": []
+ }
+}

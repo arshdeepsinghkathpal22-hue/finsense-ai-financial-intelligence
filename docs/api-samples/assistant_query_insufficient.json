@@ -1,0 +1,33 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "/api/v1/assistant/query",
+  "json": {
+   "question": "What is the price of gold today?"
+  }
+ },
+ "status": 200,
+ "body": {
+  "conversation_id": "51e5fbae-d8f0-4c32-8f60-1c63ccc04803",
+  "answer": "I could not find enough evidence in the documents and data available to you to answer this question, so I will not guess. Try uploading the relevant factsheet or report, or rephrase the question with the fund name or scheme code.",
+  "mode": "insufficient_evidence",
+  "model": null,
+  "planner": "rules",
+  "sources": [],
+  "calculations": [],
+  "conflicts": [],
+  "warnings": [],
+  "limitations": [
+   "No language model is configured: document answers quote the most relevant passages verbatim instead of writing a summary.",
+   "Decision support only: historical figures and model estimates do not guarantee future returns."
+  ],
+  "funds": [],
+  "retrieval": {
+   "query": "What is the price of gold today?",
+   "is_follow_up": false,
+   "candidates": 30,
+   "selected": 0
+  },
+  "latency_ms": 26.7
+ }
+}

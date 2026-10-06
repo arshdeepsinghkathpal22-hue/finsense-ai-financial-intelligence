@@ -1,0 +1,61 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "/api/v1/simulate/monte-carlo",
+  "json": {
+   "monthly_amount": 10000,
+   "years": 10,
+   "annual_return": 0.11,
+   "annual_volatility": 0.16
+  }
+ },
+ "status": 200,
+ "body": {
+  "kind": "monte_carlo",
+  "paths": 2000,
+  "seed": 7,
+  "total_invested": 1200000.0,
+  "final_percentiles": {
+   "p5": 1223732.229230459,
+   "p25": 1617477.8493117532,
+   "p50": 2003939.629111942,
+   "p75": 2506116.7037719293,
+   "p95": 3602175.36487833
+  },
+  "probability_of_loss": 0.0455,
+  "yearly": [
+   {
+    "year": 1,
+    "p5": 107272.07795738927,
+    "p50": 126005.54059140284,
+    "p95": 148672.64184684362
+   },
+   {
+    "year": 2,
+    "p5": 210049.20905090834,
+    "p50": 265863.2647367556,
+    "p95": 330920.4412532854
+   },
+   {
+    "year": 3,
+    "p5": 316067.7336574543,
+    "p50": 416439.65153526585,
+    "p95": 558682.6749406104
+   },
+   {
+    "year": 4,
+    "p5": 422530.88722196565,
+    "p50": 584986.9000762694,
+    "p95": 812051.574509755
+   },
+   "... 6 more items (total 10)"
+  ],
+  "deterministic_reference": 2124297.5,
+  "assumptions": {
+   "annual_return": 0.11,
+   "annual_volatility": 0.16,
+   "distribution": "independent log-normal monthly returns",
+   "limitations": "Ignores fat tails, volatility clustering, taxes and costs."
+  }
+ }
+}

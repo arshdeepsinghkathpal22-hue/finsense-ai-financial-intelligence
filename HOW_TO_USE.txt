@@ -1,0 +1,376 @@
+===============================================================================
+                     FINSENSE AI - HOW TO USE THIS PROJECT
+===============================================================================
+
+FinSense AI is a web application for analysing mutual funds, building and
+optimising portfolios, running what-if scenarios, trying machine-learning
+forecasts, and asking questions about financial documents (with citations).
+
+IMPORTANT
+  * All funds, prices and documents that come with the project are SYNTHETIC
+    (made up for demonstration). They are labelled "Synthetic data" in the app.
+  * The app gives decision support, not investment advice.
+
+Contents
+  1. What you need
+  2. Start the app (Windows)
+  3. Start the app (Linux / macOS)
+  4. Create your account (and an administrator)
+  5. A 15-minute tour
+  6. Using the research assistant
+  7. Uploading your own documents
+  8. Building and optimising a portfolio
+  9. What-if simulator
+ 10. Forecasts and anomalies
+ 11. Administrator tasks
+ 12. Optional: connect a language model (AI summaries)
+ 13. Stopping, restarting and deleting data
+ 14. Running without Docker ("native" mode)
+ 15. Running the tests
+ 16. Common problems
+ 17. Where to read more
+
+-------------------------------------------------------------------------------
+1. WHAT YOU NEED
+-------------------------------------------------------------------------------
+Recommended (easiest):
+  * Docker Desktop (Windows 10/11, macOS) or Docker Engine with Compose v2
+    (Linux).  Download: https://docs.docker.com/get-docker/
+  * About 6 GB of free disk space.
+  * Internet access for the first start (it downloads software packages).
+
+You do NOT need Python, Node.js or PostgreSQL when you use Docker.
+
+-------------------------------------------------------------------------------
+2. START THE APP (WINDOWS)
+-------------------------------------------------------------------------------
+  1. Install Docker Desktop and start it. Wait until it says the engine is
+     running.
+  2. Unzip finsense-ai.zip to a folder, for example C:\finsense-ai
+  3. Open that folder and double-click  run.bat
+     (or open Command Prompt in the folder and type:  run.bat )
+  4. The first start takes 10-20 minutes (it builds everything). Later starts
+     take under a minute.
+  5. When you see "FinSense AI is running at http://localhost:8080" your
+     browser opens automatically. If not, open http://localhost:8080 yourself.
+
+What run.bat does for you:
+  * checks that Docker is installed and running,
+  * creates a private settings file ".env" with random database passwords
+    (only the first time - it never overwrites an existing .env),
+  * builds and starts four containers: database, setup, API and website,
+  * creates the database tables and loads the demo data,
+  * waits until the app answers and shows the address.
+
+-------------------------------------------------------------------------------
+3. START THE APP (LINUX / MACOS)
+-------------------------------------------------------------------------------
+  Open a terminal in the project folder and run:
+
+      chmod +x run.sh      (only if you get "permission denied")
+      ./run.sh
+
+  Then open http://localhost:8080
+
+  Apple Silicon Macs: if the first build fails while "building wheels", run
+      export DOCKER_DEFAULT_PLATFORM=linux/amd64
+      ./run.sh
+
+-------------------------------------------------------------------------------
+4. CREATE YOUR ACCOUNT (AND AN ADMINISTRATOR)
+-------------------------------------------------------------------------------
+  There are no built-in usernames or passwords.
+
+  Normal account:
+    On the website click "Create an account". Passwords need at least 10
+    characters, upper- and lower-case letters and a digit.
+
+  Administrator (needed for data imports, evaluation and the audit log):
+    Windows:      run.bat create-admin you@example.com
+    Linux/macOS:  ./run.sh create-admin you@example.com
+    You will be asked to type a password (it is not shown on screen).
+    Already registered that e-mail in the browser? Make it an administrator:
+    Windows:      run.bat promote you@example.com
+    Linux/macOS:  ./run.sh promote you@example.com
+
+  After signing in as an administrator an extra menu item "Administration"
+  appears.
+
+-------------------------------------------------------------------------------
+5. A 15-MINUTE TOUR
+-------------------------------------------------------------------------------
+  Dashboard
+    Key numbers for a fund (or one of your portfolios): return, CAGR,
+    volatility, Sharpe, Sortino, beta, maximum drawdown, VaR/CVaR, plus
+    "growth of 100" and drawdown charts. Open "Assumptions and methods" to
+    see exactly how each number is calculated.
+
+  Fund explorer
+    Search funds (try "aurora"), filter by category, open a fund to see its
+    facts, trailing returns, NAV chart, holdings, sectors, AUM and SIP flows.
+    "Compare funds" shows up to five funds side by side.
+    Tip: open "Kestrel Smallcap" - it launched in 2022, so its 5-year return
+    shows "not covered" instead of a misleading number.
+
+  Risk analytics
+    Choose a fund, a period (1y/3y/5y/max) and a confidence level. You get
+    rolling volatility, the drawdown curve, the return distribution and
+    VaR/Expected Shortfall. "Calculate correlations" builds a correlation
+    matrix for several funds.
+
+  Portfolios
+    Create, import (CSV) and optimise portfolios (see section 8).
+
+  Research assistant
+    Ask questions about the documents and the data (see section 6).
+
+  Documents
+    The document library: the four sample documents are already indexed.
+    Open one to see its passages page by page. Upload your own (section 7).
+
+  Forecasts & anomalies
+    Train a model and see whether it beats a simple baseline (section 10).
+
+  What-if simulator
+    SIP projections, Monte Carlo, market declines, stress tests (section 9).
+
+  Settings
+    Change your name, default period, risk-free rate and risk profile,
+    change your password, sign out of all devices, see what the installation
+    is configured to do (language model, live data, e-mail).
+
+-------------------------------------------------------------------------------
+6. USING THE RESEARCH ASSISTANT
+-------------------------------------------------------------------------------
+  Open "Research assistant", type a question and press "Ask".
+
+  Questions that work well with the sample documents:
+    What is the exit load of FS-DB-007?
+    What is the total expense ratio of the Meridian Dynamic Bond Fund direct plan?
+    What are the assets under management of Aurora Bluechip Equity Fund?
+        (shows a CONFLICT note: the two factsheets have different dates)
+    Why has the risk of Aurora Bluechip increased?
+    Which company is the largest holding of Aurora Bluechip in the March 2026 factsheet?
+
+  Questions answered with FinSense calculations:
+    What is the 3-year Sharpe ratio of Aurora Bluechip?
+    Compare Aurora Bluechip and Northstar Midcap over 3 years
+    Forecast Aurora for next month
+    Summarise my portfolio <your portfolio name>
+    Optimise my portfolio <your portfolio name> for a conservative profile
+
+  How to read an answer
+    [S1], [S2] ...  a source passage. Click it to see the document, page and
+                    exact text.
+    [T1], [T2] ...  a calculation done by FinSense on the stored data.
+    Warnings        e.g. a number that was not found in the sources, or a
+                    passage that contained instruction-like text.
+    "Insufficient evidence"  the documents you can access do not contain the
+                    answer - the assistant does not guess.
+
+  Follow-up questions keep the context ("What is its minimum SIP amount?").
+  "New conversation" starts fresh. Your conversations are private.
+
+  Without a language model (the default) answers are exact quotes from the
+  documents with citations. With a model (section 12) you get a written
+  summary that is checked against the sources.
+
+-------------------------------------------------------------------------------
+7. UPLOADING YOUR OWN DOCUMENTS
+-------------------------------------------------------------------------------
+  Documents -> "Upload a document":
+    * File types: PDF with selectable text, .txt or .md, up to 15 MB.
+    * Optional: title, document type, reporting date and the fund the
+      document describes. This helps the assistant pick the right document
+      and spot conflicting dates.
+    * Click "Upload and index". Status changes from pending/processing to
+      "indexed" (usually seconds). The page refreshes by itself.
+    * "needs OCR" means the PDF is a scanned image without text - it cannot be
+      searched (OCR is not supported). "failed" shows the reason.
+  Your uploads are private: other users cannot see, search or ask about them.
+  Only administrators can add documents to the shared library.
+
+-------------------------------------------------------------------------------
+8. BUILDING AND OPTIMISING A PORTFOLIO
+-------------------------------------------------------------------------------
+  1. Portfolios -> "Create": give it a name and amount invested, "Add fund"
+     for each fund and enter weights in percent (they must add up to 100).
+     Click "Create portfolio".
+     Or "Import CSV" with two columns:  scheme_code,weight_pct
+     (example file: backend/sample_data/csv/example_portfolio.csv)
+  2. Open the portfolio: value over time vs benchmark, risk metrics, risk
+     contribution of each fund, concentration.
+  3. "Optimise allocation": pick an objective (balanced utility by risk
+     profile, minimum variance, or maximum Sharpe) and minimum/maximum weight
+     per fund, then "Run optimisation". You see current vs optimised vs equal
+     weight, the efficient frontier, and the weights before and after.
+     If the limits are impossible (e.g. 3 funds with max 20% each) you get an
+     explanation instead of a result.
+  4. "Apply optimised weights" saves them to the portfolio; "Download
+     allocation (CSV)" exports them. Remember: optimal in the past does not
+     mean optimal in the future.
+
+-------------------------------------------------------------------------------
+9. WHAT-IF SIMULATOR
+-------------------------------------------------------------------------------
+  * SIP projection: monthly amount, years, expected return -> "Project".
+  * Monte Carlo SIP: adds volatility and shows a range of outcomes
+    (pessimistic to optimistic percentiles) -> "Simulate".
+  * Market decline: choose funds and weights and a market fall, e.g. -20%;
+    the impact is estimated from each fund's beta -> "Run scenario".
+  * Volatility & correlation stress: multiply volatilities, optionally force
+    all correlations to one value and shift expected returns, then compare
+    the stressed portfolio risk with the baseline.
+  * Allocation change: compare two sets of weights -> "Compare".
+  All results are estimates based on history and the assumptions shown.
+
+-------------------------------------------------------------------------------
+10. FORECASTS AND ANOMALIES
+-------------------------------------------------------------------------------
+  "Forecasts & anomalies":
+    * Choose a fund, model and horizon (1 week, 1 month or 1 quarter), then
+      "Train and forecast". You get the forecast with an 80% range, a
+      backtest on a held-out test period compared with two simple baselines,
+      and SHAP charts explaining which inputs drove the forecast.
+    * Read the verdict: on the demo data the models usually do NOT beat the
+      simple historical-average baseline, and the app says so. Treat forecasts
+      as an educational tool.
+    * "Scan history" (anomaly detection) lists unusual days with the reasons
+      (e.g. a return far below its usual range). The demo data has planted
+      events, for example Northstar Midcap on 21 Aug 2025.
+
+-------------------------------------------------------------------------------
+11. ADMINISTRATOR TASKS ("Administration" menu)
+-------------------------------------------------------------------------------
+  Data status      freshness of every fund's data, document counts,
+                   "Re-index outdated and failed documents", data sources,
+                   optional live NAVs from AMFI (needs AMFI_ENABLED=true).
+  Import data      upload CSV files (funds, NAVs, benchmarks, AUM, SIP flows,
+                   holdings). Bad rows are rejected with reasons; importing
+                   the same file again is safe. Try
+                   backend/sample_data/csv/nav_with_errors.csv with provenance
+                   "Synthetic" to see the validation report.
+                   Column formats are listed in README.md section 10.
+  Retrieval quality  "Run evaluation" measures search quality on 40 test
+                   questions; "Retrieval diagnostics" shows the scores of every
+                   step for one question.
+  Audit log        logins, failed logins, uploads, imports, admin actions.
+  Users            activate/deactivate accounts, change roles.
+
+-------------------------------------------------------------------------------
+12. OPTIONAL: CONNECT A LANGUAGE MODEL (AI SUMMARIES)
+-------------------------------------------------------------------------------
+  Edit the file .env in the project folder (any text editor), then restart
+  (run.bat restart  or  ./run.sh restart).
+
+  Anthropic:
+      LLM_PROVIDER=anthropic
+      LLM_MODEL=<model id from your Anthropic console>
+      LLM_API_KEY=<your API key>
+
+  Local model with Ollama (free, runs on your computer):
+      LLM_PROVIDER=openai_compatible
+      LLM_BASE_URL=http://host.docker.internal:11434/v1
+      LLM_MODEL=llama3.1
+
+  Note: with a language model, your question and the selected document
+  passages are sent to that model provider. The API key is never sent to the
+  model and never shown in the app. (These integrations were tested with
+  simulated responses only, not with real providers.)
+
+-------------------------------------------------------------------------------
+13. STOPPING, RESTARTING AND DELETING DATA
+-------------------------------------------------------------------------------
+                       Windows                  Linux/macOS
+  Stop (keep data)     run.bat stop             ./run.sh stop
+  Start again          run.bat                  ./run.sh
+  Restart              run.bat restart          ./run.sh restart
+  Status               run.bat status           ./run.sh status
+  Logs                 run.bat logs             ./run.sh logs
+  Delete ALL data      run.bat reset            ./run.sh reset
+  (reset asks you to type "delete"; your .env file is kept)
+
+  Keep your .env file private and do not delete it while you still have data:
+  the database passwords inside it are set when the database is first created.
+
+-------------------------------------------------------------------------------
+14. RUNNING WITHOUT DOCKER ("NATIVE" MODE)
+-------------------------------------------------------------------------------
+  Needs: Python 3.12 or 3.13, Node.js 20.19 or newer, PostgreSQL 14+ with the
+  pgvector extension. (Intel Macs: please use Docker.)
+
+  1. Install PostgreSQL + pgvector (README.md section 9 has commands for
+     Ubuntu, macOS and Windows).
+  2. Run  ./run.sh native   (Windows:  run.bat native)
+     The first time it creates .env and tells you the next command.
+  3. Create the database roles with the two passwords from .env:
+       psql -U postgres -h localhost -v owner_password="<POSTGRES_PASSWORD>"
+            -v app_password="<APP_DB_PASSWORD>" -f db/manual-setup.sql
+  4. Run  ./run.sh native  again. It installs everything, prepares the
+     database, builds the website and starts it at http://127.0.0.1:4173
+     Press Ctrl+C to stop.
+
+-------------------------------------------------------------------------------
+15. RUNNING THE TESTS
+-------------------------------------------------------------------------------
+  Backend (needs PostgreSQL + pgvector and the settings in .env):
+      cd backend
+      python -m venv .venv
+      .venv\Scripts\activate          (Linux/macOS: . .venv/bin/activate)
+      pip install -r requirements-dev.txt
+      python -m pytest
+
+  Frontend:
+      cd frontend
+      npm ci
+      npm test
+      npm run build
+
+  End-to-end test against the running app (Docker):
+      cd backend
+      FINSENSE_E2E_BASE_URL=http://localhost:8080 python -m pytest tests/e2e
+      (Windows PowerShell:  $env:FINSENSE_E2E_BASE_URL="http://localhost:8080"; python -m pytest tests/e2e)
+
+  Search-quality evaluation:   python -m app.cli rag-eval
+  Latest results: docs/TEST_REPORT.md and docs/RAG_EVALUATION.md
+
+-------------------------------------------------------------------------------
+16. COMMON PROBLEMS
+-------------------------------------------------------------------------------
+  "Docker is not running"
+      Start Docker Desktop and wait until the engine is running, then retry.
+
+  "port is already allocated" or the page does not open
+      Another program uses port 8080. In .env set WEB_PORT=8090 and
+      PUBLIC_APP_URL=http://localhost:8090, then restart.
+
+  Setup fails with a password/authentication error
+      The .env file was changed or replaced after the database was created.
+      Put the old .env back, or run "reset" (this deletes all data).
+
+  Signed out immediately / every action says "forbidden"
+      Open the app at exactly the address in PUBLIC_APP_URL. Use
+      COOKIE_SECURE=true only when the site runs on https://.
+
+  "Too many requests"
+      You tried to log in too often. Wait one minute.
+
+  The assistant says "insufficient evidence"
+      None of the documents you can access contains the answer. Upload the
+      right document or mention the fund name / scheme code.
+
+  A document shows "needs OCR"
+      It is a scanned PDF without text. Use a PDF with selectable text.
+
+  More: README.md section 17 (Troubleshooting).
+
+-------------------------------------------------------------------------------
+17. WHERE TO READ MORE
+-------------------------------------------------------------------------------
+  README.md               full documentation (setup, configuration, API)
+  docs/ARCHITECTURE.md    how the system is built
+  docs/SECURITY.md        security controls and limitations
+  docs/RAG_EVALUATION.md  how good the document search is, and where it fails
+  docs/TEST_REPORT.md     what was tested and the results
+  docs/openapi.json       API description; docs/api-samples/ example responses
+===============================================================================

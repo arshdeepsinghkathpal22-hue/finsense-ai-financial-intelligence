@@ -1,0 +1,36 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "/api/v1/simulate/sip",
+  "json": {
+   "monthly_amount": -5,
+   "years": 0,
+   "annual_return": 0.1
+  }
+ },
+ "status": 422,
+ "body": {
+  "error": {
+   "code": "validation_failed",
+   "message": "Request validation failed.",
+   "details": {
+    "problems": [
+     {
+      "location": [
+       "body",
+       "monthly_amount"
+      ],
+      "message": "Input should be greater than or equal to 0"
+     },
+     {
+      "location": [
+       "body",
+       "years"
+      ],
+      "message": "Input should be greater than or equal to 1"
+     }
+    ]
+   }
+  }
+ }
+}

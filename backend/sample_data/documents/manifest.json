@@ -1,0 +1,33 @@
+{
+  "_comment": "Sample documents indexed by `python -m app.cli ingest-samples`. All are SYNTHETIC.",
+  "documents": [
+    {
+      "file": "aurora_bluechip_factsheet_2025-09.pdf",
+      "title": "Aurora Bluechip Equity Fund Factsheet - September 2025",
+      "doc_type": "factsheet",
+      "scheme_code": "FS-LC-001",
+      "as_of_date": "2025-09-30"
+    },
+    {
+      "file": "aurora_bluechip_factsheet_2026-03.pdf",
+      "title": "Aurora Bluechip Equity Fund Factsheet - March 2026",
+      "doc_type": "factsheet",
+      "scheme_code": "FS-LC-001",
+      "as_of_date": "2026-03-31"
+    },
+    {
+      "file": "meridian_dynamic_bond_sid.pdf",
+      "title": "Meridian Dynamic Bond Fund - Scheme Information Document",
+      "doc_type": "sid",
+      "scheme_code": "FS-DB-007",
+      "as_of_date": "2026-04-01"
+    },
+    {
+      "file": "northstar_midcap_annual_review_fy2026.txt",
+      "title": "Northstar Midcap Opportunities Fund - Annual Review FY2025-26",
+      "doc_type": "annual_report",
+      "scheme_code": "FS-MC-002",
+      "as_of_date": "2026-03-31"
+    }
+  ]
+}

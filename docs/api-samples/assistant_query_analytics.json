@@ -1,0 +1,62 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "/api/v1/assistant/query",
+  "json": {
+   "question": "Compare Aurora Bluechip and Northstar Midcap over 3 years"
+  }
+ },
+ "status": 200,
+ "body": {
+  "conversation_id": "14055620-caff-4df1-84ba-a2df86ddd777",
+  "answer": "FinSense calculations:\nFund comparison (3y) [T1]\n- Aurora Bluechip Equity Fund - Direct Growth (2023-10-02 to 2026-09-30): CAGR 7.01%, volatility 14.74%, Sharpe 0.09, max drawdown -31.29%\n- Northstar Midcap Opportunities Fund - Direct Growth (2023-10-02 to 2026-09-30): CAGR 4.49%, volatility 18.20%, Sharpe -0.02, max drawdown -22.18%\n- Comparison uses each fund's own history within the period; differing start dates are shown.",
+  "mode": "analytics_only",
+  "model": null,
+  "planner": "rules",
+  "sources": [],
+  "calculations": [
+   {
+    "marker": "T1",
+    "title": "Fund comparison (3y)",
+    "lines": [
+     "Aurora Bluechip Equity Fund - Direct Growth (2023-10-02 to 2026-09-30): CAGR 7.01%, volatility 14.74%, Sharpe 0.09, max drawdown -31.29%",
+     "Northstar Midcap Opportunities Fund - Direct Growth (2023-10-02 to 2026-09-30): CAGR 4.49%, volatility 18.20%, Sharpe -0.02, max drawdown -22.18%",
+     "Comparison uses each fund's own history within the period; differing start dates are shown."
+    ],
+    "tool": "compare_funds",
+    "args": {
+     "funds": [
+      "FS-LC-001",
+      "FS-MC-002"
+     ],
+     "period": "3y"
+    }
+   }
+  ],
+  "conflicts": [],
+  "warnings": [],
+  "limitations": [
+   "No language model is configured: document answers quote the most relevant passages verbatim instead of writing a summary.",
+   "Decision support only: historical figures and model estimates do not guarantee future returns."
+  ],
+  "funds": [
+   {
+    "id": 1,
+    "scheme_code": "FS-LC-001",
+    "name": "Aurora Bluechip Equity Fund - Direct Growth"
+   },
+   {
+    "id": 2,
+    "scheme_code": "FS-MC-002",
+    "name": "Northstar Midcap Opportunities Fund - Direct Growth"
+   }
+  ],
+  "retrieval": {
+   "query": "Compare Aurora Bluechip and Northstar Midcap over 3 years",
+   "is_follow_up": false,
+   "candidates": 30,
+   "selected": 0
+  },
+  "latency_ms": 91.5
+ }
+}

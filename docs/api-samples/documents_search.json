@@ -1,0 +1,59 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "/api/v1/documents/search",
+  "json": {
+   "query": "FS-DB-007 exit load",
+   "top_k": 3
+  }
+ },
+ "status": 200,
+ "body": {
+  "query": "FS-DB-007 exit load",
+  "results": [
+   {
+    "chunk_id": "114b7e4f-1b09-4e38-9789-669ff8beed09",
+    "document_id": "8a898ee5-a250-4f03-961e-def627c96e50",
+    "document_title": "Meridian Dynamic Bond Fund - Scheme Information Document",
+    "doc_type": "sid",
+    "as_of_date": "2026-04-01",
+    "page_start": 5,
+    "page_end": 5,
+    "section": "Fees, Loads and Investment Limits",
+    "content": "Item | Detail\nExit load | 0.25% if redeemed within 30 days; nil thereafter\nTotal expense ratio | Direct plan 0.48%; Regular plan 1.12%\nMinimum lumpsum investment | Rs 5,000\nMinimum SIP | Rs 500 per month (minimum 12 instalments)\nNAV disclosure | Every business day by 11 pm",
+    "is_table": true,
+    "supported": true,
+    "score": 0.02573
+   },
+   {
+    "chunk_id": "c4d1f9e6-21f8-4e0f-b174-917bc89e404b",
+    "document_id": "8a898ee5-a250-4f03-961e-def627c96e50",
+    "document_title": "Meridian Dynamic Bond Fund - Scheme Information Document",
+    "doc_type": "sid",
+    "as_of_date": "2026-04-01",
+    "page_start": 5,
+    "page_end": 5,
+    "section": "Fees, Loads and Investment Limits",
+    "content": "This scheme information document is a synthetic sample created for the FinSense AI project and does not describe any real scheme.",
+    "is_table": false,
+    "supported": true,
+    "score": 0.02514
+   },
+   {
+    "chunk_id": "4566c367-6f0c-4423-ba3f-68e3844b9362",
+    "document_id": "8a898ee5-a250-4f03-961e-def627c96e50",
+    "document_title": "Meridian Dynamic Bond Fund - Scheme Information Document",
+    "doc_type": "sid",
+    "as_of_date": "2026-04-01",
+    "page_start": 1,
+    "page_end": 1,
+    "section": "Meridian Dynamic Bond Fund - Scheme Information Document / Investment Objective",
+    "content": "Scheme code: FS-DB-007. An open-ended dynamic debt scheme investing across duration. A relatively high interest rate risk and moderate credit risk scheme. Investment Objective: To generate optimal returns through active management of a portfolio of debt and money market instruments across the yield curve. There is no assurance or guarantee that the investment objective of the scheme will be achieved.",
+    "is_table": false,
+    "supported": false,
+    "score": 0.02492
+   }
+  ],
+  "evidence_found": true
+ }
+}

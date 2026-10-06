@@ -1,0 +1,51 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "/api/v1/documents/8a898ee5-a250-4f03-961e-def627c96e50/chunks",
+  "params": {
+   "page_size": 3
+  }
+ },
+ "status": 200,
+ "body": {
+  "document_id": "8a898ee5-a250-4f03-961e-def627c96e50",
+  "total": 8,
+  "page": 1,
+  "page_size": 3,
+  "items": [
+   {
+    "id": "4566c367-6f0c-4423-ba3f-68e3844b9362",
+    "index": 0,
+    "page_start": 1,
+    "page_end": 1,
+    "section": "Meridian Dynamic Bond Fund - Scheme Information Document / Investment Objective",
+    "content": "Scheme code: FS-DB-007. An open-ended dynamic debt scheme investing across duration. A relatively high interest rate risk and moderate credit risk scheme. Investment Objective: To generate optimal returns through active management of a portfolio of debt and money market instruments across the yield curve. There is no assurance or guarantee that the investment objective of the scheme will be achieved.",
+    "is_table": false,
+    "word_count": 60,
+    "flags": []
+   },
+   {
+    "id": "acb5cd0c-01b8-4a2d-afc5-d8c40b4ab171",
+    "index": 1,
+    "page_start": 1,
+    "page_end": 1,
+    "section": "Key Scheme Details",
+    "content": "Item | Detail\nBenchmark | FS Composite Bond Index (synthetic)\nFund manager | Rohan Iyer (since 2020)\nPotential Risk Class | B-III (moderate credit risk, relatively high interest rate risk)\nRiskometer | Moderate",
+    "is_table": true,
+    "word_count": 33,
+    "flags": []
+   },
+   {
+    "id": "a7d0c866-c343-4f12-b946-d235d66459e4",
+    "index": 2,
+    "page_start": 2,
+    "page_end": 2,
+    "section": "Asset Allocation Pattern",
+    "content": "Under normal circumstances the asset allocation of the scheme will be as follows:",
+    "is_table": false,
+    "word_count": 13,
+    "flags": []
+   }
+  ]
+ }
+}

@@ -1,0 +1,71 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "/api/v1/analytics/correlation",
+  "json": {
+   "fund_ids": [
+    1,
+    2,
+    8,
+    9
+   ]
+  }
+ },
+ "status": 200,
+ "body": {
+  "fund_ids": [
+   1,
+   2,
+   8,
+   9
+  ],
+  "matrix": [
+   [
+    1.0,
+    0.8822,
+    0.0167,
+    0.0079
+   ],
+   [
+    0.8822,
+    1.0,
+    0.012,
+    -0.0069
+   ],
+   [
+    0.0167,
+    0.012,
+    1.0,
+    0.0163
+   ],
+   [
+    0.0079,
+    -0.0069,
+    0.0163,
+    1.0
+   ]
+  ],
+  "observations": 1497,
+  "period": {
+   "start": "2021-01-04",
+   "end": "2026-09-30"
+  },
+  "alignment": {
+   "dates_in_union": 1498,
+   "dates_aligned": 1498,
+   "dates_dropped": 0
+  },
+  "labels": [
+   "FS-LC-001",
+   "FS-MC-002",
+   "FS-DB-007",
+   "FS-LIQ-008"
+  ],
+  "names": [
+   "Aurora Bluechip Equity Fund - Direct Growth",
+   "Northstar Midcap Opportunities Fund - Direct Growth",
+   "Meridian Dynamic Bond Fund - Direct Growth",
+   "Harbor Liquid Fund - Direct Growth"
+  ]
+ }
+}

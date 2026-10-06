@@ -1,0 +1,284 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "/api/v1/funds/3/risk",
+  "params": {
+   "period": "5y"
+  }
+ },
+ "status": 200,
+ "body": {
+  "fund": {
+   "id": 3,
+   "name": "Kestrel Smallcap Fund - Direct Growth",
+   "scheme_code": "FS-SC-003",
+   "is_synthetic": true,
+   "source": "FinSense synthetic demonstration data"
+  },
+  "benchmark": {
+   "id": 3,
+   "name": "FS Smallcap 250 TRI (synthetic)",
+   "return_basis": "total_return",
+   "is_synthetic": true
+  },
+  "period": {
+   "label": "5y",
+   "start": "2022-03-01",
+   "end": "2026-09-30",
+   "history_covers_period": false,
+   "note": "Available history starts on 2022-03-01, which is shorter than the requested 5y period; metrics cover the available history only."
+  },
+  "freshness": {
+   "latest_observation": "2026-09-30",
+   "age_days": 5,
+   "is_stale": false
+  },
+  "assumptions": {
+   "frequency": "daily (trading days)",
+   "periods_per_year": 252,
+   "risk_free_rate_annual": 0.065,
+   "return_basis": "nav_growth",
+   "return_basis_note": "NAV-based returns of a growth option (income reinvested, net of expenses).",
+   "var_method": "Historical one-day VaR/CVaR at 95% confidence (empirical quantile, linear interpolation). Parametric figures assume normally distributed daily returns. Different estimators give different values.",
+   "sharpe_method": "Mean daily excess return / standard deviation, scaled by sqrt(periods per year).",
+   "sortino_method": "Mean daily excess return / downside deviation below the risk-free rate."
+  },
+  "metrics": {
+   "cumulative_return": {
+    "value": 1.4182423797208497,
+    "unit": "fraction"
+   },
+   "cagr": {
+    "value": 0.21248343427930338,
+    "unit": "fraction/yr"
+   },
+   "annualized_mean_return": {
+    "value": 0.2081177467423103,
+    "unit": "fraction/yr"
+   },
+   "volatility": {
+    "value": 0.20988180318330324,
+    "unit": "fraction/yr"
+   },
+   "sharpe_ratio": {
+    "value": 0.6915086302055018,
+    "unit": "ratio"
+   },
+   "sortino_ratio": {
+    "value": 1.0195779919408188,
+    "unit": "ratio"
+   },
+   "max_drawdown": {
+    "value": -0.23983234480031634,
+    "unit": "fraction",
+    "peak_date": "2026-02-11",
+    "trough_date": "2026-09-30",
+    "recovery_date": null
+   },
+   "historical_var": {
+    "value": 0.018010428463366916,
+    "unit": "fraction of value, 1 day",
+    "confidence": 0.95
+   },
+   "historical_cvar": {
+    "value": 0.02791631779563525,
+    "unit": "fraction of value, 1 day",
+    "confidence": 0.95
+   },
+   "parametric_var": {
+    "value": 0.020921257039732577,
+    "unit": "fraction of value, 1 day",
+    "confidence": 0.95
+   },
+   "parametric_cvar": {
+    "value": 0.026445903159785088,
+    "unit": "fraction of value, 1 day",
+    "confidence": 0.95
+   },
+   "beta": {
+    "value": 0.891798642020265,
+    "unit": "ratio",
+    "observations": 1196
+   },
+   "correlation": {
+    "value": 0.9275485906209765,
+    "unit": "ratio"
+   },
+   "alpha_annual": {
+    "value": 0.06897465071679344,
+    "unit": "fraction/yr"
+   },
+   "tracking_error": {
+    "value": 0.08191270572690791,
+    "unit": "fraction/yr"
+   },
+   "information_ratio": {
+    "value": 0.7292416274502261,
+    "unit": "ratio"
+   },
+   "observations": {
+    "value": 1196,
+    "unit": "daily returns"
+   }
+  },
+  "series": {
+   "nav": [
+    {
+     "date": "2022-03-01",
+     "value": 9.9373
+    },
+    {
+     "date": "2022-03-02",
+     "value": 9.843
+    },
+    {
+     "date": "2022-03-03",
+     "value": 9.8404
+    },
+    {
+     "date": "2022-03-04",
+     "value": 9.8564
+    },
+    "... 1193 more items (total 1197)"
+   ],
+   "rebased": [
+    {
+     "date": "2022-03-01",
+     "value": 100.0
+    },
+    {
+     "date": "2022-03-02",
+     "value": 99.051
+    },
+    {
+     "date": "2022-03-03",
+     "value": 99.025
+    },
+    {
+     "date": "2022-03-04",
+     "value": 99.186
+    },
+    "... 1193 more items (total 1197)"
+   ],
+   "drawdown": [
+    {
+     "date": "2022-03-01",
+     "value": 0.0
+    },
+    {
+     "date": "2022-03-02",
+     "value": -0.009489
+    },
+    {
+     "date": "2022-03-03",
+     "value": -0.009751
+    },
+    {
+     "date": "2022-03-04",
+     "value": -0.008141
+    },
+    "... 1193 more items (total 1197)"
+   ],
+   "benchmark_rebased": [
+    {
+     "date": "2022-03-01",
+     "value": 100.0
+    },
+    {
+     "date": "2022-03-02",
+     "value": 98.804
+    },
+    {
+     "date": "2022-03-03",
+     "value": 98.893
+    },
+    {
+     "date": "2022-03-04",
+     "value": 99.552
+    },
+    "... 1193 more items (total 1197)"
+   ],
+   "rolling_sharpe": [
+    {
+     "date": "2022-08-24",
+     "value": 0.837
+    },
+    {
+     "date": "2022-08-25",
+     "value": 0.8619
+    },
+    {
+     "date": "2022-08-26",
+     "value": 0.9851
+    },
+    {
+     "date": "2022-08-29",
+     "value": 0.9503
+    },
+    "... 1067 more items (total 1071)"
+   ],
+   "rolling_volatility": [
+    {
+     "date": "2022-05-27",
+     "value": 0.24915
+    },
+    {
+     "date": "2022-05-30",
+     "value": 0.24932
+    },
+    {
+     "date": "2022-05-31",
+     "value": 0.25205
+    },
+    {
+     "date": "2022-06-01",
+     "value": 0.25674
+    },
+    "... 1130 more items (total 1134)"
+   ],
+   "rolling_beta": [
+    {
+     "date": "2022-08-24",
+     "value": 0.9298
+    },
+    {
+     "date": "2022-08-25",
+     "value": 0.9305
+    },
+    {
+     "date": "2022-08-26",
+     "value": 0.9318
+    },
+    {
+     "date": "2022-08-29",
+     "value": 0.932
+    },
+    "... 1067 more items (total 1071)"
+   ],
+   "rolling_window_days": 126,
+   "return_distribution": [
+    {
+     "bin_start": -0.0750919422363745,
+     "bin_end": -0.0716214502589497,
+     "count": 1
+    },
+    {
+     "bin_start": -0.0716214502589497,
+     "bin_end": -0.06815095828152488,
+     "count": 0
+    },
+    {
+     "bin_start": -0.06815095828152488,
+     "bin_end": -0.06468046630410008,
+     "count": 1
+    },
+    {
+     "bin_start": -0.06468046630410008,
+     "bin_end": -0.06120997432667528,
+     "count": 0
+    },
+    "... 36 more items (total 40)"
+   ]
+  }
+ }
+}

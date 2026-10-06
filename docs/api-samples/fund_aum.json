@@ -1,0 +1,32 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "/api/v1/funds/1/aum",
+  "params": null
+ },
+ "status": 200,
+ "body": {
+  "fund_id": 1,
+  "unit": "INR crore",
+  "is_synthetic": true,
+  "points": [
+   {
+    "date": "2021-01-29",
+    "value": 3323.59
+   },
+   {
+    "date": "2021-02-26",
+    "value": 3485.42
+   },
+   {
+    "date": "2021-03-31",
+    "value": 3464.08
+   },
+   {
+    "date": "2021-04-30",
+    "value": 3461.55
+   },
+   "... 65 more items (total 69)"
+  ]
+ }
+}

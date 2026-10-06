@@ -1,0 +1,44 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "/api/v1/system/status",
+  "params": null
+ },
+ "status": 200,
+ "body": {
+  "app": {
+   "name": "FinSense AI",
+   "environment": "development"
+  },
+  "llm": {
+   "configured": false,
+   "provider": "none",
+   "model": null,
+   "mode_without_llm": "extractive answers (verbatim passages with citations)"
+  },
+  "embeddings": {
+   "provider": "wordllama",
+   "model": "l2_supercat",
+   "dimensions": 256
+  },
+  "reranker": "none",
+  "live_data": {
+   "amfi_enabled": false
+  },
+  "email": {
+   "password_reset_available": false
+  },
+  "conventions": {
+   "risk_free_rate": 0.065,
+   "trading_days_per_year": 252,
+   "stale_after_days": 7
+  },
+  "data": {
+   "synthetic_funds": 10,
+   "real_funds": 0,
+   "latest_nav_date": "2026-09-30",
+   "documents": 4
+  },
+  "notice": "Synthetic demonstration data is fictional and is labelled wherever it is shown."
+ }
+}

@@ -1,0 +1,33 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "/api/v1/funds/1/nav",
+  "params": {
+   "period": "1y"
+  }
+ },
+ "status": 200,
+ "body": {
+  "fund_id": 1,
+  "unit": "INR per unit",
+  "points": [
+   {
+    "date": "2021-01-04",
+    "nav": 52.7859
+   },
+   {
+    "date": "2021-01-05",
+    "nav": 52.4911
+   },
+   {
+    "date": "2021-01-06",
+    "nav": 52.804
+   },
+   {
+    "date": "2021-01-07",
+    "nav": 53.2698
+   },
+   "... 1494 more items (total 1498)"
+  ]
+ }
+}

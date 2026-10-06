@@ -1,0 +1,20 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "/api/v1/portfolios/1aa9f7ca-5107-4186-9cc9-c04d2ef8a6d0/optimize",
+  "json": {
+   "max_weight": 0.2
+  }
+ },
+ "status": 422,
+ "body": {
+  "error": {
+   "code": "infeasible",
+   "message": "With 4 assets and a maximum weight of 20%, the weights can add up to at most 80%. Raise the maximum weight to at least 25.0% or add assets.",
+   "details": {
+    "n_assets": 4,
+    "max_weight": 0.2
+   }
+  }
+ }
+}

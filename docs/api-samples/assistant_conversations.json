@@ -1,0 +1,32 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "/api/v1/assistant/conversations",
+  "params": null
+ },
+ "status": 200,
+ "body": {
+  "items": [
+   {
+    "id": "51e5fbae-d8f0-4c32-8f60-1c63ccc04803",
+    "title": "What is the price of gold today?",
+    "updated_at": "2026-10-05T20:52:23.924966+00:00"
+   },
+   {
+    "id": "fd5df16e-023e-41c3-9514-0ea8eb981cd5",
+    "title": "What are the assets under management of Aurora Bluechip Equity Fund?",
+    "updated_at": "2026-10-05T20:52:23.877245+00:00"
+   },
+   {
+    "id": "14055620-caff-4df1-84ba-a2df86ddd777",
+    "title": "Compare Aurora Bluechip and Northstar Midcap over 3 years",
+    "updated_at": "2026-10-05T20:52:23.768290+00:00"
+   },
+   {
+    "id": "a1cddc70-6a67-4c2c-ac9f-3271ffd25ca6",
+    "title": "What is the exit load of FS-DB-007?",
+    "updated_at": "2026-10-05T20:52:23.722470+00:00"
+   }
+  ]
+ }
+}

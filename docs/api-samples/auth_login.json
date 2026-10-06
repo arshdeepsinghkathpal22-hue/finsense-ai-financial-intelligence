@@ -1,0 +1,19 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "/api/v1/auth/login"
+ },
+ "status": 200,
+ "body": {
+  "user": {
+   "id": "e5ef9687-5fa8-4fc4-8ad8-2c995004374d",
+   "email": "sample-f5d869fc@example.com",
+   "display_name": "Sample",
+   "role": "user",
+   "preferences": {},
+   "created_at": "2026-10-05T20:52:18.851161Z"
+  },
+  "csrf_token": "X4D24QCP3g-Toa-ciWIN-j2NYaM6-9oB9B20YQWM958",
+  "expires_at": "2026-10-06T08:52:19.226946Z"
+ }
+}

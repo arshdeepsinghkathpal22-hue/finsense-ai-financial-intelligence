@@ -1,0 +1,4525 @@
+{
+ "openapi": "3.1.0",
+ "info": {
+  "title": "FinSense AI API",
+  "description": "Financial analytics, portfolio optimisation, ML forecasting and RAG research API. Decision support only - not investment advice.",
+  "version": "1.0.0"
+ },
+ "paths": {
+  "/api/v1/health": {
+   "get": {
+    "tags": [
+     "system"
+    ],
+    "summary": "Health",
+    "operationId": "health_api_v1_health_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Health Api V1 Health Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/health/ready": {
+   "get": {
+    "tags": [
+     "system"
+    ],
+    "summary": "Ready",
+    "operationId": "ready_api_v1_health_ready_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Ready Api V1 Health Ready Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/system/status": {
+   "get": {
+    "tags": [
+     "system"
+    ],
+    "summary": "System Status",
+    "description": "What is configured - never secrets, hosts or credentials.",
+    "operationId": "system_status_api_v1_system_status_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response System Status Api V1 System Status Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/auth/register": {
+   "post": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Register",
+    "operationId": "register_api_v1_auth_register_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/RegisterRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/UserOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/auth/login": {
+   "post": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Login",
+    "operationId": "login_api_v1_auth_login_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/LoginRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/SessionOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/auth/logout": {
+   "post": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Logout",
+    "operationId": "logout_api_v1_auth_logout_post",
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     }
+    }
+   }
+  },
+  "/api/v1/auth/logout-all": {
+   "post": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Logout All",
+    "operationId": "logout_all_api_v1_auth_logout_all_post",
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     }
+    }
+   }
+  },
+  "/api/v1/auth/me": {
+   "get": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Me",
+    "operationId": "me_api_v1_auth_me_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/UserOut"
+        }
+       }
+      }
+     }
+    }
+   },
+   "patch": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Update Me",
+    "operationId": "update_me_api_v1_auth_me_patch",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ProfileUpdate"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/UserOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/auth/change-password": {
+   "post": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Change Password",
+    "operationId": "change_password_api_v1_auth_change_password_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ChangePasswordRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/auth/password-reset/request": {
+   "post": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Password Reset Request",
+    "operationId": "password_reset_request_api_v1_auth_password_reset_request_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ResetRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "202": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Password Reset Request Api V1 Auth Password Reset Request Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/auth/password-reset/confirm": {
+   "post": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Password Reset Confirm",
+    "operationId": "password_reset_confirm_api_v1_auth_password_reset_confirm_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ResetConfirm"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/funds": {
+   "get": {
+    "tags": [
+     "funds"
+    ],
+    "summary": "List Funds",
+    "operationId": "list_funds_api_v1_funds_get",
+    "parameters": [
+     {
+      "name": "q",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string",
+         "maxLength": 100
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Q"
+      }
+     },
+     {
+      "name": "category",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string",
+         "maxLength": 80
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Category"
+      }
+     },
+     {
+      "name": "asset_class",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string",
+         "maxLength": 24
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Asset Class"
+      }
+     },
+     {
+      "name": "page",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "minimum": 1,
+       "default": 1,
+       "title": "Page"
+      }
+     },
+     {
+      "name": "page_size",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 100,
+       "minimum": 1,
+       "default": 25,
+       "title": "Page Size"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response List Funds Api V1 Funds Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/funds/categories": {
+   "get": {
+    "tags": [
+     "funds"
+    ],
+    "summary": "Categories",
+    "operationId": "categories_api_v1_funds_categories_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Categories Api V1 Funds Categories Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/funds/compare": {
+   "get": {
+    "tags": [
+     "funds"
+    ],
+    "summary": "Compare",
+    "operationId": "compare_api_v1_funds_compare_get",
+    "parameters": [
+     {
+      "name": "ids",
+      "in": "query",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "maxLength": 100,
+       "description": "Comma-separated fund ids (2-5)",
+       "title": "Ids"
+      },
+      "description": "Comma-separated fund ids (2-5)"
+     },
+     {
+      "name": "period",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "enum": [
+        "1m",
+        "3m",
+        "6m",
+        "1y",
+        "3y",
+        "5y",
+        "max"
+       ],
+       "type": "string",
+       "default": "3y",
+       "title": "Period"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Compare Api V1 Funds Compare Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/funds/{fund_id}": {
+   "get": {
+    "tags": [
+     "funds"
+    ],
+    "summary": "Fund Detail",
+    "operationId": "fund_detail_api_v1_funds__fund_id__get",
+    "parameters": [
+     {
+      "name": "fund_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Fund Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Fund Detail Api V1 Funds  Fund Id  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/funds/{fund_id}/nav": {
+   "get": {
+    "tags": [
+     "funds"
+    ],
+    "summary": "Fund Nav",
+    "operationId": "fund_nav_api_v1_funds__fund_id__nav_get",
+    "parameters": [
+     {
+      "name": "fund_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Fund Id"
+      }
+     },
+     {
+      "name": "start",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string",
+         "format": "date"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Start"
+      }
+     },
+     {
+      "name": "end",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string",
+         "format": "date"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "End"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Fund Nav Api V1 Funds  Fund Id  Nav Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/funds/{fund_id}/risk": {
+   "get": {
+    "tags": [
+     "funds"
+    ],
+    "summary": "Fund Risk",
+    "operationId": "fund_risk_api_v1_funds__fund_id__risk_get",
+    "parameters": [
+     {
+      "name": "fund_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Fund Id"
+      }
+     },
+     {
+      "name": "period",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "enum": [
+        "1m",
+        "3m",
+        "6m",
+        "1y",
+        "3y",
+        "5y",
+        "max"
+       ],
+       "type": "string",
+       "default": "3y",
+       "title": "Period"
+      }
+     },
+     {
+      "name": "risk_free_rate",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "number",
+         "maximum": 0.2,
+         "minimum": 0
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Risk Free Rate"
+      }
+     },
+     {
+      "name": "confidence",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "number",
+       "maximum": 0.995,
+       "minimum": 0.9,
+       "default": 0.95,
+       "title": "Confidence"
+      }
+     },
+     {
+      "name": "start",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string",
+         "format": "date"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Start"
+      }
+     },
+     {
+      "name": "end",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string",
+         "format": "date"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "End"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Fund Risk Api V1 Funds  Fund Id  Risk Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/funds/{fund_id}/holdings": {
+   "get": {
+    "tags": [
+     "funds"
+    ],
+    "summary": "Fund Holdings",
+    "operationId": "fund_holdings_api_v1_funds__fund_id__holdings_get",
+    "parameters": [
+     {
+      "name": "fund_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Fund Id"
+      }
+     },
+     {
+      "name": "as_of",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string",
+         "format": "date"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "As Of"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Fund Holdings Api V1 Funds  Fund Id  Holdings Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/funds/{fund_id}/aum": {
+   "get": {
+    "tags": [
+     "funds"
+    ],
+    "summary": "Fund Aum",
+    "operationId": "fund_aum_api_v1_funds__fund_id__aum_get",
+    "parameters": [
+     {
+      "name": "fund_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Fund Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Fund Aum Api V1 Funds  Fund Id  Aum Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/funds/{fund_id}/sip": {
+   "get": {
+    "tags": [
+     "funds"
+    ],
+    "summary": "Fund Sip",
+    "operationId": "fund_sip_api_v1_funds__fund_id__sip_get",
+    "parameters": [
+     {
+      "name": "fund_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Fund Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Fund Sip Api V1 Funds  Fund Id  Sip Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/benchmarks": {
+   "get": {
+    "tags": [
+     "funds"
+    ],
+    "summary": "List Benchmarks",
+    "operationId": "list_benchmarks_api_v1_benchmarks_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response List Benchmarks Api V1 Benchmarks Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/benchmarks/{benchmark_id}/series": {
+   "get": {
+    "tags": [
+     "funds"
+    ],
+    "summary": "Benchmark Series",
+    "operationId": "benchmark_series_api_v1_benchmarks__benchmark_id__series_get",
+    "parameters": [
+     {
+      "name": "benchmark_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Benchmark Id"
+      }
+     },
+     {
+      "name": "start",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string",
+         "format": "date"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Start"
+      }
+     },
+     {
+      "name": "end",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string",
+         "format": "date"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "End"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Benchmark Series Api V1 Benchmarks  Benchmark Id  Series Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/analytics/correlation": {
+   "post": {
+    "tags": [
+     "funds"
+    ],
+    "summary": "Correlation",
+    "operationId": "correlation_api_v1_analytics_correlation_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/CorrelationRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Correlation Api V1 Analytics Correlation Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/dashboard": {
+   "get": {
+    "tags": [
+     "insights"
+    ],
+    "summary": "Dashboard",
+    "operationId": "dashboard_api_v1_dashboard_get",
+    "parameters": [
+     {
+      "name": "portfolio_id",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string",
+         "format": "uuid"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Portfolio Id"
+      }
+     },
+     {
+      "name": "fund_id",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "integer"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Fund Id"
+      }
+     },
+     {
+      "name": "period",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "enum": [
+        "1y",
+        "3y",
+        "5y",
+        "max"
+       ],
+       "type": "string",
+       "default": "3y",
+       "title": "Period"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Dashboard Api V1 Dashboard Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/simulate/sip": {
+   "post": {
+    "tags": [
+     "insights"
+    ],
+    "summary": "Simulate Sip",
+    "operationId": "simulate_sip_api_v1_simulate_sip_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/SipRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Simulate Sip Api V1 Simulate Sip Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/simulate/monte-carlo": {
+   "post": {
+    "tags": [
+     "insights"
+    ],
+    "summary": "Simulate Monte Carlo",
+    "operationId": "simulate_monte_carlo_api_v1_simulate_monte_carlo_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/MonteCarloRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Simulate Monte Carlo Api V1 Simulate Monte Carlo Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/simulate/market-shock": {
+   "post": {
+    "tags": [
+     "insights"
+    ],
+    "summary": "Simulate Market Shock",
+    "operationId": "simulate_market_shock_api_v1_simulate_market_shock_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ShockRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Simulate Market Shock Api V1 Simulate Market Shock Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/simulate/stress": {
+   "post": {
+    "tags": [
+     "insights"
+    ],
+    "summary": "Simulate Stress",
+    "operationId": "simulate_stress_api_v1_simulate_stress_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/StressRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Simulate Stress Api V1 Simulate Stress Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/simulate/allocation-change": {
+   "post": {
+    "tags": [
+     "insights"
+    ],
+    "summary": "Simulate Allocation Change",
+    "operationId": "simulate_allocation_change_api_v1_simulate_allocation_change_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/AllocationChangeRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Simulate Allocation Change Api V1 Simulate Allocation Change Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/ml/capabilities": {
+   "get": {
+    "tags": [
+     "insights"
+    ],
+    "summary": "Ml Capabilities",
+    "operationId": "ml_capabilities_api_v1_ml_capabilities_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Ml Capabilities Api V1 Ml Capabilities Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/ml/forecast": {
+   "post": {
+    "tags": [
+     "insights"
+    ],
+    "summary": "Ml Forecast",
+    "operationId": "ml_forecast_api_v1_ml_forecast_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ForecastRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Ml Forecast Api V1 Ml Forecast Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/ml/anomalies": {
+   "post": {
+    "tags": [
+     "insights"
+    ],
+    "summary": "Ml Anomalies",
+    "operationId": "ml_anomalies_api_v1_ml_anomalies_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/AnomalyRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Ml Anomalies Api V1 Ml Anomalies Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/ml/models": {
+   "get": {
+    "tags": [
+     "insights"
+    ],
+    "summary": "Ml Models",
+    "operationId": "ml_models_api_v1_ml_models_get",
+    "parameters": [
+     {
+      "name": "fund_id",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "integer"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Fund Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Ml Models Api V1 Ml Models Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/portfolios": {
+   "get": {
+    "tags": [
+     "portfolios"
+    ],
+    "summary": "List Portfolios",
+    "operationId": "list_portfolios_api_v1_portfolios_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response List Portfolios Api V1 Portfolios Get"
+        }
+       }
+      }
+     }
+    }
+   },
+   "post": {
+    "tags": [
+     "portfolios"
+    ],
+    "summary": "Create Portfolio",
+    "operationId": "create_portfolio_api_v1_portfolios_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PortfolioIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Create Portfolio Api V1 Portfolios Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/portfolios/import": {
+   "post": {
+    "tags": [
+     "portfolios"
+    ],
+    "summary": "Import Portfolio",
+    "description": "Creates a portfolio from a CSV with columns scheme_code, weight_pct.",
+    "operationId": "import_portfolio_api_v1_portfolios_import_post",
+    "requestBody": {
+     "content": {
+      "multipart/form-data": {
+       "schema": {
+        "$ref": "#/components/schemas/Body_import_portfolio_api_v1_portfolios_import_post"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Import Portfolio Api V1 Portfolios Import Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/portfolios/optimize": {
+   "post": {
+    "tags": [
+     "portfolios"
+    ],
+    "summary": "Optimise Ad Hoc",
+    "description": "Optimises an unsaved selection of funds (used by the portfolio builder).",
+    "operationId": "optimise_ad_hoc_api_v1_portfolios_optimize_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/AdHocOptimiseRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Optimise Ad Hoc Api V1 Portfolios Optimize Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/portfolios/{portfolio_id}": {
+   "get": {
+    "tags": [
+     "portfolios"
+    ],
+    "summary": "Get Portfolio",
+    "operationId": "get_portfolio_api_v1_portfolios__portfolio_id__get",
+    "parameters": [
+     {
+      "name": "portfolio_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Portfolio Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Get Portfolio Api V1 Portfolios  Portfolio Id  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "put": {
+    "tags": [
+     "portfolios"
+    ],
+    "summary": "Update Portfolio",
+    "operationId": "update_portfolio_api_v1_portfolios__portfolio_id__put",
+    "parameters": [
+     {
+      "name": "portfolio_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Portfolio Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PortfolioIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Update Portfolio Api V1 Portfolios  Portfolio Id  Put"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "delete": {
+    "tags": [
+     "portfolios"
+    ],
+    "summary": "Delete Portfolio",
+    "operationId": "delete_portfolio_api_v1_portfolios__portfolio_id__delete",
+    "parameters": [
+     {
+      "name": "portfolio_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Portfolio Id"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/portfolios/{portfolio_id}/weights": {
+   "put": {
+    "tags": [
+     "portfolios"
+    ],
+    "summary": "Apply Weights",
+    "description": "Replaces allocations (e.g. to apply an optimised allocation), keeping other settings.",
+    "operationId": "apply_weights_api_v1_portfolios__portfolio_id__weights_put",
+    "parameters": [
+     {
+      "name": "portfolio_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Portfolio Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/WeightsIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Apply Weights Api V1 Portfolios  Portfolio Id  Weights Put"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/portfolios/{portfolio_id}/analytics": {
+   "get": {
+    "tags": [
+     "portfolios"
+    ],
+    "summary": "Portfolio Analytics",
+    "operationId": "portfolio_analytics_api_v1_portfolios__portfolio_id__analytics_get",
+    "parameters": [
+     {
+      "name": "portfolio_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Portfolio Id"
+      }
+     },
+     {
+      "name": "period",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "enum": [
+        "1y",
+        "3y",
+        "5y",
+        "max"
+       ],
+       "type": "string",
+       "default": "3y",
+       "title": "Period"
+      }
+     },
+     {
+      "name": "confidence",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "number",
+       "maximum": 0.995,
+       "minimum": 0.9,
+       "default": 0.95,
+       "title": "Confidence"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Portfolio Analytics Api V1 Portfolios  Portfolio Id  Analytics Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/portfolios/{portfolio_id}/optimize": {
+   "post": {
+    "tags": [
+     "portfolios"
+    ],
+    "summary": "Optimise Portfolio",
+    "operationId": "optimise_portfolio_api_v1_portfolios__portfolio_id__optimize_post",
+    "parameters": [
+     {
+      "name": "portfolio_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Portfolio Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/OptimiseRequest"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Optimise Portfolio Api V1 Portfolios  Portfolio Id  Optimize Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/portfolios/{portfolio_id}/export.csv": {
+   "get": {
+    "tags": [
+     "portfolios"
+    ],
+    "summary": "Export Portfolio",
+    "operationId": "export_portfolio_api_v1_portfolios__portfolio_id__export_csv_get",
+    "parameters": [
+     {
+      "name": "portfolio_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Portfolio Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/documents": {
+   "get": {
+    "tags": [
+     "documents"
+    ],
+    "summary": "List Documents",
+    "operationId": "list_documents_api_v1_documents_get",
+    "parameters": [
+     {
+      "name": "status",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "enum": [
+          "pending",
+          "processing",
+          "indexed",
+          "failed",
+          "needs_ocr"
+         ],
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Status"
+      }
+     },
+     {
+      "name": "page",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "minimum": 1,
+       "default": 1,
+       "title": "Page"
+      }
+     },
+     {
+      "name": "page_size",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 100,
+       "minimum": 1,
+       "default": 50,
+       "title": "Page Size"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response List Documents Api V1 Documents Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "post": {
+    "tags": [
+     "documents"
+    ],
+    "summary": "Upload Document",
+    "operationId": "upload_document_api_v1_documents_post",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "multipart/form-data": {
+       "schema": {
+        "$ref": "#/components/schemas/Body_upload_document_api_v1_documents_post"
+       }
+      }
+     }
+    },
+    "responses": {
+     "202": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Upload Document Api V1 Documents Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/documents/{document_id}": {
+   "get": {
+    "tags": [
+     "documents"
+    ],
+    "summary": "Get Document",
+    "operationId": "get_document_api_v1_documents__document_id__get",
+    "parameters": [
+     {
+      "name": "document_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Document Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Get Document Api V1 Documents  Document Id  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "delete": {
+    "tags": [
+     "documents"
+    ],
+    "summary": "Delete Document",
+    "operationId": "delete_document_api_v1_documents__document_id__delete",
+    "parameters": [
+     {
+      "name": "document_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Document Id"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/documents/{document_id}/chunks": {
+   "get": {
+    "tags": [
+     "documents"
+    ],
+    "summary": "Document Chunks",
+    "operationId": "document_chunks_api_v1_documents__document_id__chunks_get",
+    "parameters": [
+     {
+      "name": "document_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Document Id"
+      }
+     },
+     {
+      "name": "page",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "minimum": 1,
+       "default": 1,
+       "title": "Page"
+      }
+     },
+     {
+      "name": "page_size",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 100,
+       "minimum": 1,
+       "default": 20,
+       "title": "Page Size"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Document Chunks Api V1 Documents  Document Id  Chunks Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/documents/{document_id}/chunks/{chunk_id}": {
+   "get": {
+    "tags": [
+     "documents"
+    ],
+    "summary": "Document Chunk",
+    "operationId": "document_chunk_api_v1_documents__document_id__chunks__chunk_id__get",
+    "parameters": [
+     {
+      "name": "document_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Document Id"
+      }
+     },
+     {
+      "name": "chunk_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Chunk Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Document Chunk Api V1 Documents  Document Id  Chunks  Chunk Id  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/documents/{document_id}/file": {
+   "get": {
+    "tags": [
+     "documents"
+    ],
+    "summary": "Download Document",
+    "operationId": "download_document_api_v1_documents__document_id__file_get",
+    "parameters": [
+     {
+      "name": "document_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Document Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/documents/{document_id}/reindex": {
+   "post": {
+    "tags": [
+     "documents"
+    ],
+    "summary": "Reindex Document",
+    "operationId": "reindex_document_api_v1_documents__document_id__reindex_post",
+    "parameters": [
+     {
+      "name": "document_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Document Id"
+      }
+     }
+    ],
+    "responses": {
+     "202": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Reindex Document Api V1 Documents  Document Id  Reindex Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/documents/search": {
+   "post": {
+    "tags": [
+     "documents"
+    ],
+    "summary": "Search Documents",
+    "operationId": "search_documents_api_v1_documents_search_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/SearchRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Search Documents Api V1 Documents Search Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/assistant/query": {
+   "post": {
+    "tags": [
+     "assistant"
+    ],
+    "summary": "Query",
+    "operationId": "query_api_v1_assistant_query_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/QueryRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Query Api V1 Assistant Query Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/assistant/conversations": {
+   "get": {
+    "tags": [
+     "assistant"
+    ],
+    "summary": "List Conversations",
+    "operationId": "list_conversations_api_v1_assistant_conversations_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response List Conversations Api V1 Assistant Conversations Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/assistant/conversations/{conversation_id}": {
+   "get": {
+    "tags": [
+     "assistant"
+    ],
+    "summary": "Get Conversation",
+    "operationId": "get_conversation_api_v1_assistant_conversations__conversation_id__get",
+    "parameters": [
+     {
+      "name": "conversation_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Conversation Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Get Conversation Api V1 Assistant Conversations  Conversation Id  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "delete": {
+    "tags": [
+     "assistant"
+    ],
+    "summary": "Delete Conversation",
+    "operationId": "delete_conversation_api_v1_assistant_conversations__conversation_id__delete",
+    "parameters": [
+     {
+      "name": "conversation_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Conversation Id"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/admin/imports/{kind}": {
+   "post": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "Import Csv",
+    "operationId": "import_csv_api_v1_admin_imports__kind__post",
+    "parameters": [
+     {
+      "name": "kind",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "enum": [
+        "benchmarks",
+        "benchmark_values",
+        "funds",
+        "nav",
+        "aum",
+        "sip_flows",
+        "holdings"
+       ],
+       "type": "string",
+       "title": "Kind"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "multipart/form-data": {
+       "schema": {
+        "$ref": "#/components/schemas/Body_import_csv_api_v1_admin_imports__kind__post"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Import Csv Api V1 Admin Imports  Kind  Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/admin/imports": {
+   "get": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "List Imports",
+    "operationId": "list_imports_api_v1_admin_imports_get",
+    "parameters": [
+     {
+      "name": "page",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "minimum": 1,
+       "default": 1,
+       "title": "Page"
+      }
+     },
+     {
+      "name": "page_size",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 100,
+       "minimum": 1,
+       "default": 25,
+       "title": "Page Size"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response List Imports Api V1 Admin Imports Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/admin/imports/{batch_id}": {
+   "get": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "Get Import",
+    "operationId": "get_import_api_v1_admin_imports__batch_id__get",
+    "parameters": [
+     {
+      "name": "batch_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "Batch Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Get Import Api V1 Admin Imports  Batch Id  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/admin/data-status": {
+   "get": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "Data Status",
+    "operationId": "data_status_api_v1_admin_data_status_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Data Status Api V1 Admin Data Status Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/admin/documents/reindex-outdated": {
+   "post": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "Reindex Outdated",
+    "operationId": "reindex_outdated_api_v1_admin_documents_reindex_outdated_post",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Reindex Outdated Api V1 Admin Documents Reindex Outdated Post"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/admin/rag/diagnostics": {
+   "post": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "Rag Diagnostics",
+    "description": "Full retrieval trace for the administrator's own document access.\n\nIncludes scores from every stage and the exact prompt that would be sent\nto the language model. It runs with the admin's permissions, so it never\nexposes other users' private documents.",
+    "operationId": "rag_diagnostics_api_v1_admin_rag_diagnostics_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/DiagnosticsRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Rag Diagnostics Api V1 Admin Rag Diagnostics Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/admin/rag/evaluate": {
+   "post": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "Rag Evaluate",
+    "operationId": "rag_evaluate_api_v1_admin_rag_evaluate_post",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Rag Evaluate Api V1 Admin Rag Evaluate Post"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/admin/rag/evaluations/latest": {
+   "get": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "Latest Evaluation",
+    "operationId": "latest_evaluation_api_v1_admin_rag_evaluations_latest_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Latest Evaluation Api V1 Admin Rag Evaluations Latest Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/admin/audit": {
+   "get": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "Audit Log",
+    "operationId": "audit_log_api_v1_admin_audit_get",
+    "parameters": [
+     {
+      "name": "page",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "minimum": 1,
+       "default": 1,
+       "title": "Page"
+      }
+     },
+     {
+      "name": "page_size",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 200,
+       "minimum": 1,
+       "default": 50,
+       "title": "Page Size"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Audit Log Api V1 Admin Audit Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/admin/users": {
+   "get": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "List Users",
+    "operationId": "list_users_api_v1_admin_users_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response List Users Api V1 Admin Users Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/admin/users/{user_id}": {
+   "patch": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "Update User",
+    "operationId": "update_user_api_v1_admin_users__user_id__patch",
+    "parameters": [
+     {
+      "name": "user_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "format": "uuid",
+       "title": "User Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/UserUpdate"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Update User Api V1 Admin Users  User Id  Patch"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/admin/amfi/register": {
+   "post": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "Amfi Register",
+    "operationId": "amfi_register_api_v1_admin_amfi_register_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/AmfiRegister"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Amfi Register Api V1 Admin Amfi Register Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/admin/amfi/sync": {
+   "post": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "Amfi Sync",
+    "operationId": "amfi_sync_api_v1_admin_amfi_sync_post",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Amfi Sync Api V1 Admin Amfi Sync Post"
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "components": {
+  "schemas": {
+   "AdHocOptimiseRequest": {
+    "properties": {
+     "objective": {
+      "type": "string",
+      "enum": [
+       "mean_variance",
+       "min_variance",
+       "max_sharpe"
+      ],
+      "title": "Objective",
+      "default": "mean_variance"
+     },
+     "risk_profile": {
+      "anyOf": [
+       {
+        "type": "string",
+        "enum": [
+         "conservative",
+         "moderate",
+         "aggressive"
+        ]
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Risk Profile",
+      "default": "moderate"
+     },
+     "risk_aversion": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 100.0,
+        "exclusiveMinimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Risk Aversion"
+     },
+     "min_weight": {
+      "type": "number",
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Min Weight",
+      "default": 0.0
+     },
+     "max_weight": {
+      "type": "number",
+      "maximum": 1.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Max Weight",
+      "default": 1.0
+     },
+     "lookback": {
+      "type": "string",
+      "enum": [
+       "1y",
+       "3y",
+       "5y",
+       "max"
+      ],
+      "title": "Lookback",
+      "default": "3y"
+     },
+     "risk_free_rate": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 0.2,
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Risk Free Rate"
+     },
+     "fund_ids": {
+      "items": {
+       "type": "integer"
+      },
+      "type": "array",
+      "maxItems": 20,
+      "minItems": 2,
+      "title": "Fund Ids"
+     },
+     "current_weights_pct": {
+      "anyOf": [
+       {
+        "items": {
+         "type": "number"
+        },
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Current Weights Pct"
+     }
+    },
+    "type": "object",
+    "required": [
+     "fund_ids"
+    ],
+    "title": "AdHocOptimiseRequest"
+   },
+   "AllocationChangeRequest": {
+    "properties": {
+     "fund_ids": {
+      "items": {
+       "type": "integer"
+      },
+      "type": "array",
+      "maxItems": 20,
+      "minItems": 1,
+      "title": "Fund Ids"
+     },
+     "current_weights_pct": {
+      "items": {
+       "type": "number"
+      },
+      "type": "array",
+      "title": "Current Weights Pct"
+     },
+     "proposed_weights_pct": {
+      "items": {
+       "type": "number"
+      },
+      "type": "array",
+      "title": "Proposed Weights Pct"
+     },
+     "lookback": {
+      "type": "string",
+      "enum": [
+       "1y",
+       "3y",
+       "5y",
+       "max"
+      ],
+      "title": "Lookback",
+      "default": "3y"
+     }
+    },
+    "type": "object",
+    "required": [
+     "fund_ids",
+     "current_weights_pct",
+     "proposed_weights_pct"
+    ],
+    "title": "AllocationChangeRequest"
+   },
+   "AmfiRegister": {
+    "properties": {
+     "scheme_code": {
+      "type": "string",
+      "pattern": "^\\d{3,8}$",
+      "title": "Scheme Code"
+     },
+     "category": {
+      "type": "string",
+      "maxLength": 80,
+      "minLength": 2,
+      "title": "Category"
+     },
+     "asset_class": {
+      "type": "string",
+      "enum": [
+       "equity",
+       "debt",
+       "hybrid",
+       "other"
+      ],
+      "title": "Asset Class"
+     }
+    },
+    "type": "object",
+    "required": [
+     "scheme_code",
+     "category",
+     "asset_class"
+    ],
+    "title": "AmfiRegister"
+   },
+   "AnomalyRequest": {
+    "properties": {
+     "fund_id": {
+      "type": "integer",
+      "title": "Fund Id"
+     },
+     "contamination": {
+      "type": "number",
+      "maximum": 0.1,
+      "minimum": 0.001,
+      "title": "Contamination",
+      "default": 0.01
+     }
+    },
+    "type": "object",
+    "required": [
+     "fund_id"
+    ],
+    "title": "AnomalyRequest"
+   },
+   "AssetIn": {
+    "properties": {
+     "fund_id": {
+      "type": "integer",
+      "title": "Fund Id"
+     },
+     "weight_pct": {
+      "type": "number",
+      "maximum": 100.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Weight Pct"
+     }
+    },
+    "type": "object",
+    "required": [
+     "fund_id",
+     "weight_pct"
+    ],
+    "title": "AssetIn"
+   },
+   "Body_import_csv_api_v1_admin_imports__kind__post": {
+    "properties": {
+     "file": {
+      "type": "string",
+      "contentMediaType": "application/octet-stream",
+      "title": "File"
+     },
+     "source_code": {
+      "type": "string",
+      "enum": [
+       "csv-import",
+       "synthetic-demo"
+      ],
+      "title": "Source Code",
+      "default": "csv-import"
+     }
+    },
+    "type": "object",
+    "required": [
+     "file"
+    ],
+    "title": "Body_import_csv_api_v1_admin_imports__kind__post"
+   },
+   "Body_import_portfolio_api_v1_portfolios_import_post": {
+    "properties": {
+     "file": {
+      "type": "string",
+      "contentMediaType": "application/octet-stream",
+      "title": "File"
+     },
+     "name": {
+      "type": "string",
+      "maxLength": 100,
+      "minLength": 1,
+      "title": "Name"
+     },
+     "initial_value": {
+      "type": "number",
+      "maximum": 1000000000000.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Initial Value",
+      "default": 100000.0
+     }
+    },
+    "type": "object",
+    "required": [
+     "file",
+     "name"
+    ],
+    "title": "Body_import_portfolio_api_v1_portfolios_import_post"
+   },
+   "Body_upload_document_api_v1_documents_post": {
+    "properties": {
+     "file": {
+      "type": "string",
+      "contentMediaType": "application/octet-stream",
+      "title": "File"
+     },
+     "doc_type": {
+      "type": "string",
+      "enum": [
+       "factsheet",
+       "annual_report",
+       "sid",
+       "research",
+       "other"
+      ],
+      "title": "Doc Type",
+      "default": "other"
+     },
+     "title": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 200
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Title"
+     },
+     "fund_id": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Fund Id"
+     },
+     "as_of_date": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "date"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "As Of Date"
+     },
+     "visibility": {
+      "type": "string",
+      "enum": [
+       "private",
+       "shared"
+      ],
+      "title": "Visibility",
+      "default": "private"
+     }
+    },
+    "type": "object",
+    "required": [
+     "file"
+    ],
+    "title": "Body_upload_document_api_v1_documents_post"
+   },
+   "ChangePasswordRequest": {
+    "properties": {
+     "current_password": {
+      "type": "string",
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Current Password"
+     },
+     "new_password": {
+      "type": "string",
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "New Password"
+     }
+    },
+    "type": "object",
+    "required": [
+     "current_password",
+     "new_password"
+    ],
+    "title": "ChangePasswordRequest"
+   },
+   "CorrelationRequest": {
+    "properties": {
+     "fund_ids": {
+      "items": {
+       "type": "integer"
+      },
+      "type": "array",
+      "maxItems": 12,
+      "minItems": 2,
+      "title": "Fund Ids"
+     },
+     "start": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "date"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Start"
+     },
+     "end": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "date"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "End"
+     }
+    },
+    "type": "object",
+    "required": [
+     "fund_ids"
+    ],
+    "title": "CorrelationRequest"
+   },
+   "DiagnosticsRequest": {
+    "properties": {
+     "query": {
+      "type": "string",
+      "maxLength": 1000,
+      "minLength": 2,
+      "title": "Query"
+     },
+     "previous_questions": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "maxItems": 5,
+      "title": "Previous Questions"
+     },
+     "mode": {
+      "type": "string",
+      "enum": [
+       "hybrid",
+       "vector",
+       "lexical"
+      ],
+      "title": "Mode",
+      "default": "hybrid"
+     }
+    },
+    "type": "object",
+    "required": [
+     "query"
+    ],
+    "title": "DiagnosticsRequest"
+   },
+   "ForecastRequest": {
+    "properties": {
+     "fund_id": {
+      "type": "integer",
+      "title": "Fund Id"
+     },
+     "horizon_days": {
+      "type": "integer",
+      "enum": [
+       5,
+       21,
+       63
+      ],
+      "title": "Horizon Days",
+      "default": 21
+     },
+     "model_type": {
+      "type": "string",
+      "enum": [
+       "ridge",
+       "random_forest",
+       "historical_mean"
+      ],
+      "title": "Model Type",
+      "default": "random_forest"
+     },
+     "explain": {
+      "type": "boolean",
+      "title": "Explain",
+      "default": true
+     }
+    },
+    "type": "object",
+    "required": [
+     "fund_id"
+    ],
+    "title": "ForecastRequest"
+   },
+   "HTTPValidationError": {
+    "properties": {
+     "detail": {
+      "items": {
+       "$ref": "#/components/schemas/ValidationError"
+      },
+      "type": "array",
+      "title": "Detail"
+     }
+    },
+    "type": "object",
+    "title": "HTTPValidationError"
+   },
+   "LoginRequest": {
+    "properties": {
+     "email": {
+      "type": "string",
+      "format": "email",
+      "title": "Email"
+     },
+     "password": {
+      "type": "string",
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Password"
+     }
+    },
+    "type": "object",
+    "required": [
+     "email",
+     "password"
+    ],
+    "title": "LoginRequest"
+   },
+   "MonteCarloRequest": {
+    "properties": {
+     "monthly_amount": {
+      "type": "number",
+      "maximum": 100000000.0,
+      "minimum": 0.0,
+      "title": "Monthly Amount"
+     },
+     "years": {
+      "type": "integer",
+      "maximum": 50.0,
+      "minimum": 1.0,
+      "title": "Years"
+     },
+     "annual_return": {
+      "type": "number",
+      "exclusiveMaximum": 1.0,
+      "exclusiveMinimum": -0.5,
+      "title": "Annual Return"
+     },
+     "lumpsum": {
+      "type": "number",
+      "maximum": 10000000000.0,
+      "minimum": 0.0,
+      "title": "Lumpsum",
+      "default": 0
+     },
+     "annual_step_up": {
+      "type": "number",
+      "maximum": 0.5,
+      "minimum": 0.0,
+      "title": "Annual Step Up",
+      "default": 0
+     },
+     "annual_volatility": {
+      "type": "number",
+      "exclusiveMaximum": 1.5,
+      "minimum": 0.0,
+      "title": "Annual Volatility"
+     },
+     "paths": {
+      "type": "integer",
+      "maximum": 20000.0,
+      "minimum": 100.0,
+      "title": "Paths",
+      "default": 2000
+     },
+     "seed": {
+      "type": "integer",
+      "maximum": 2147483647.0,
+      "minimum": 0.0,
+      "title": "Seed",
+      "default": 7
+     }
+    },
+    "type": "object",
+    "required": [
+     "monthly_amount",
+     "years",
+     "annual_return",
+     "annual_volatility"
+    ],
+    "title": "MonteCarloRequest"
+   },
+   "OptimiseRequest": {
+    "properties": {
+     "objective": {
+      "type": "string",
+      "enum": [
+       "mean_variance",
+       "min_variance",
+       "max_sharpe"
+      ],
+      "title": "Objective",
+      "default": "mean_variance"
+     },
+     "risk_profile": {
+      "anyOf": [
+       {
+        "type": "string",
+        "enum": [
+         "conservative",
+         "moderate",
+         "aggressive"
+        ]
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Risk Profile",
+      "default": "moderate"
+     },
+     "risk_aversion": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 100.0,
+        "exclusiveMinimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Risk Aversion"
+     },
+     "min_weight": {
+      "type": "number",
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Min Weight",
+      "default": 0.0
+     },
+     "max_weight": {
+      "type": "number",
+      "maximum": 1.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Max Weight",
+      "default": 1.0
+     },
+     "lookback": {
+      "type": "string",
+      "enum": [
+       "1y",
+       "3y",
+       "5y",
+       "max"
+      ],
+      "title": "Lookback",
+      "default": "3y"
+     },
+     "risk_free_rate": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 0.2,
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Risk Free Rate"
+     }
+    },
+    "type": "object",
+    "title": "OptimiseRequest"
+   },
+   "PortfolioIn": {
+    "properties": {
+     "name": {
+      "type": "string",
+      "maxLength": 100,
+      "minLength": 1,
+      "title": "Name"
+     },
+     "description": {
+      "type": "string",
+      "maxLength": 500,
+      "title": "Description",
+      "default": ""
+     },
+     "initial_value": {
+      "type": "number",
+      "maximum": 1000000000000.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Initial Value"
+     },
+     "start_date": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "date"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Start Date"
+     },
+     "benchmark_id": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Benchmark Id"
+     },
+     "assets": {
+      "items": {
+       "$ref": "#/components/schemas/AssetIn"
+      },
+      "type": "array",
+      "maxItems": 20,
+      "minItems": 1,
+      "title": "Assets"
+     }
+    },
+    "type": "object",
+    "required": [
+     "name",
+     "initial_value",
+     "assets"
+    ],
+    "title": "PortfolioIn"
+   },
+   "Preferences": {
+    "properties": {
+     "risk_free_rate": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 0.2,
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Risk Free Rate"
+     },
+     "default_period": {
+      "anyOf": [
+       {
+        "type": "string",
+        "enum": [
+         "1y",
+         "3y",
+         "5y",
+         "max"
+        ]
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Default Period"
+     },
+     "risk_profile": {
+      "anyOf": [
+       {
+        "type": "string",
+        "enum": [
+         "conservative",
+         "moderate",
+         "aggressive"
+        ]
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Risk Profile"
+     }
+    },
+    "type": "object",
+    "title": "Preferences"
+   },
+   "ProfileUpdate": {
+    "properties": {
+     "display_name": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 80,
+        "minLength": 1
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Display Name"
+     },
+     "preferences": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Preferences"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     }
+    },
+    "type": "object",
+    "title": "ProfileUpdate"
+   },
+   "QueryRequest": {
+    "properties": {
+     "question": {
+      "type": "string",
+      "maxLength": 1000,
+      "minLength": 2,
+      "title": "Question"
+     },
+     "conversation_id": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "uuid"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Conversation Id"
+     },
+     "document_ids": {
+      "anyOf": [
+       {
+        "items": {
+         "type": "string",
+         "format": "uuid"
+        },
+        "type": "array",
+        "maxItems": 50
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Document Ids"
+     }
+    },
+    "type": "object",
+    "required": [
+     "question"
+    ],
+    "title": "QueryRequest"
+   },
+   "RegisterRequest": {
+    "properties": {
+     "email": {
+      "type": "string",
+      "format": "email",
+      "title": "Email"
+     },
+     "password": {
+      "type": "string",
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Password"
+     },
+     "display_name": {
+      "type": "string",
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Display Name"
+     }
+    },
+    "type": "object",
+    "required": [
+     "email",
+     "password",
+     "display_name"
+    ],
+    "title": "RegisterRequest"
+   },
+   "ResetConfirm": {
+    "properties": {
+     "token": {
+      "type": "string",
+      "maxLength": 200,
+      "minLength": 20,
+      "title": "Token"
+     },
+     "new_password": {
+      "type": "string",
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "New Password"
+     }
+    },
+    "type": "object",
+    "required": [
+     "token",
+     "new_password"
+    ],
+    "title": "ResetConfirm"
+   },
+   "ResetRequest": {
+    "properties": {
+     "email": {
+      "type": "string",
+      "format": "email",
+      "title": "Email"
+     }
+    },
+    "type": "object",
+    "required": [
+     "email"
+    ],
+    "title": "ResetRequest"
+   },
+   "SearchRequest": {
+    "properties": {
+     "query": {
+      "type": "string",
+      "maxLength": 500,
+      "minLength": 2,
+      "title": "Query"
+     },
+     "document_ids": {
+      "anyOf": [
+       {
+        "items": {
+         "type": "string",
+         "format": "uuid"
+        },
+        "type": "array",
+        "maxItems": 50
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Document Ids"
+     },
+     "doc_types": {
+      "anyOf": [
+       {
+        "items": {
+         "type": "string",
+         "enum": [
+          "factsheet",
+          "annual_report",
+          "sid",
+          "research",
+          "other"
+         ]
+        },
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Doc Types"
+     },
+     "top_k": {
+      "type": "integer",
+      "maximum": 20.0,
+      "minimum": 1.0,
+      "title": "Top K",
+      "default": 8
+     }
+    },
+    "type": "object",
+    "required": [
+     "query"
+    ],
+    "title": "SearchRequest"
+   },
+   "SessionOut": {
+    "properties": {
+     "user": {
+      "$ref": "#/components/schemas/UserOut"
+     },
+     "csrf_token": {
+      "type": "string",
+      "title": "Csrf Token"
+     },
+     "expires_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Expires At"
+     }
+    },
+    "type": "object",
+    "required": [
+     "user",
+     "csrf_token",
+     "expires_at"
+    ],
+    "title": "SessionOut"
+   },
+   "ShockRequest": {
+    "properties": {
+     "portfolio_id": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "uuid"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Portfolio Id"
+     },
+     "fund_ids": {
+      "anyOf": [
+       {
+        "items": {
+         "type": "integer"
+        },
+        "type": "array",
+        "maxItems": 20,
+        "minItems": 1
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Fund Ids"
+     },
+     "weights_pct": {
+      "anyOf": [
+       {
+        "items": {
+         "type": "number"
+        },
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Weights Pct"
+     },
+     "lookback": {
+      "type": "string",
+      "enum": [
+       "1y",
+       "3y",
+       "5y",
+       "max"
+      ],
+      "title": "Lookback",
+      "default": "3y"
+     },
+     "market_move": {
+      "type": "number",
+      "maximum": 0.5,
+      "minimum": -0.9,
+      "title": "Market Move"
+     },
+     "portfolio_value": {
+      "anyOf": [
+       {
+        "type": "number",
+        "exclusiveMinimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Portfolio Value"
+     }
+    },
+    "type": "object",
+    "required": [
+     "market_move"
+    ],
+    "title": "ShockRequest"
+   },
+   "SipRequest": {
+    "properties": {
+     "monthly_amount": {
+      "type": "number",
+      "maximum": 100000000.0,
+      "minimum": 0.0,
+      "title": "Monthly Amount"
+     },
+     "years": {
+      "type": "integer",
+      "maximum": 50.0,
+      "minimum": 1.0,
+      "title": "Years"
+     },
+     "annual_return": {
+      "type": "number",
+      "exclusiveMaximum": 1.0,
+      "exclusiveMinimum": -0.5,
+      "title": "Annual Return"
+     },
+     "lumpsum": {
+      "type": "number",
+      "maximum": 10000000000.0,
+      "minimum": 0.0,
+      "title": "Lumpsum",
+      "default": 0
+     },
+     "annual_step_up": {
+      "type": "number",
+      "maximum": 0.5,
+      "minimum": 0.0,
+      "title": "Annual Step Up",
+      "default": 0
+     }
+    },
+    "type": "object",
+    "required": [
+     "monthly_amount",
+     "years",
+     "annual_return"
+    ],
+    "title": "SipRequest"
+   },
+   "StressRequest": {
+    "properties": {
+     "portfolio_id": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "uuid"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Portfolio Id"
+     },
+     "fund_ids": {
+      "anyOf": [
+       {
+        "items": {
+         "type": "integer"
+        },
+        "type": "array",
+        "maxItems": 20,
+        "minItems": 1
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Fund Ids"
+     },
+     "weights_pct": {
+      "anyOf": [
+       {
+        "items": {
+         "type": "number"
+        },
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Weights Pct"
+     },
+     "lookback": {
+      "type": "string",
+      "enum": [
+       "1y",
+       "3y",
+       "5y",
+       "max"
+      ],
+      "title": "Lookback",
+      "default": "3y"
+     },
+     "volatility_multiplier": {
+      "type": "number",
+      "maximum": 5.0,
+      "minimum": 0.1,
+      "title": "Volatility Multiplier",
+      "default": 1.0
+     },
+     "correlation_override": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 1.0,
+        "minimum": -1.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Correlation Override"
+     },
+     "return_shift": {
+      "type": "number",
+      "maximum": 0.5,
+      "minimum": -0.5,
+      "title": "Return Shift",
+      "default": 0.0
+     },
+     "horizon_days": {
+      "type": "integer",
+      "maximum": 252.0,
+      "minimum": 1.0,
+      "title": "Horizon Days",
+      "default": 1
+     },
+     "confidence": {
+      "type": "number",
+      "maximum": 0.995,
+      "minimum": 0.9,
+      "title": "Confidence",
+      "default": 0.95
+     }
+    },
+    "type": "object",
+    "title": "StressRequest"
+   },
+   "UserOut": {
+    "properties": {
+     "id": {
+      "type": "string",
+      "format": "uuid",
+      "title": "Id"
+     },
+     "email": {
+      "type": "string",
+      "title": "Email"
+     },
+     "display_name": {
+      "type": "string",
+      "title": "Display Name"
+     },
+     "role": {
+      "type": "string",
+      "title": "Role"
+     },
+     "preferences": {
+      "additionalProperties": true,
+      "type": "object",
+      "title": "Preferences"
+     },
+     "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Created At"
+     }
+    },
+    "type": "object",
+    "required": [
+     "id",
+     "email",
+     "display_name",
+     "role",
+     "preferences",
+     "created_at"
+    ],
+    "title": "UserOut"
+   },
+   "UserUpdate": {
+    "properties": {
+     "role": {
+      "anyOf": [
+       {
+        "type": "string",
+        "enum": [
+         "user",
+         "admin"
+        ]
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Role"
+     },
+     "is_active": {
+      "anyOf": [
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Is Active"
+     }
+    },
+    "type": "object",
+    "title": "UserUpdate"
+   },
+   "ValidationError": {
+    "properties": {
+     "loc": {
+      "items": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "integer"
+        }
+       ]
+      },
+      "type": "array",
+      "title": "Location"
+     },
+     "msg": {
+      "type": "string",
+      "title": "Message"
+     },
+     "type": {
+      "type": "string",
+      "title": "Error Type"
+     },
+     "input": {
+      "title": "Input"
+     },
+     "ctx": {
+      "type": "object",
+      "title": "Context"
+     }
+    },
+    "type": "object",
+    "required": [
+     "loc",
+     "msg",
+     "type"
+    ],
+    "title": "ValidationError"
+   },
+   "WeightsIn": {
+    "properties": {
+     "assets": {
+      "items": {
+       "$ref": "#/components/schemas/AssetIn"
+      },
+      "type": "array",
+      "maxItems": 20,
+      "minItems": 1,
+      "title": "Assets"
+     }
+    },
+    "type": "object",
+    "required": [
+     "assets"
+    ],
+    "title": "WeightsIn"
+   }
+  }
+ }
+}

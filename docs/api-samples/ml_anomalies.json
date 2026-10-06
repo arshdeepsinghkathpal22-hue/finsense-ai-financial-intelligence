@@ -1,0 +1,179 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "/api/v1/ml/anomalies",
+  "json": {
+   "fund_id": 2,
+   "contamination": 0.01
+  }
+ },
+ "status": 200,
+ "body": {
+  "method": "Isolation Forest (300 trees, random_state=42)",
+  "contamination": 0.01,
+  "features": [
+   {
+    "feature": "return",
+    "label": "daily return"
+   },
+   {
+    "feature": "return_z",
+    "label": "return vs. trailing 3-month volatility"
+   },
+   {
+    "feature": "vol_ratio",
+    "label": "1-month / 6-month volatility"
+   },
+   {
+    "feature": "excess_return",
+    "label": "return minus benchmark return"
+   }
+  ],
+  "observations": 1372,
+  "period": {
+   "start": "2021-06-29",
+   "end": "2026-09-30"
+  },
+  "anomalies": [
+   {
+    "date": "2025-08-21",
+    "nav": 204.3214,
+    "return": -0.058000006454536734,
+    "benchmark_return": -0.008834989916386204,
+    "score": 0.749841719264176,
+    "drivers": [
+     {
+      "feature": "excess_return",
+      "label": "return minus benchmark return",
+      "value": -0.04916501653815053,
+      "robust_z": -15.3896536719662
+     },
+     {
+      "feature": "return_z",
+      "label": "return vs. trailing 3-month volatility",
+      "value": -7.348399112983829,
+      "robust_z": -8.278031849771743
+     },
+     {
+      "feature": "return",
+      "label": "daily return",
+      "value": -0.058000006454536734,
+      "robust_z": -6.151772672947283
+     }
+    ],
+    "interpretation": "Fund-specific move: fund -5.80% versus benchmark -0.88% on the same day."
+   },
+   {
+    "date": "2025-09-22",
+    "nav": 190.4564,
+    "return": -0.05368592968444508,
+    "benchmark_return": -0.06360759716945186,
+    "score": 0.7304335700563052,
+    "drivers": [
+     {
+      "feature": "return_z",
+      "label": "return vs. trailing 3-month volatility",
+      "value": -5.058174250241806,
+      "robust_z": -5.718372189686637
+     },
+     {
+      "feature": "return",
+      "label": "daily return",
+      "value": -0.05368592968444508,
+      "robust_z": -5.698904455813825
+     },
+     {
+      "feature": "excess_return",
+      "label": "return minus benchmark return",
+      "value": 0.00992166748500678,
+      "robust_z": 3.066069566572996
+     }
+    ],
+    "interpretation": "Market-wide move: fund -5.37% while the benchmark moved -6.36%."
+   },
+   {
+    "date": "2024-06-04",
+    "nav": 159.9399,
+    "return": -0.05962456689728257,
+    "benchmark_return": -0.054990424304455776,
+    "score": 0.7155469066951148,
+    "drivers": [
+     {
+      "feature": "return_z",
+      "label": "return vs. trailing 3-month volatility",
+      "value": -6.315149304246243,
+      "robust_z": -7.123224783774852
+     },
+     {
+      "feature": "return",
+      "label": "daily return",
+      "value": -0.05962456689728257,
+      "robust_z": -6.322310155365849
+     },
+     {
+      "feature": "vol_ratio",
+      "label": "1-month / 6-month volatility",
+      "value": 1.4627399323193337,
+      "robust_z": 1.9806666467718361
+     }
+    ],
+    "interpretation": "Market-wide move: fund -5.96% while the benchmark moved -5.50%."
+   },
+   {
+    "date": "2024-06-05",
+    "nav": 169.4457,
+    "return": 0.05943357473651045,
+    "benchmark_return": 0.06092495967942457,
+    "score": 0.7155045542630907,
+    "drivers": [
+     {
+      "feature": "return",
+      "label": "daily return",
+      "value": 0.05943357473651045,
+      "robust_z": 6.175763293561929
+     },
+     {
+      "feature": "return_z",
+      "label": "return vs. trailing 3-month volatility",
+      "value": 4.958581385822097,
+      "robust_z": 5.476810319975521
+     },
+     {
+      "feature": "vol_ratio",
+      "label": "1-month / 6-month volatility",
+      "value": 1.7457328466633784,
+      "robust_z": 3.069326027364566
+     }
+    ],
+    "interpretation": "Market-wide move: fund +5.94% while the benchmark moved +6.09%."
+   },
+   "... 10 more items (total 14)"
+  ],
+  "scores": [
+   {
+    "date": "2021-06-29",
+    "score": 0.4212
+   },
+   {
+    "date": "2021-06-30",
+    "score": 0.4236
+   },
+   {
+    "date": "2021-07-01",
+    "score": 0.4093
+   },
+   {
+    "date": "2021-07-02",
+    "score": 0.4731
+   },
+   "... 1368 more items (total 1372)"
+  ],
+  "note": "Flags are statistical outliers in this fund's own history, not errors or predictions. Verify flagged dates against news or the fund's disclosures.",
+  "fund": {
+   "id": 2,
+   "name": "Northstar Midcap Opportunities Fund - Direct Growth",
+   "scheme_code": "FS-MC-002",
+   "is_synthetic": true
+  }
+ }
+}

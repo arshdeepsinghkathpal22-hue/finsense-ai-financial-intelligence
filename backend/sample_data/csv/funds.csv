@@ -1,0 +1,11 @@
+scheme_code,name,amc,category,asset_class,plan,option,benchmark_code,launch_date,expense_ratio_pct,risk_label
+FS-LC-001,Aurora Bluechip Equity Fund - Direct Growth,Aurora Asset Management,Large Cap,equity,Direct,Growth,FSLC100,2013-01-01,0.72,Very High
+FS-MC-002,Northstar Midcap Opportunities Fund - Direct Growth,Northstar Mutual Fund,Mid Cap,equity,Direct,Growth,FSMC150,2014-06-01,0.81,Very High
+FS-SC-003,Kestrel Smallcap Fund - Direct Growth,Kestrel Investment Managers,Small Cap,equity,Direct,Growth,FSSC250,2022-03-01,0.66,Very High
+FS-FX-004,Horizon Flexi Cap Fund - Direct Growth,Horizon Mutual Fund,Flexi Cap,equity,Direct,Growth,FS500,2015-09-01,0.58,Very High
+FS-FX-004D,Horizon Flexi Cap Fund - Direct IDCW,Horizon Mutual Fund,Flexi Cap,equity,Direct,IDCW,FS500,2015-09-01,0.58,Very High
+FS-ELSS-005,Banyan Tax Saver Fund (ELSS) - Direct Growth,Banyan Capital AMC,ELSS,equity,Direct,Growth,FS500,2012-02-01,0.79,Very High
+FS-IDX-006,Polaris Large Cap 100 Index Fund - Direct Growth,Polaris Funds,Index Fund,equity,Direct,Growth,FSLC100,2019-08-01,0.20,Very High
+FS-DB-007,Meridian Dynamic Bond Fund - Direct Growth,Meridian Asset Management,Dynamic Bond,debt,Direct,Growth,FSBOND,2013-01-01,0.48,Moderate
+FS-LIQ-008,Harbor Liquid Fund - Direct Growth,Harbor Mutual Fund,Liquid,debt,Direct,Growth,FSLIQ,2013-01-01,0.15,Low to Moderate
+FS-BAF-009,Saffron Balanced Advantage Fund - Direct Growth,Saffron Investments,Dynamic Asset Allocation,hybrid,Direct,Growth,FSHYB,2017-11-01,0.65,Very High

@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+/* Design tokens. Navy "night desk" base, a muted ledger green for gains and
+   primary actions, and a warm red/amber pair reserved for losses and
+   warnings. Headings use a serif to read like a research note; all figures
+   use tabular numerals so columns line up. */
+@theme {
+  --color-ink-950: #0b1625;
+  --color-ink-900: #102033;
+  --color-ink-850: #13263b;
+  --color-ink-800: #172b42;
+  --color-ink-700: #24405e;
+  --color-ink-600: #36577a;
+  --color-paper: #e7ecf3;
+  --color-muted: #9fb0c6;
+  --color-faint: #71849d;
+  --color-ledger: #5fbf8f;
+  --color-ledger-deep: #2e7d5b;
+  --color-loss: #e07a6b;
+  --color-caution: #e2b45a;
+  --color-info: #7fa8d9;
+
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Newsreader", ui-serif, Georgia, serif;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-ink-950 text-paper font-sans antialiased;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-serif text-paper;
+    letter-spacing: -0.01em;
+  }
+  h1 {
+    @apply text-3xl font-semibold leading-tight;
+  }
+  h2 {
+    @apply text-xl font-semibold;
+  }
+  h3 {
+    @apply text-base font-semibold;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-ledger);
+    outline-offset: 2px;
+  }
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-lg border border-ink-700/70 bg-ink-900;
+  }
+  .field-input {
+    @apply w-full rounded-md border border-ink-700 bg-ink-800 px-3 py-2 text-sm text-paper placeholder:text-faint focus:border-ledger focus:outline-none;
+  }
+  .table-base {
+    @apply w-full border-collapse text-sm;
+  }
+  .table-base th {
+    @apply border-b border-ink-700 px-3 py-2 text-left font-medium text-muted;
+  }
+  .table-base td {
+    @apply border-b border-ink-800 px-3 py-2 align-top;
+  }
+}

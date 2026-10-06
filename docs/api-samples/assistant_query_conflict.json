@@ -1,0 +1,121 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "/api/v1/assistant/query",
+  "json": {
+   "question": "What are the assets under management of Aurora Bluechip Equity Fund?"
+  }
+ },
+ "status": 200,
+ "body": {
+  "conversation_id": "fd5df16e-023e-41c3-9514-0ea8eb981cd5",
+  "answer": "Relevant passages from your documents (quoted verbatim):\n- (as of 2026-03-31) Scheme code: FS-LC-001 Category: Large Cap Fund Plan / Option: Direct Plan - Growth Investment Objective: The scheme seeks to generate long-term capital appreciation by investing predominantly in equity and equity-related instruments of large-cap companies. At least 80% of net assets are invested in the 100 largest companies by full market capitalisation. [S1]\n- (as of 2026-03-31) Item | Detail → Assets under management (AUM) | Rs 12,450.36 crore as on 2026-03-31 [S2]\n- (as of 2025-09-30) The fund continues to avoid ... [699 characters]",
+  "mode": "extractive",
+  "model": null,
+  "planner": "rules",
+  "sources": [
+   {
+    "marker": "S1",
+    "cited": true,
+    "chunk_id": "9f29f482-051d-4519-88ed-a2cf166219ed",
+    "document_id": "72512d6d-5ee1-4a7d-b038-6ab95c86e511",
+    "document_title": "Aurora Bluechip Equity Fund Factsheet - March 2026",
+    "filename": "aurora_bluechip_factsheet_2026-03.pdf",
+    "doc_type": "factsheet",
+    "as_of_date": "2026-03-31",
+    "page_start": 1,
+    "page_end": 1,
+    "section": "Aurora Bluechip Equity Fund - Monthly Factsheet, March 2026 / Investment Objective",
+    "excerpt": "Scheme code: FS-LC-001 Category: Large Cap Fund Plan / Option: Direct Plan - Growth Investment Objective: The scheme seeks to generate long-term capital appreciation by investing predominantly in equity and equity-related instruments of large-cap companies. At least 80% of net assets are invested in the 100 largest companies by full market capitalisation. There is no assurance that the investment objective of the scheme will be achieved.",
+    "is_synthetic": true,
+    "flags": []
+   },
+   {
+    "marker": "S2",
+    "cited": true,
+    "chunk_id": "d3280157-1469-4ebe-8b6b-938f475d75c9",
+    "document_id": "72512d6d-5ee1-4a7d-b038-6ab95c86e511",
+    "document_title": "Aurora Bluechip Equity Fund Factsheet - March 2026",
+    "filename": "aurora_bluechip_factsheet_2026-03.pdf",
+    "doc_type": "factsheet",
+    "as_of_date": "2026-03-31",
+    "page_start": 1,
+    "page_end": 1,
+    "section": "Fund Facts",
+    "excerpt": "Item | Detail\nAssets under management (AUM) | Rs 12,450.36 crore as on 2026-03-31\nBenchmark | FS Large Cap 100 TRI (synthetic index)\nFund managers | Ananya Rao (since 2019), Vikram Mehta (since 2023)\nTotal expense ratio | Direct plan 0.72%; Regular plan 1.68%\nExit load | 1% if redeemed within 365 days of allotment; nil thereafter\nMinimum SIP | Rs 500 per month (minimum 6 instalments)\nNAV (Direct - Growth) | Rs 135.3080 as on 2026-03-31",
+    "is_synthetic": true,
+    "flags": []
+   },
+   {
+    "marker": "S3",
+    "cited": true,
+    "chunk_id": "9f76ec54-5e1e-4365-9a35-17a6ff435dee",
+    "document_id": "c7c08adf-74e2-4472-9721-e302dd83c368",
+    "document_title": "Aurora Bluechip Equity Fund Factsheet - September 2025",
+    "filename": "aurora_bluechip_factsheet_2025-09.pdf",
+    "doc_type": "factsheet",
+    "as_of_date": "2025-09-30",
+    "page_start": 3,
+    "page_end": 4,
+    "section": "Risk Statistics / Fund Manager Commentary",
+    "excerpt": "Risk statistics are calculated on daily returns over the trailing three years. The Sharpe ratio uses a risk-free rate of 6.50% per annum. Fund Manager Commentary: Markets were range-bound during the half-year. We maintained a diversified large-cap portfolio with technology as the second-largest sector. The fund continues to avoid highly leveraged companies, and cash was held at about 5.8% of net assets to meet redemptions.",
+    "is_synthetic": true,
+    "flags": []
+   },
+   {
+    "marker": "S4",
+    "cited": true,
+    "chunk_id": "87ef7908-a8df-4f9e-91c9-0b360f4f0875",
+    "document_id": "72512d6d-5ee1-4a7d-b038-6ab95c86e511",
+    "document_title": "Aurora Bluechip Equity Fund Factsheet - March 2026",
+    "filename": "aurora_bluechip_factsheet_2026-03.pdf",
+    "doc_type": "factsheet",
+    "as_of_date": "2026-03-31",
+    "page_start": 3,
+    "page_end": 4,
+    "section": "Risk Statistics / Fund Manager Commentary",
+    "excerpt": "Risk statistics are calculated on daily returns over the trailing three years. The Sharpe ratio uses a risk-free rate of 6.50% per annum. Fund Manager Commentary: Why has the fund's risk increased? Over the six months to March 2026, we raised the allocation to financial services from 29.8% to 34.2% by adding to private sector banks and Trident Finance Corporation, and reduced information technology from 16.3% to 14.1%. As a result the top 10 holdings now make up 51.8% of the portfolio, up from 47.3%, so the portfolio is more concentrated. The market was also more volatile in January to March 2... [682 characters]",
+    "is_synthetic": true,
+    "flags": []
+   },
+   "... 2 more items (total 6)"
+  ],
+  "calculations": [],
+  "conflicts": [
+   {
+    "fund_id": 1,
+    "periods": [
+     {
+      "as_of_date": "2025-09-30",
+      "document": "Aurora Bluechip Equity Fund Factsheet - September 2025"
+     },
+     {
+      "as_of_date": "2026-03-31",
+      "document": "Aurora Bluechip Equity Fund Factsheet - March 2026"
+     }
+    ],
+    "note": "Evidence comes from documents with different reporting periods; figures may differ because they describe different dates."
+   }
+  ],
+  "warnings": [],
+  "limitations": [
+   "Some figures come from SYNTHETIC demonstration data, not real market data.",
+   "No language model is configured: document answers quote the most relevant passages verbatim instead of writing a summary.",
+   "Decision support only: historical figures and model estimates do not guarantee future returns."
+  ],
+  "funds": [
+   {
+    "id": 1,
+    "scheme_code": "FS-LC-001",
+    "name": "Aurora Bluechip Equity Fund - Direct Growth"
+   }
+  ],
+  "retrieval": {
+   "query": "What are the assets under management of Aurora Bluechip Equity Fund?",
+   "is_follow_up": false,
+   "candidates": 32,
+   "selected": 6
+  },
+  "latency_ms": 28.8
+ }
+}

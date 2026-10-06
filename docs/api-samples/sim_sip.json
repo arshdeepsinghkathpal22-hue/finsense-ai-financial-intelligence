@@ -1,0 +1,48 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "/api/v1/simulate/sip",
+  "json": {
+   "monthly_amount": 10000,
+   "years": 10,
+   "annual_return": 0.11
+  }
+ },
+ "status": 200,
+ "body": {
+  "kind": "deterministic",
+  "final_value": 2124297.5,
+  "total_invested": 1200000.0,
+  "gain": 924297.5,
+  "yearly": [
+   {
+    "year": 1,
+    "invested": 120000.0,
+    "value": 127036.02
+   },
+   {
+    "year": 2,
+    "invested": 240000.0,
+    "value": 268046.01
+   },
+   {
+    "year": 3,
+    "invested": 360000.0,
+    "value": 424567.09
+   },
+   {
+    "year": 4,
+    "invested": 480000.0,
+    "value": 598305.49
+   },
+   "... 6 more items (total 10)"
+  ],
+  "assumptions": {
+   "annual_return": 0.11,
+   "monthly_rate": 0.008734593823551906,
+   "contribution_timing": "start of month",
+   "annual_step_up": 0,
+   "taxes_and_costs": "Not modelled (exit loads, taxes and expense changes ignored)."
+  }
+ }
+}

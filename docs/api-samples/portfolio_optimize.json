@@ -1,0 +1,162 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "/api/v1/portfolios/1aa9f7ca-5107-4186-9cc9-c04d2ef8a6d0/optimize",
+  "json": {
+   "risk_profile": "moderate",
+   "max_weight": 0.5
+  }
+ },
+ "status": 200,
+ "body": {
+  "assets": [
+   {
+    "fund_id": 1,
+    "scheme_code": "FS-LC-001",
+    "name": "Aurora Bluechip Equity Fund - Direct Growth",
+    "is_synthetic": true,
+    "expected_return": 0.07624088934528932,
+    "volatility": 0.14738694103374034
+   },
+   {
+    "fund_id": 2,
+    "scheme_code": "FS-MC-002",
+    "name": "Northstar Midcap Opportunities Fund - Direct Growth",
+    "is_synthetic": true,
+    "expected_return": 0.05894912331667802,
+    "volatility": 0.18197463963717528
+   },
+   {
+    "fund_id": 8,
+    "scheme_code": "FS-DB-007",
+    "name": "Meridian Dynamic Bond Fund - Direct Growth",
+    "is_synthetic": true,
+    "expected_return": 0.08581911315387991,
+    "volatility": 0.03314552503677093
+   },
+   {
+    "fund_id": 9,
+    "scheme_code": "FS-LIQ-008",
+    "name": "Harbor Liquid Fund - Direct Growth",
+    "is_synthetic": true,
+    "expected_return": 0.06264143087801358,
+    "volatility": 0.0017784427810720988
+   }
+  ],
+  "objective": "mean_variance",
+  "risk_aversion": 4.0,
+  "constraints": {
+   "min_weight": 0.0,
+   "max_weight": 0.5,
+   "long_only": true,
+   "sum_to_one": true
+  },
+  "estimation": {
+   "lookback": "3y",
+   "start": "2023-10-02",
+   "end": "2026-09-30",
+   "observations": 782,
+   "alignment": {
+    "dates_in_union": 783,
+    "dates_aligned": 783,
+    "dates_dropped": 0
+   },
+   "shrinkage_applied": false,
+   "shrinkage_intensity": null,
+   "notes": [],
+   "risk_free_rate": 0.065
+  },
+  "solver": {
+   "method": "SLSQP",
+   "iterations": 7,
+   "converged": true
+  },
+  "comparison": {
+   "optimised": {
+    "weights": [
+     0.15764463502046805,
+     0.0,
+     0.49999999999999994,
+     0.34235536497953195
+    ],
+    "expected_return": 0.07637415368249643,
+    "volatility": 0.028421218468538983,
+    "sharpe": 0.4001993684784173,
+    "herfindahl_index": 0.392059026881005
+   },
+   "equal_weight": {
+    "weights": [
+     0.25,
+     0.25,
+     0.25,
+     0.25
+    ],
+    "expected_return": 0.07091263917346521,
+    "volatility": 0.080047474595169,
+    "sharpe": 0.07386415628185289,
+    "herfindahl_index": 0.25
+   },
+   "current": {
+    "weights": [
+     0.4,
+     0.2,
+     0.25,
+     0.15
+    ],
+    "expected_return": 0.07313717332162334,
+    "volatility": 0.0927023084362441,
+    "sharpe": 0.08777746162836568,
+    "herfindahl_index": 0.2850000000000001
+   }
+  },
+  "frontier": [
+   {
+    "expected_return": 0.07399135893802966,
+    "volatility": 0.0161650204437851,
+    "sharpe": 0.55622317146444,
+    "weights": [
+     0.024943,
+     0.0,
+     0.475057,
+     0.5
+    ]
+   },
+   {
+    "expected_return": 0.07428463570007489,
+    "volatility": 0.01651392248276913,
+    "sharpe": 0.5622307910045364,
+    "weights": [
+     0.015659,
+     0.0,
+     0.493157,
+     0.491183
+    ]
+   },
+   {
+    "expected_return": 0.07457791246399258,
+    "volatility": 0.016986342268131394,
+    "sharpe": 0.563859618086349,
+    "weights": [
+     0.025563,
+     0.0,
+     0.5,
+     0.474437
+    ]
+   },
+   {
+    "expected_return": 0.07487118922697403,
+    "volatility": 0.017931810239407264,
+    "sharpe": 0.5504848141478168,
+    "weights": [
+     0.047128,
+     0.0,
+     0.5,
+     0.452872
+    ]
+   },
+   "... 21 more items (total 25)"
+  ],
+  "disclaimer": "Expected returns and covariances are historical estimates over the lookback window. An allocation that was optimal in the past is not guaranteed to perform well in the future; results are highly sensitive to the estimation period.",
+  "portfolio_id": "1aa9f7ca-5107-4186-9cc9-c04d2ef8a6d0"
+ }
+}

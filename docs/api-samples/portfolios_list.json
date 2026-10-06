@@ -1,0 +1,52 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "/api/v1/portfolios",
+  "params": null
+ },
+ "status": 200,
+ "body": {
+  "items": [
+   {
+    "id": "1aa9f7ca-5107-4186-9cc9-c04d2ef8a6d0",
+    "name": "Sample core",
+    "description": "",
+    "initial_value": 100000.0,
+    "start_date": null,
+    "benchmark_id": null,
+    "created_at": "2026-10-05T20:52:20.156673+00:00",
+    "updated_at": "2026-10-05T20:52:20.156673+00:00",
+    "assets": [
+     {
+      "fund_id": 1,
+      "scheme_code": "FS-LC-001",
+      "name": "Aurora Bluechip Equity Fund - Direct Growth",
+      "is_synthetic": true,
+      "weight_pct": 40.0
+     },
+     {
+      "fund_id": 8,
+      "scheme_code": "FS-DB-007",
+      "name": "Meridian Dynamic Bond Fund - Direct Growth",
+      "is_synthetic": true,
+      "weight_pct": 25.0
+     },
+     {
+      "fund_id": 2,
+      "scheme_code": "FS-MC-002",
+      "name": "Northstar Midcap Opportunities Fund - Direct Growth",
+      "is_synthetic": true,
+      "weight_pct": 20.0
+     },
+     {
+      "fund_id": 9,
+      "scheme_code": "FS-LIQ-008",
+      "name": "Harbor Liquid Fund - Direct Growth",
+      "is_synthetic": true,
+      "weight_pct": 15.0
+     }
+    ]
+   }
+  ]
+ }
+}

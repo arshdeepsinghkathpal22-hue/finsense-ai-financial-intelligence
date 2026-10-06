@@ -1,0 +1,37 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "/api/v1/funds/1/sip",
+  "params": null
+ },
+ "status": 200,
+ "body": {
+  "fund_id": 1,
+  "unit": "INR crore per month",
+  "is_synthetic": true,
+  "points": [
+   {
+    "month": "2021-01-01",
+    "inflow": 29.28,
+    "accounts": 90905
+   },
+   {
+    "month": "2021-02-01",
+    "inflow": 46.94,
+    "accounts": 140367
+   },
+   {
+    "month": "2021-03-01",
+    "inflow": 42.65,
+    "accounts": 123230
+   },
+   {
+    "month": "2021-04-01",
+    "inflow": 38.0,
+    "accounts": 123439
+   },
+   "... 65 more items (total 69)"
+  ],
+  "note": null
+ }
+}

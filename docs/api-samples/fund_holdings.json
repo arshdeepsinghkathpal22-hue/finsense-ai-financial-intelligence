@@ -1,0 +1,66 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "/api/v1/funds/1/holdings",
+  "params": null
+ },
+ "status": 200,
+ "body": {
+  "fund_id": 1,
+  "as_of": "2026-03-31",
+  "is_synthetic": true,
+  "holdings": [
+   {
+    "name": "Meridian Bank Ltd",
+    "sector": "Financial Services",
+    "asset_type": "equity",
+    "weight_pct": 8.9
+   },
+   {
+    "name": "Saraswati Infotech Ltd",
+    "sector": "Information Technology",
+    "asset_type": "equity",
+    "weight_pct": 7.2
+   },
+   {
+    "name": "Konark Energy Ltd",
+    "sector": "Energy",
+    "asset_type": "equity",
+    "weight_pct": 6.4
+   },
+   {
+    "name": "Trident Finance Corporation",
+    "sector": "Financial Services",
+    "asset_type": "equity",
+    "weight_pct": 6.1
+   },
+   "... 28 more items (total 32)"
+  ],
+  "sectors": [
+   {
+    "sector": "Financial Services",
+    "weight_pct": 34.2
+   },
+   {
+    "sector": "Information Technology",
+    "weight_pct": 14.1
+   },
+   {
+    "sector": "Consumer Goods",
+    "weight_pct": 9.8
+   },
+   {
+    "sector": "Energy",
+    "weight_pct": 8.7
+   },
+   "... 6 more items (total 10)"
+  ],
+  "concentration": {
+   "top10_weight_pct": 51.8,
+   "herfindahl_index": 0.04379862378722784,
+   "effective_number_of_holdings": 22.831767611191722,
+   "note": "Concentration excludes cash; HHI computed on security weights re-normalised to 100%."
+  },
+  "total_weight_pct": 100.0
+ }
+}

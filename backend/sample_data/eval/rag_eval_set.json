@@ -1,0 +1,485 @@
+{
+ "description": "Retrieval evaluation set for the FinSense AI sample documents. A chunk is relevant to a question when it contains one of the question's `snippets` (case- and whitespace-insensitive). Labelling by snippet rather than chunk id keeps the labels valid when chunking settings change. Questions marked split=holdout were written before retrieval settings were tuned on the dev questions and are reported separately to show whether tuning overfit.",
+ "acceptance": {
+  "mode": "hybrid",
+  "recall_at_5_min": 0.8,
+  "mrr_min": 0.7,
+  "evidence_recall_min": 0.8,
+  "abstention_accuracy_min": 0.8,
+  "max_permission_leaks": 0,
+  "max_invalid_citations": 0
+ },
+ "private_document": {
+  "owner": "eval-owner",
+  "filename": "orion_private_research_note.txt",
+  "title": "Orion Credit Opportunities - private research note",
+  "content": "ORION CREDIT OPPORTUNITIES - PRIVATE RESEARCH NOTE\n\nSUMMARY\n\nThis note is visible only to its owner. The Zephyr allocation model recommends holding 35% in short-duration corporate bonds and 15% in gilt funds for the next two quarters. The note is synthetic test data.\n"
+ },
+ "questions": [
+  {
+   "id": "q01",
+   "category": "exact_scheme_name",
+   "question": "What is the investment objective of Aurora Bluechip Equity Fund?",
+   "snippets": [
+    "At least 80% of net assets are invested in the 100 largest companies"
+   ],
+   "answer_must_contain": [
+    "80%"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q02",
+   "category": "exact_keyword",
+   "question": "FS-DB-007 exit load",
+   "snippets": [
+    "0.25% if redeemed within 30 days"
+   ],
+   "answer_must_contain": [
+    "0.25%"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q03",
+   "category": "financial_figure",
+   "question": "What is the total expense ratio of the Meridian Dynamic Bond Fund direct plan?",
+   "snippets": [
+    "Direct plan 0.48%"
+   ],
+   "answer_must_contain": [
+    "0.48%"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q04",
+   "category": "financial_figure",
+   "question": "What was the AUM of Aurora Bluechip Equity Fund as on 31 March 2026?",
+   "snippets": [
+    "Rs 12,450.36 crore"
+   ],
+   "answer_must_contain": [
+    "12,450.36"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q05",
+   "category": "table",
+   "question": "Which company is the largest holding of Aurora Bluechip in the March 2026 factsheet?",
+   "snippets": [
+    "Meridian Bank Ltd | Financial Services | 8.9"
+   ],
+   "answer_must_contain": [
+    "Meridian Bank"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q06",
+   "category": "table",
+   "question": "What is the allowed allocation range for corporate bonds in the Meridian Dynamic Bond Fund?",
+   "snippets": [
+    "Corporate bonds rated AA and above | 0 | 60"
+   ],
+   "answer_must_contain": [
+    "60"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q07",
+   "category": "synonym",
+   "question": "How much does the Meridian bond fund charge investors each year?",
+   "snippets": [
+    "Direct plan 0.48%"
+   ],
+   "answer_must_contain": [
+    "0.48%"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q08",
+   "category": "synonym",
+   "question": "Is there a penalty if I withdraw early from the dynamic bond fund?",
+   "snippets": [
+    "0.25% if redeemed within 30 days"
+   ],
+   "answer_must_contain": [
+    "0.25%"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q09",
+   "category": "synonym",
+   "question": "How quickly could Northstar Midcap sell most of its holdings if it needed cash?",
+   "snippets": [
+    "80% of the portfolio can be sold within five trading days"
+   ],
+   "answer_must_contain": [
+    "five trading days"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q10",
+   "category": "multi_section",
+   "question": "What are the main risk factors and the duration strategy of the Meridian Dynamic Bond Fund?",
+   "snippets": [
+    "bond prices fall when interest rates rise",
+    "between 1 year and 8 years"
+   ],
+   "answer_must_contain": [
+    "interest rate"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q11",
+   "category": "multi_chunk",
+   "question": "Why has the risk of Aurora Bluechip increased, and what is its sector allocation now?",
+   "snippets": [
+    "raised the allocation to financial services from 29.8% to 34.2%",
+    "Financial Services | 34.2"
+   ],
+   "answer_must_contain": [
+    "34.2%"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q12",
+   "category": "exact_keyword",
+   "question": "Which scheme has potential risk class B-III?",
+   "snippets": [
+    "B-III"
+   ],
+   "answer_must_contain": [
+    "B-III"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q13",
+   "category": "exact_keyword",
+   "question": "Since when has Rohan Iyer managed the fund?",
+   "snippets": [
+    "Rohan Iyer (since 2020)"
+   ],
+   "answer_must_contain": [
+    "2020"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q14",
+   "category": "financial_figure",
+   "question": "What was the portfolio turnover of Northstar Midcap Opportunities Fund in FY2025-26?",
+   "snippets": [
+    "Portfolio turnover for the year was 0.41 times"
+   ],
+   "answer_must_contain": [
+    "0.41"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q15",
+   "category": "conflicting_periods",
+   "question": "What is Aurora Bluechip's allocation to financial services?",
+   "snippets": [
+    "Financial Services | 34.2",
+    "Financial Services | 29.8"
+   ],
+   "expect_conflict": true,
+   "answer_must_contain": [
+    "34.2"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q16",
+   "category": "conflicting_periods",
+   "question": "What are the assets under management of Aurora Bluechip Equity Fund?",
+   "snippets": [
+    "Rs 12,450.36 crore",
+    "Rs 11,020.18 crore"
+   ],
+   "expect_conflict": true,
+   "answer_must_contain": [
+    "crore"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q17",
+   "category": "financial_figure",
+   "question": "What share of Aurora's net assets did the top 10 holdings represent in September 2025?",
+   "snippets": [
+    "accounted for 47.3% of net assets"
+   ],
+   "answer_must_contain": [
+    "47.3%"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q18",
+   "category": "follow_up",
+   "previous_questions": [
+    "Tell me about the Meridian Dynamic Bond Fund's investment strategy."
+   ],
+   "question": "What is its minimum SIP amount?",
+   "snippets": [
+    "Rs 500 per month (minimum 12 instalments)"
+   ],
+   "answer_must_contain": [
+    "12 instalments"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q19",
+   "category": "follow_up",
+   "previous_questions": [
+    "What does the Northstar Midcap annual review say about portfolio changes?"
+   ],
+   "question": "And what is the outlook?",
+   "snippets": [
+    "Midcap valuations are above their ten-year average"
+   ],
+   "answer_must_contain": [
+    "ten-year average"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q20",
+   "category": "no_evidence",
+   "question": "Who is the CEO of Tesla?",
+   "snippets": [],
+   "expect_no_evidence": true,
+   "split": "dev"
+  },
+  {
+   "id": "q21",
+   "category": "no_evidence",
+   "question": "What is the dividend payout policy of the Kestrel Smallcap Fund?",
+   "snippets": [],
+   "expect_no_evidence": true,
+   "split": "dev"
+  },
+  {
+   "id": "q22",
+   "category": "no_evidence",
+   "question": "What is the price of gold per gram today?",
+   "snippets": [],
+   "expect_no_evidence": true,
+   "split": "dev"
+  },
+  {
+   "id": "q23",
+   "category": "no_evidence",
+   "question": "Does the Harbor Liquid Fund invest in commercial paper?",
+   "snippets": [],
+   "expect_no_evidence": true,
+   "split": "dev"
+  },
+  {
+   "id": "q24",
+   "category": "no_evidence",
+   "question": "What is India's GDP growth forecast for 2027?",
+   "snippets": [],
+   "expect_no_evidence": true,
+   "split": "dev"
+  },
+  {
+   "id": "q25",
+   "category": "table",
+   "question": "What Sharpe ratio is reported in the latest Aurora Bluechip factsheet?",
+   "snippets": [
+    "Sharpe ratio | 0.90"
+   ],
+   "answer_must_contain": [
+    "0.90"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q26",
+   "category": "multi_chunk",
+   "question": "How does the Aurora fund manager explain the portfolio becoming more concentrated?",
+   "snippets": [
+    "the top 10 holdings now make up 51.8%"
+   ],
+   "answer_must_contain": [
+    "51.8%"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q27",
+   "category": "exact_keyword",
+   "question": "FS-LC-001 minimum SIP",
+   "snippets": [
+    "Rs 500 per month (minimum 6 instalments)"
+   ],
+   "answer_must_contain": [
+    "Rs 500"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q28",
+   "category": "synonym",
+   "question": "Which industries did Northstar Midcap buy more of during the year?",
+   "snippets": [
+    "from 14% to 19% of net assets"
+   ],
+   "answer_must_contain": [
+    "19%"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q29",
+   "category": "financial_figure",
+   "question": "What minimum share of the Meridian bond fund must be in sovereign or AAA instruments?",
+   "snippets": [
+    "At least 70% of the portfolio will be invested in sovereign securities"
+   ],
+   "answer_must_contain": [
+    "70%"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "q30",
+   "category": "permission",
+   "question": "What does the Zephyr allocation model recommend?",
+   "snippets": [
+    "The Zephyr allocation model recommends"
+   ],
+   "permission_test": true,
+   "answer_must_contain": [
+    "35%"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "h01",
+   "category": "exact_scheme_name",
+   "question": "What benchmark does the Aurora Bluechip Equity Fund track?",
+   "snippets": [
+    "FS Large Cap 100 TRI (synthetic index)"
+   ],
+   "answer_must_contain": [
+    "FS Large Cap 100"
+   ],
+   "split": "holdout"
+  },
+  {
+   "id": "h02",
+   "category": "exact_keyword",
+   "question": "Who are the fund managers of Aurora Bluechip?",
+   "snippets": [
+    "Ananya Rao (since 2019)"
+   ],
+   "answer_must_contain": [
+    "Ananya Rao"
+   ],
+   "split": "holdout"
+  },
+  {
+   "id": "h03",
+   "category": "financial_figure",
+   "question": "What is the regular plan expense ratio of the Meridian bond fund?",
+   "snippets": [
+    "Regular plan 1.12%"
+   ],
+   "answer_must_contain": [
+    "1.12%"
+   ],
+   "split": "holdout"
+  },
+  {
+   "id": "h04",
+   "category": "table",
+   "question": "Can the Meridian Dynamic Bond Fund invest in REITs?",
+   "snippets": [
+    "Units of REITs and InvITs | 0 | 10"
+   ],
+   "answer_must_contain": [
+    "REITs"
+   ],
+   "split": "holdout"
+  },
+  {
+   "id": "h05",
+   "category": "financial_figure",
+   "question": "What limit does Northstar Midcap place on any single stock?",
+   "snippets": [
+    "No single stock is allowed to exceed 5% of net assets"
+   ],
+   "answer_must_contain": [
+    "5%"
+   ],
+   "split": "holdout"
+  },
+  {
+   "id": "h06",
+   "category": "multi_section",
+   "question": "What does the Aurora outlook say about bank earnings?",
+   "snippets": [
+    "credit growth to support bank earnings"
+   ],
+   "answer_must_contain": [
+    "credit growth"
+   ],
+   "split": "holdout"
+  },
+  {
+   "id": "h07",
+   "category": "no_evidence",
+   "question": "What is the expense ratio of the Polaris Large Cap 100 Index Fund?",
+   "snippets": [],
+   "expect_no_evidence": true,
+   "split": "holdout"
+  },
+  {
+   "id": "h08",
+   "category": "no_evidence",
+   "question": "When was the Saffron Balanced Advantage Fund launched?",
+   "snippets": [],
+   "expect_no_evidence": true,
+   "split": "holdout"
+  },
+  {
+   "id": "h09",
+   "category": "synonym",
+   "question": "How often does the Meridian fund publish its NAV?",
+   "snippets": [
+    "Every business day by 11 pm"
+   ],
+   "answer_must_contain": [
+    "business day"
+   ],
+   "split": "holdout"
+  },
+  {
+   "id": "h10",
+   "category": "synonym",
+   "question": "How risky is the Meridian bond fund according to its riskometer?",
+   "snippets": [
+    "Riskometer | Moderate"
+   ],
+   "answer_must_contain": [
+    "Moderate"
+   ],
+   "split": "holdout"
+  }
+ ]
+}

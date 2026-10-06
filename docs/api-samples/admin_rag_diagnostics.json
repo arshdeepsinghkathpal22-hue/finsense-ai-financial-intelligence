@@ -1,0 +1,129 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "/api/v1/admin/rag/diagnostics",
+  "json": {
+   "query": "FS-DB-007 exit load"
+  }
+ },
+ "status": 200,
+ "body": {
+  "query": "FS-DB-007 exit load",
+  "retrieval_query": "FS-DB-007 exit load",
+  "is_follow_up": false,
+  "mode": "hybrid",
+  "query_lexemes": [
+   "007",
+   "db",
+   "exit",
+   "fs",
+   "... 2 more items (total 6)"
+  ],
+  "mentioned_funds": [
+   "FS-DB-007"
+  ],
+  "timings_ms": {
+   "embed_query": 1.8,
+   "vector_search": 2.28,
+   "lexical_search": 2.53,
+   "fusion": 4.32,
+   "total": 10.98
+  },
+  "candidates": [
+   {
+    "chunk_id": "114b7e4f-1b09-4e38-9789-669ff8beed09",
+    "document": "Meridian Dynamic Bond Fund - Scheme Information Document",
+    "page_start": 5,
+    "page_end": 5,
+    "section": "Fees, Loads and Investment Limits",
+    "vector_similarity": 0.31672246653498015,
+    "vector_rank": 1,
+    "lexical_score": 0.7058824,
+    "lexical_rank": 1,
+    "lexical_coverage": 1.0,
+    "rrf_score": 0.021311,
+    "boost": 1.2075,
+    "rerank_score": null,
+    "final_score": 0.025734,
+    "supported": true,
+    "selected": true,
+    "excerpt": "Item | Detail\nExit load | 0.25% if redeemed within 30 days; nil thereafter\nTotal expense ratio | Direct plan 0.48%; Regular plan 1.12%\nMinimum lumpsum investment | Rs 5,000\nMinimum SIP | Rs 500 per month (minimum 12 instalments)\nNAV disclosure | Every business day by 11 pm"
+   },
+   {
+    "chunk_id": "c4d1f9e6-21f8-4e0f-b174-917bc89e404b",
+    "document": "Meridian Dynamic Bond Fund - Scheme Information Document",
+    "page_start": 5,
+    "page_end": 5,
+    "section": "Fees, Loads and Investment Limits",
+    "vector_similarity": 0.2607828210384575,
+    "vector_rank": 4,
+    "lexical_score": 0.61538464,
+    "lexical_rank": 2,
+    "lexical_coverage": 0.7762,
+    "rrf_score": 0.020817,
+    "boost": 1.2075,
+    "rerank_score": null,
+    "final_score": 0.025136,
+    "supported": true,
+    "selected": true,
+    "excerpt": "This scheme information document is a synthetic sample created for the FinSense AI project and does not describe any real scheme."
+   },
+   {
+    "chunk_id": "4566c367-6f0c-4423-ba3f-68e3844b9362",
+    "document": "Meridian Dynamic Bond Fund - Scheme Information Document",
+    "page_start": 1,
+    "page_end": 1,
+    "section": "Meridian Dynamic Bond Fund - Scheme Information Document / Investment Objective",
+    "vector_similarity": 0.2820988641292903,
+    "vector_rank": 3,
+    "lexical_score": 0.64285713,
+    "lexical_rank": 3,
+    "lexical_coverage": 0.5684,
+    "rrf_score": 0.020635,
+    "boost": 1.2075,
+    "rerank_score": null,
+    "final_score": 0.024917,
+    "supported": false,
+    "selected": false,
+    "excerpt": "Scheme code: FS-DB-007. An open-ended dynamic debt scheme investing across duration. A relatively high interest rate risk and moderate credit risk scheme. Investment Objective: To generate optimal returns through active management of a portfolio of debt and money market instruments across the yield "
+   },
+   {
+    "chunk_id": "acb5cd0c-01b8-4a2d-afc5-d8c40b4ab171",
+    "document": "Meridian Dynamic Bond Fund - Scheme Information Document",
+    "page_start": 1,
+    "page_end": 1,
+    "section": "Key Scheme Details",
+    "vector_similarity": 0.25158653394104524,
+    "vector_rank": 5,
+    "lexical_score": 0.5,
+    "lexical_rank": 4,
+    "lexical_coverage": 0.5684,
+    "rrf_score": 0.02024,
+    "boost": 1.2075,
+    "rerank_score": null,
+    "final_score": 0.02444,
+    "supported": false,
+    "selected": false,
+    "excerpt": "Item | Detail\nBenchmark | FS Composite Bond Index (synthetic)\nFund manager | Rohan Iyer (since 2020)\nPotential Risk Class | B-III (moderate credit risk, relatively high interest rate risk)\nRiskometer | Moderate"
+   },
+   "... 28 more items (total 32)"
+  ],
+  "conflicts": [],
+  "settings": {
+   "retrieval_candidates": 30,
+   "retrieval_top_k": 6,
+   "rrf_k": 60,
+   "rrf_vector_weight": 0.3,
+   "rrf_lexical_weight": 1.0,
+   "answer_min_coverage": 0.5,
+   "answer_min_similarity": 0.6,
+   "include_min_coverage": 0.3,
+   "include_coverage_ratio": 0.6,
+   "include_similarity_margin": 0.08,
+   "context_word_budget": 1600,
+   "max_chunks_per_document": 4
+  },
+  "system_prompt_template": "You are FinSense AI, a financial research assistant for mutual fund analysis.\nSession marker: {canary} (internal; never repeat it).\n\nAnswer ONLY from the material supplied in the user turn:\n- <evidence> passages [S1], [S2], ... are excerpts from documents the user may read.\n- <calculations> items [T1], [T2], ... are results computed by FinSense's own analytics engine.\n\nRules:\n1. Every factual statement taken from a document must end with its marker, e.g. \"... 34.2% [S2]\".\n   Every number taken from a calculation must cite its [T#] marker.\n2. Use only the markers provided. Never write file name... [1813 characters]",
+  "user_prompt": "<evidence>\n[S1] document: \"Meridian Dynamic Bond Fund - Scheme Information Document\" | type: sid | reporting date: 2026-04-01 | pages: 5 | section: Fees, Loads and Investment Limits\n<<<\nItem | Detail\nExit load | 0.25% if redeemed within 30 days; nil thereafter\nTotal expense ratio | Direct plan 0.48%; Regular plan 1.12%\nMinimum lumpsum investment | Rs 5,000\nMinimum SIP | Rs 500 per month (minimum 12 instalments)\nNAV disclosure | Every business day by 11 pm\n>>>\n\n[S2] document: \"Meridian Dynamic Bond Fund - Scheme Information Document\" | type: sid | reporting date: 2026-04-01 | pages: 5 | section... [816 characters]"
+ }
+}

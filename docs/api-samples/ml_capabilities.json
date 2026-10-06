@@ -1,0 +1,43 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "/api/v1/ml/capabilities",
+  "params": null
+ },
+ "status": 200,
+ "body": {
+  "models": [
+   {
+    "type": "historical_mean",
+    "label": "Historical mean (baseline)",
+    "available": true
+   },
+   {
+    "type": "ridge",
+    "label": "Ridge regression",
+    "available": true
+   },
+   {
+    "type": "random_forest",
+    "label": "Random forest",
+    "available": true
+   },
+   {
+    "type": "lstm",
+    "label": "LSTM",
+    "available": false,
+    "reason": "Not offered: a single fund's daily NAV history is too short to train an LSTM that reliably beats the simple baselines, and it would add a large deep-learning dependency."
+   }
+  ],
+  "horizons_trading_days": [
+   5,
+   21,
+   63
+  ],
+  "anomaly_detection": {
+   "method": "Isolation Forest",
+   "available": true
+  },
+  "explanations": "SHAP (TreeExplainer for random forest, LinearExplainer for ridge)"
+ }
+}

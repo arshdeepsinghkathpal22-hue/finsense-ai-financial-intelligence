@@ -1,0 +1,281 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "/api/v1/funds/compare",
+  "params": {
+   "ids": "1,2",
+   "period": "3y"
+  }
+ },
+ "status": 200,
+ "body": {
+  "funds": [
+   {
+    "fund": {
+     "id": 1,
+     "scheme_code": "FS-LC-001",
+     "name": "Aurora Bluechip Equity Fund - Direct Growth",
+     "amc": "Aurora Asset Management",
+     "category": "Large Cap",
+     "asset_class": "equity",
+     "plan": "Direct",
+     "option": "Growth",
+     "risk_label": "Very High",
+     "is_synthetic": true,
+     "source": "FinSense synthetic demonstration data",
+     "return_basis": "nav_growth",
+     "expense_ratio_pct": 0.72,
+     "benchmark": {
+      "id": 1,
+      "name": "FS Large Cap 100 TRI (synthetic)"
+     },
+     "latest_nav": 106.9724,
+     "latest_nav_date": "2026-09-30",
+     "freshness": {
+      "latest_observation": "2026-09-30",
+      "age_days": 5,
+      "is_stale": false
+     },
+     "return_1y": -0.20723191040446792,
+     "aum": {
+      "value_crore": 10467.45,
+      "as_of": "2026-09-30"
+     }
+    },
+    "period": {
+     "label": "3y",
+     "start": "2023-10-02",
+     "end": "2026-09-30",
+     "history_covers_period": true
+    },
+    "metrics": {
+     "cumulative_return": {
+      "value": 0.22492156189167511,
+      "unit": "fraction"
+     },
+     "cagr": {
+      "value": 0.07008039359506135,
+      "unit": "fraction/yr"
+     },
+     "annualized_mean_return": {
+      "value": 0.07624088934528932,
+      "unit": "fraction/yr"
+     },
+     "volatility": {
+      "value": 0.14738694103374034,
+      "unit": "fraction/yr"
+     },
+     "sharpe_ratio": {
+      "value": 0.08995519368497287,
+      "unit": "ratio"
+     },
+     "sortino_ratio": {
+      "value": 0.12561140223106843,
+      "unit": "ratio"
+     },
+     "max_drawdown": {
+      "value": -0.31287528616172033,
+      "unit": "fraction",
+      "peak_date": "2026-02-11",
+      "trough_date": "2026-09-30",
+      "recovery_date": null
+     },
+     "historical_var": {
+      "value": 0.012890695736113142,
+      "unit": "fraction of value, 1 day",
+      "confidence": 0.95
+     },
+     "historical_cvar": {
+      "value": 0.02111191149318791,
+      "unit": "fraction of value, 1 day",
+      "confidence": 0.95
+     },
+     "parametric_var": {
+      "value": 0.014969107825630374,
+      "unit": "fraction of value, 1 day",
+      "confidence": 0.95
+     },
+     "parametric_cvar": {
+      "value": 0.01884872330242955,
+      "unit": "fraction of value, 1 day",
+      "confidence": 0.95
+     },
+     "beta": {
+      "value": 0.9172780474830213,
+      "unit": "ratio",
+      "observations": 782
+     },
+     "correlation": {
+      "value": 0.960254832122656,
+      "unit": "ratio"
+     },
+     "alpha_annual": {
+      "value": 0.01624681897921762,
+      "unit": "fraction/yr"
+     },
+     "tracking_error": {
+      "value": 0.04307377143147917,
+      "unit": "fraction/yr"
+     },
+     "information_ratio": {
+      "value": 0.3834430126630282,
+      "unit": "ratio"
+     },
+     "observations": {
+      "value": 782,
+      "unit": "daily returns"
+     }
+    }
+   },
+   {
+    "fund": {
+     "id": 2,
+     "scheme_code": "FS-MC-002",
+     "name": "Northstar Midcap Opportunities Fund - Direct Growth",
+     "amc": "Northstar Mutual Fund",
+     "category": "Mid Cap",
+     "asset_class": "equity",
+     "plan": "Direct",
+     "option": "Growth",
+     "risk_label": "Very High",
+     "is_synthetic": true,
+     "source": "FinSense synthetic demonstration data",
+     "return_basis": "nav_growth",
+     "expense_ratio_pct": 0.81,
+     "benchmark": {
+      "id": 2,
+      "name": "FS Midcap 150 TRI (synthetic)"
+     },
+     "latest_nav": 186.4121,
+     "latest_nav_date": "2026-09-30",
+     "freshness": {
+      "latest_observation": "2026-09-30",
+      "age_days": 5,
+      "is_stale": false
+     },
+     "return_1y": -0.05967593209121762,
+     "aum": {
+      "value_crore": 12903.35,
+      "as_of": "2026-09-30"
+     }
+    },
+    "period": {
+     "label": "3y",
+     "start": "2023-10-02",
+     "end": "2026-09-30",
+     "history_covers_period": true
+    },
+    "metrics": {
+     "cumulative_return": {
+      "value": 0.14062001890711961,
+      "unit": "fraction"
+     },
+     "cagr": {
+      "value": 0.044906581740771,
+      "unit": "fraction/yr"
+     },
+     "annualized_mean_return": {
+      "value": 0.05894912331667802,
+      "unit": "fraction/yr"
+     },
+     "volatility": {
+      "value": 0.18197463963717533,
+      "unit": "fraction/yr"
+     },
+     "sharpe_ratio": {
+      "value": -0.02216542485990172,
+      "unit": "ratio"
+     },
+     "sortino_ratio": {
+      "value": -0.031031679825629106,
+      "unit": "ratio"
+     },
+     "max_drawdown": {
+      "value": -0.2217923247152983,
+      "unit": "fraction",
+      "peak_date": "2026-02-10",
+      "trough_date": "2026-09-30",
+      "recovery_date": null
+     },
+     "historical_var": {
+      "value": 0.016854015254153504,
+      "unit": "fraction of value, 1 day",
+      "confidence": 0.95
+     },
+     "historical_cvar": {
+      "value": 0.025329198196118608,
+      "unit": "fraction of value, 1 day",
+      "confidence": 0.95
+     },
+     "parametric_var": {
+      "value": 0.018621566273865672,
+      "unit": "fraction of value, 1 day",
+      "confidence": 0.95
+     },
+     "parametric_cvar": {
+      "value": 0.02341162177925621,
+      "unit": "fraction of value, 1 day",
+      "confidence": 0.95
+     },
+     "beta": {
+      "value": 0.962387816754977,
+      "unit": "ratio",
+      "observations": 782
+     },
+     "correlation": {
+      "value": 0.9472019386417447,
+      "unit": "ratio"
+     },
+     "alpha_annual": {
+      "value": -0.013670557611636295,
+      "unit": "fraction/yr"
+     },
+     "tracking_error": {
+      "value": 0.05873550274873353,
+      "unit": "fraction/yr"
+     },
+     "information_ratio": {
+      "value": -0.23916016891185254,
+      "unit": "ratio"
+     },
+     "observations": {
+      "value": 782,
+      "unit": "daily returns"
+     }
+    }
+   }
+  ],
+  "chart": {
+   "common_start": "2023-10-02",
+   "points": [
+    {
+     "date": "2023-10-02",
+     "1": 100.0,
+     "2": 100.0
+    },
+    {
+     "date": "2023-10-03",
+     "1": 100.091,
+     "2": 100.595
+    },
+    {
+     "date": "2023-10-04",
+     "1": 99.209,
+     "2": 100.058
+    },
+    {
+     "date": "2023-10-05",
+     "1": 100.082,
+     "2": 100.777
+    },
+    "... 779 more items (total 783)"
+   ],
+   "alignment": {
+    "dates_in_union": 1498,
+    "dates_aligned": 1498,
+    "dates_dropped": 0
+   },
+   "history_covers_period": true
+  }
+ }
+}

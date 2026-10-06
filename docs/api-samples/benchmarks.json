@@ -1,0 +1,41 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "/api/v1/benchmarks",
+  "params": null
+ },
+ "status": 200,
+ "body": {
+  "items": [
+   {
+    "id": 4,
+    "code": "FS500",
+    "name": "FS Broad Market 500 TRI (synthetic)",
+    "return_basis": "total_return",
+    "is_synthetic": true
+   },
+   {
+    "id": 5,
+    "code": "FSBOND",
+    "name": "FS Composite Bond Index (synthetic)",
+    "return_basis": "total_return",
+    "is_synthetic": true
+   },
+   {
+    "id": 7,
+    "code": "FSHYB",
+    "name": "FS Hybrid 50:50 Index (synthetic)",
+    "return_basis": "total_return",
+    "is_synthetic": true
+   },
+   {
+    "id": 1,
+    "code": "FSLC100",
+    "name": "FS Large Cap 100 TRI (synthetic)",
+    "return_basis": "total_return",
+    "is_synthetic": true
+   },
+   "... 3 more items (total 7)"
+  ]
+ }
+}

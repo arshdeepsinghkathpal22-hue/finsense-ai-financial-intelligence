@@ -1,0 +1,283 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "/api/v1/funds/1/risk",
+  "params": {
+   "period": "3y"
+  }
+ },
+ "status": 200,
+ "body": {
+  "fund": {
+   "id": 1,
+   "name": "Aurora Bluechip Equity Fund - Direct Growth",
+   "scheme_code": "FS-LC-001",
+   "is_synthetic": true,
+   "source": "FinSense synthetic demonstration data"
+  },
+  "benchmark": {
+   "id": 1,
+   "name": "FS Large Cap 100 TRI (synthetic)",
+   "return_basis": "total_return",
+   "is_synthetic": true
+  },
+  "period": {
+   "label": "3y",
+   "start": "2023-10-02",
+   "end": "2026-09-30",
+   "history_covers_period": true
+  },
+  "freshness": {
+   "latest_observation": "2026-09-30",
+   "age_days": 5,
+   "is_stale": false
+  },
+  "assumptions": {
+   "frequency": "daily (trading days)",
+   "periods_per_year": 252,
+   "risk_free_rate_annual": 0.065,
+   "return_basis": "nav_growth",
+   "return_basis_note": "NAV-based returns of a growth option (income reinvested, net of expenses).",
+   "var_method": "Historical one-day VaR/CVaR at 95% confidence (empirical quantile, linear interpolation). Parametric figures assume normally distributed daily returns. Different estimators give different values.",
+   "sharpe_method": "Mean daily excess return / standard deviation, scaled by sqrt(periods per year).",
+   "sortino_method": "Mean daily excess return / downside deviation below the risk-free rate."
+  },
+  "metrics": {
+   "cumulative_return": {
+    "value": 0.22492156189167511,
+    "unit": "fraction"
+   },
+   "cagr": {
+    "value": 0.07008039359506135,
+    "unit": "fraction/yr"
+   },
+   "annualized_mean_return": {
+    "value": 0.07624088934528932,
+    "unit": "fraction/yr"
+   },
+   "volatility": {
+    "value": 0.14738694103374034,
+    "unit": "fraction/yr"
+   },
+   "sharpe_ratio": {
+    "value": 0.08995519368497287,
+    "unit": "ratio"
+   },
+   "sortino_ratio": {
+    "value": 0.12561140223106843,
+    "unit": "ratio"
+   },
+   "max_drawdown": {
+    "value": -0.31287528616172033,
+    "unit": "fraction",
+    "peak_date": "2026-02-11",
+    "trough_date": "2026-09-30",
+    "recovery_date": null
+   },
+   "historical_var": {
+    "value": 0.012890695736113142,
+    "unit": "fraction of value, 1 day",
+    "confidence": 0.95
+   },
+   "historical_cvar": {
+    "value": 0.02111191149318791,
+    "unit": "fraction of value, 1 day",
+    "confidence": 0.95
+   },
+   "parametric_var": {
+    "value": 0.014969107825630374,
+    "unit": "fraction of value, 1 day",
+    "confidence": 0.95
+   },
+   "parametric_cvar": {
+    "value": 0.01884872330242955,
+    "unit": "fraction of value, 1 day",
+    "confidence": 0.95
+   },
+   "beta": {
+    "value": 0.9172780474830213,
+    "unit": "ratio",
+    "observations": 782
+   },
+   "correlation": {
+    "value": 0.960254832122656,
+    "unit": "ratio"
+   },
+   "alpha_annual": {
+    "value": 0.01624681897921762,
+    "unit": "fraction/yr"
+   },
+   "tracking_error": {
+    "value": 0.04307377143147917,
+    "unit": "fraction/yr"
+   },
+   "information_ratio": {
+    "value": 0.3834430126630282,
+    "unit": "ratio"
+   },
+   "observations": {
+    "value": 782,
+    "unit": "daily returns"
+   }
+  },
+  "series": {
+   "nav": [
+    {
+     "date": "2023-10-02",
+     "value": 87.33
+    },
+    {
+     "date": "2023-10-03",
+     "value": 87.4094
+    },
+    {
+     "date": "2023-10-04",
+     "value": 86.6396
+    },
+    {
+     "date": "2023-10-05",
+     "value": 87.4015
+    },
+    "... 779 more items (total 783)"
+   ],
+   "rebased": [
+    {
+     "date": "2023-10-02",
+     "value": 100.0
+    },
+    {
+     "date": "2023-10-03",
+     "value": 100.091
+    },
+    {
+     "date": "2023-10-04",
+     "value": 99.209
+    },
+    {
+     "date": "2023-10-05",
+     "value": 100.082
+    },
+    "... 779 more items (total 783)"
+   ],
+   "drawdown": [
+    {
+     "date": "2023-10-02",
+     "value": 0.0
+    },
+    {
+     "date": "2023-10-03",
+     "value": 0.0
+    },
+    {
+     "date": "2023-10-04",
+     "value": -0.008807
+    },
+    {
+     "date": "2023-10-05",
+     "value": -9e-05
+    },
+    "... 779 more items (total 783)"
+   ],
+   "benchmark_rebased": [
+    {
+     "date": "2023-10-02",
+     "value": 100.0
+    },
+    {
+     "date": "2023-10-03",
+     "value": 99.999
+    },
+    {
+     "date": "2023-10-04",
+     "value": 99.065
+    },
+    {
+     "date": "2023-10-05",
+     "value": 99.86
+    },
+    "... 779 more items (total 783)"
+   ],
+   "rolling_sharpe": [
+    {
+     "date": "2024-03-26",
+     "value": 1.1512
+    },
+    {
+     "date": "2024-03-27",
+     "value": 1.0861
+    },
+    {
+     "date": "2024-03-28",
+     "value": 1.4738
+    },
+    {
+     "date": "2024-03-29",
+     "value": 1.4252
+    },
+    "... 653 more items (total 657)"
+   ],
+   "rolling_volatility": [
+    {
+     "date": "2023-12-28",
+     "value": 0.09159
+    },
+    {
+     "date": "2023-12-29",
+     "value": 0.09395
+    },
+    {
+     "date": "2024-01-01",
+     "value": 0.09886
+    },
+    {
+     "date": "2024-01-02",
+     "value": 0.09964
+    },
+    "... 716 more items (total 720)"
+   ],
+   "rolling_beta": [
+    {
+     "date": "2024-03-26",
+     "value": 0.9572
+    },
+    {
+     "date": "2024-03-27",
+     "value": 0.957
+    },
+    {
+     "date": "2024-03-28",
+     "value": 0.9588
+    },
+    {
+     "date": "2024-03-29",
+     "value": 0.9533
+    },
+    "... 653 more items (total 657)"
+   ],
+   "rolling_window_days": 126,
+   "return_distribution": [
+    {
+     "bin_start": -0.05510848863686002,
+     "bin_end": -0.05226029859348212,
+     "count": 1
+    },
+    {
+     "bin_start": -0.05226029859348212,
+     "bin_end": -0.04941210855010423,
+     "count": 1
+    },
+    {
+     "bin_start": -0.04941210855010423,
+     "bin_end": -0.04656391850672633,
+     "count": 0
+    },
+    {
+     "bin_start": -0.04656391850672633,
+     "bin_end": -0.04371572846334844,
+     "count": 0
+    },
+    "... 36 more items (total 40)"
+   ]
+  }
+ }
+}

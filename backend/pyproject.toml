@@ -1,0 +1,68 @@
+[project]
+name = "finsense-ai-backend"
+version = "1.0.0"
+description = "FinSense AI backend: financial analytics, portfolio optimisation, ML and RAG research assistant API."
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "fastapi==0.142.2",
+    "starlette==1.7.0",
+    "uvicorn[standard]==0.54.0",
+    "pydantic==2.13.5",
+    "pydantic-settings==2.15.0",
+    "email-validator==2.3.0",
+    "python-multipart==0.0.32",
+    "SQLAlchemy==2.0.54",
+    "alembic==1.20.0",
+    "psycopg[binary]==3.3.6",
+    "pgvector==0.5.0",
+    "argon2-cffi==25.1.0",
+    "httpx==0.28.1",
+    "numpy==2.5.3",
+    "pandas==3.0.6",
+    "scipy==1.18.1",
+    "scikit-learn==1.9.1",
+    "shap==0.52.0",
+    "joblib==1.6.0",
+    "pdfplumber==0.11.10",
+    "wordllama==0.4.0.post1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==9.1.1",
+    "pytest-cov==7.1.0",
+    "ruff==0.16.10",
+    "reportlab==5.0.1",
+    "pillow==12.3.0",
+    "pip-audit==2.10.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::FutureWarning",
+    "ignore::UserWarning:shap.*",
+    "ignore:Using `httpx` with `starlette.testclient` is deprecated",
+]
+markers = [
+    "e2e: end-to-end acceptance workflow (runs against FINSENSE_E2E_BASE_URL when set)",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+extend-exclude = ["alembic/versions"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "S", "N"]
+ignore = ["S101", "S311", "S608", "B008", "N818", "S105", "S106"]
+
+[tool.ruff.lint.isort]
+known-third-party = ["alembic"]
+known-first-party = ["app", "tests"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S", "N802", "N806", "E501"]
+"sample_data/**" = ["S", "E501"]
