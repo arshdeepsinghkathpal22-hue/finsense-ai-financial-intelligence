@@ -1,4 +1,4 @@
-# FinSense AI
+# FinSense 
 
 AI-powered financial intelligence, document research (RAG) and portfolio decision support for
 mutual-fund investors and analysts.
